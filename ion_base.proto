@@ -1,0 +1,25 @@
+
+package ion;
+option java_package = "ion.data.encoders";
+//option java_outer_classname = "ProtoBuf";
+
+message Array {
+    repeated bytes elements = 1;
+}
+
+message Structure {
+    message Item {
+        required string key = 1;
+        required bytes value = 2;
+    }
+    required string name = 1;
+    repeated Item items = 2;
+}
+
+message Composite {
+    optional string name = 1;
+    repeated Array numbers = 2;
+}
+
+
+
