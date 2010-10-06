@@ -1,0 +1,6 @@
+package net.ooici.data.netcdf;
+
+message IAttribute {
+	required string name = 1;
+	required string value = 2;
+}
