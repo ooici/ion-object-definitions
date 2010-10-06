@@ -1,11 +1,15 @@
-package net.ooici.data.netcdf;
+package net.ooici.core.link;
 
-import "net/ooici/data/netcdf/array.proto";
-import "net/ooici/data/netcdf/attribute.proto";
+import "net/ooici/core/type/type.proto";
 
-message IVariable {
-	required string name = 1;
-	required int32 id = 2;
-	repeated net.ooici.data.netcdf.IAttribute att = 3;	
-	repeated net.ooici.data.netcdf.IArray data = 4;
+message CASRef {
+	required string key = 1;
+	required net.ooici.core.type.GPBType type = 2;
+}
+
+message IDRef {
+	required string key = 1;
+	required net.ooici.core.type.GPBType type = 2;
+	optional string branchname = 3;
+	optional string commit = 4;
 }

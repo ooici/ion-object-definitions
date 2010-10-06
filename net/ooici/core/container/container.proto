@@ -1,11 +1,13 @@
-package net.ooici.data.netcdf;
+package net.ooici.core.container;
 
-import "net/ooici/data/netcdf/array.proto";
-import "net/ooici/data/netcdf/attribute.proto";
+import "net/ooici/core/type/type.proto";
 
-message IVariable {
-	required string name = 1;
-	required int32 id = 2;
-	repeated net.ooici.data.netcdf.IAttribute att = 3;	
-	repeated net.ooici.data.netcdf.IArray data = 4;
+message Structure {
+    message StructureElement {
+        required string key = 1;
+        required net.ooici.core.type.GPBType type = 2;
+        required bytes value = 3;
+    }
+    repeated StructureElement items = 1;
 }
+

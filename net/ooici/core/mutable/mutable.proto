@@ -1,11 +1,22 @@
-package net.ooici.data.netcdf;
+package net.ooici.core.mutable;
 
-import "net/ooici/data/netcdf/array.proto";
-import "net/ooici/data/netcdf/attribute.proto";
+import "net/ooici/core/link/link.proto";
 
-message IVariable {
-	required string name = 1;
-	required int32 id = 2;
-	repeated net.ooici.data.netcdf.IAttribute att = 3;	
-	repeated net.ooici.data.netcdf.IArray data = 4;
+
+message Branch {
+	required string branchname = 1;
+	required net.ooici.core.link.CASLink commitref = 2;
 }
+
+message MutableNode {
+	required string key = 1;
+	repeated Branch branches = 2;
+}
+
+message CommitRef {
+	required string comment = 1;
+	required double date = 2;
+	repeated Branch ancestors = 3;
+	required net.ooici.core.link.CASLink objectroot = 4;
+}
+
