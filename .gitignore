@@ -16,6 +16,6 @@ lcaarch.egg-info
 .pydevproject
 .project
 # ignore any compiled stuff!
-.java
-.class
-.py
+*.java
+*.class
+*.py
