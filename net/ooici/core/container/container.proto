@@ -1,0 +1,11 @@
+package net.ooici.data.netcdf;
+
+import "net/ooici/data/netcdf/array.proto";
+import "net/ooici/data/netcdf/attribute.proto";
+
+message IVariable {
+	required string name = 1;
+	required int32 id = 2;
+	repeated net.ooici.data.netcdf.IAttribute att = 3;	
+	repeated net.ooici.data.netcdf.IArray data = 4;
+}
