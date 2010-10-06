@@ -1,0 +1,13 @@
+package net.ooici.data.netcdf_linked;
+
+import "net/ooici/data/netcdf_linked/array.proto";
+import "net/ooici/data/netcdf_linked/attribute.proto";
+import "net/ooici/core/link/link.proto";
+
+message NCVariable {
+	required string name = 1;
+	required int32 id = 2;
+	repeated net.ooici.core.link.CASRef att = 3;
+	repeated net.ooici.core.link.CASRef dim = 4;
+	repeated net.ooici.core.link.CASRef data = 5;
+}

@@ -1,0 +1,21 @@
+package net.ooici.data.netcdf_linked;
+
+message I32Array {
+	repeated int32 dimensions = 1;
+	repeated int32 value = 2 [packed=true];
+}
+
+message I64Array {
+	repeated int32 dimensions = 1;
+	repeated int64 value = 2 [packed=true];
+}
+
+message FArray {
+	repeated int32 dimensions = 1;
+	repeated float value = 2 [packed=true];
+}
+
+message DArray {
+	repeated int32 dimensions = 1;
+	repeated double value = 2 [packed=true];
+}

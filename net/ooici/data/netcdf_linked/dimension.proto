@@ -1,0 +1,11 @@
+package net.ooici.data.netcdf_linked;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/data/netcdf_linked/array.proto";
+
+message NCDimension {
+	required string name = 1;
+	required int32 dimid = 2;
+	required dimension = 3;
+	required bool unlimited = 4;
+}
