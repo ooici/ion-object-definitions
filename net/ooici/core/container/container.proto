@@ -2,12 +2,13 @@ package net.ooici.core.container;
 
 import "net/ooici/core/type/type.proto";
 
-message Structure {
-    message StructureElement {
+message StructureElement {
         required string key = 1;
         required net.ooici.core.type.GPBType type = 2;
         required bytes value = 3;
     }
+
+message Structure {
     repeated StructureElement items = 1;
 }
 
