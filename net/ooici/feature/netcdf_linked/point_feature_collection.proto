@@ -1,0 +1,14 @@
+package net.ooici.feature.netcdf_linked;
+
+import "net/ooici/core/link/link.proto";
+
+message PointFeatureCollection {
+    message PointFeature{
+        required float long = 1;
+        required float lat = 2;
+        optional float z = 3;
+        optional float time = 4;
+        repeated net.ooici.core.link.CASRef data = 5;
+   }
+   repeated PointFeature points = 1;
+}
