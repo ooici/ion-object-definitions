@@ -1,4 +1,4 @@
-package net.ooici.feature.netcdf_linked.base;
+package net.ooici.feature.netcdf_linked;
 
 import "net/ooici/core/link/link.proto";
 
