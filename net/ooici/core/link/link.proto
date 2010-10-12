@@ -5,6 +5,7 @@ import "net/ooici/core/type/type.proto";
 message CASRef {
 	required string key = 1;
 	required net.ooici.core.type.GPBType type = 2;
+	required bool isleaf = 3;
 }
 
 message IDRef {

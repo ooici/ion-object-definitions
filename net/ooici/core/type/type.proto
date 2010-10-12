@@ -3,6 +3,6 @@ package net.ooici.core.type;
 message  GPBType{
     required string package = 1;
     required string protofile = 2;
-    required string class = 3;
+    required string cls = 3;
     }
 
