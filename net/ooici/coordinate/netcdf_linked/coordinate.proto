@@ -1,0 +1,21 @@
+package net.ooici.coordinate.netcdf_linked;
+
+
+message CoordinateTransform{
+     //The name of the projection or vertical transform
+     required string transform= 1;
+}
+
+
+message CoordinateAxis {
+    //This handles 4 dimensions along with transformed coordinates.
+    required double time = 1;
+    required float latitude = 2;
+    required float longitude = 3;
+    optional float height = 4;
+    optional float pressure = 5;
+    optional float GeoX = 6;
+    optional float GeoY = 7;
+    optional float GeoZ = 8;
+    // In the future we can add RadialAzimuth, RadialElevation, RadialDistance, Runtime, and Ensemble
+}
