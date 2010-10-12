@@ -1,0 +1,16 @@
+package net.ooici.feature.netcdf_linked;
+
+import "net/ooici/core/link/link.proto";
+
+message StationFeature{
+     required string name = 1;
+     required float long = 2;
+     required float lat = 3;
+     optional float z = 4;
+     //This should use an array type 
+     message PointObservations {
+         optional float time = 4;
+         required double data = 5;
+     }
+     repeated PointObservations data = 6;
+}
