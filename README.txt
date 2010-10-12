@@ -35,7 +35,7 @@ PATH=$GOOGLE_PROTO_BUFFERS/src:$PATH
 
 git clone http://github.com/dtrott/maven-protoc-plugin.git
 
-4. Go to your [Maven root]/settings.xml and add teh following 'pluginRepository':
+4. Go to your [Maven root]/settings.xml and add the following 'pluginRepository':
 
 *************************
 Maven root > settings.xml
@@ -63,9 +63,20 @@ Maven root > settings.xml
 mvn clean install
 
 - This will install the maven plugin so it's in the Maven classpath and available
-for use within ion_proto_umbrella.
+for use by the pom.xml within ion_proto_umbrella.
 
-4. Now, go to 'ion_proto_umbrella' and type adjust your pom.xml as need be.
+4. Now, go to 'ion_proto_umbrella' root dir and adjust your pom.xml as need be.
 
 5. Next, from within the 'ion_proto_umbrella" root dir, type 'mvn package'. This will recursively
 compile all .proto files to .java files.
+
+
+* =================================================================================
+*
+* MAVEN PROTOC PLUGIN SPECIAL NOTE
+*
+* =================================================================================
+
+The Maven proto plugin expects the .proto files to be under ion_proto_umbrella/src/main/proto.
+
+Make sure the 'net' package is under the src/main/proto dir before attempting to use this plugin.
