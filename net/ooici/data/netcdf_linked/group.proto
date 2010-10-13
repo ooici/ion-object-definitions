@@ -1,0 +1,14 @@
+package net.ooici.data.netcdf_linked;
+
+import "net/ooici/data/netcdf_linked/dimension.proto";
+import "net/ooici/data/netcdf_linked/attribute.proto";
+import "net/ooici/data/netcdf_linked/variable.proto";
+
+message NCGroup { 
+        required string name = 1;
+        repeated net.ooici.data.netcdf_linked.NCDimension dims = 2;              
+        repeated net.ooici.data.netcdf_linked.NCAttribute attrs = 3;              
+        repeated net.ooici.data.netcdf_linked.NCVariable vars = 4;               
+        //This does not handle repeated groups or EnumTypeDef
+        //http://www.unidata.ucar.edu/software/netcdf-java/CDM/
+}  
