@@ -1,7 +1,5 @@
 package net.ooici.data.netcdf_linked;
 
-import "net/ooici/data/netcdf_linked/array.proto";
-import "net/ooici/data/netcdf_linked/attribute.proto";
 import "net/ooici/core/link/link.proto";
 
 message NCVariable {
