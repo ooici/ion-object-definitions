@@ -6,6 +6,6 @@ import "net/ooici/data/netcdf_linked/array.proto";
 message NCDimension {
 	required string name = 1;
 	required int32 dimid = 2;
-	required dimension = 3;
+	required int32 dimension = 3;
 	required bool unlimited = 4;
 }
