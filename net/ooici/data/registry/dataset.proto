@@ -1,0 +1,11 @@
+package net.ooici.data.registry
+
+import "net/ooici/core/link/link.proto";
+
+Message OOIDataset {
+   required net.ooici.core.link.CASRef dataset = 1;
+   required net.ooici.core.link.CASRef features = 2;
+   required net.ooici.core.link.CASRef coordinates = 3;
+
+
+}
