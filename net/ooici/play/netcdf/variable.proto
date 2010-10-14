@@ -1,7 +1,7 @@
 package net.ooici.data.netcdf;
 
-import "net/ooici/data/netcdf/array.proto";
-import "net/ooici/data/netcdf/attribute.proto";
+import "net/ooici/play/netcdf/array.proto";
+import "net/ooici/play/netcdf/attribute.proto";
 
 message IVariable {
 	required string name = 1;
