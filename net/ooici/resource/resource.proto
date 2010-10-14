@@ -1,27 +1,27 @@
 package net.ooici.resource;
 
-import "net/ooici/core/link/link.proto"
+import "net/ooici/core/link/link.proto";
 
 enum LifeCycleState {
-    Develop=1
-    Register=2
-    Document=3
-    Commission=4
-    Activate=5
-    Announce=6
-    Discover=7
-    Acquire=8
-    Associate=9
-    Govern=10
-    Manage=11
-    Use=12
-    Release=13
-    Deactivate=14
-    Decommission=15     
+    Develop=1;
+    Register=2;
+    Document=3;
+    Commission=4;
+    Activate=5;
+    Announce=6;
+    Discover=7;
+    Acquire=8;
+    Associate=9;
+    Govern=10;
+    Manage=11;
+    Use=12;
+    Release=13;
+    Deactivate=14;
+    Decommission=15;
 }
 
 
-Message LCResource {
+message LCResource {
     required LifeCycleState lc = 1;
     required net.ooici.core.link.CASRef object = 2;
 }
