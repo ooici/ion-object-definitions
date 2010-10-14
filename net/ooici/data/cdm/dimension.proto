@@ -1,7 +1,7 @@
-package net.ooici.data.netcdf_linked;
+package net.ooici.data.cdm;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/data/netcdf_linked/array.proto";
+import "net/ooici/data/cdm/array.proto";
 
 message NCDimension {
 	required string name = 1;

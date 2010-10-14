@@ -1,6 +1,6 @@
 # See README.txt.
 
-srcdir=net/ooici/data/netcdf/
+srcdir=net/ooici/data/cdm/
 
 all: clean python java
 
