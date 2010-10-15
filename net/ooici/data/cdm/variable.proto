@@ -2,10 +2,15 @@ package net.ooici.data.cdm;
 
 import "net/ooici/core/link/link.proto";
 
+message NCObject {
+	required string name = 1;
+	required net.ooici.core.link.CASRef value = 2;
+	}
+
 message NCVariable {
 	required string name = 1;
 	required int32 id = 2;
-	repeated net.ooici.core.link.CASRef att = 3;
-	repeated net.ooici.core.link.CASRef dim = 4;
-	repeated net.ooici.core.link.CASRef data = 5;
+	repeated NCObject att = 3;
+	repeated NCObject dim = 4;
+	repeated NCObject data = 5;
 }
