@@ -1,6 +1,8 @@
 package net.ooici.core.container;
 
 import "net/ooici/core/type/type.proto";
+import "net/ooici/core/mutable/mutable.proto";
+
 
 message StructureElement {
         required string key = 1;
@@ -9,6 +11,7 @@ message StructureElement {
     }
 
 message Structure {
-    repeated StructureElement items = 1;
+	optional net.ooici.core.mutable.MutableNode mutablehead = 1;
+	repeated StructureElement items = 2;
 }
 
