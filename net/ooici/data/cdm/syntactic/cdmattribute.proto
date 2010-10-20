@@ -1,8 +1,8 @@
-package net.ooici.data.cdm;
+package net.ooici.data.cdm.syntactic;
 
 import "net/ooici/core/link/link.proto";
 
-message NCAttribute {
+message Attribute {
 	required string name = 1;
 	required int32 attid = 2;
 	required net.ooici.core.link.CASRef value = 3;

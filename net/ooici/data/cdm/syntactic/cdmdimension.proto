@@ -1,0 +1,10 @@
+package net.ooici.data.cdm.syntactic;
+
+import "net/ooici/core/link/link.proto";
+
+message Dimension {
+	required string name = 1;
+	required uint64 length = 2;
+	optional bool unlimited = 3;
+	optional bool variablelength = 4;
+}

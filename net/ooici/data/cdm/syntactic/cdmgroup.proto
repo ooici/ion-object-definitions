@@ -1,0 +1,24 @@
+package net.ooici.data.cdm.syntactic;
+
+import "net/ooici/data/cdm/syntactic/cdmdimension.proto";
+import "net/ooici/data/cdm/syntactic/cdmattribute.proto";
+import "net/ooici/data/cdm/syntactic/cdmvariable.proto";
+
+message EnumTypedef { // 
+	message EnumPair {
+		required uint32 key = 1;
+		required string value = 2;
+	}
+	repeated EnumPair pairs = 5;
+}
+
+
+message Group { 
+        required string name = 1;
+        repeated net.ooici.data.cdm.syntactic.Dimension dimensions = 2;              
+        repeated net.ooici.data.cdm.syntactic.Attribute attributes = 3;              
+        repeated net.ooici.data.cdm.syntactic.Variable variables = 4;
+	// variables may refer to any generalization of sequence including
+	// structure and variable
+        optional EnumTypedef enumdef = 5;
+}  

@@ -1,0 +1,73 @@
+package net.ooici.data.cdm.syntactic;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
+
+message BoundedArray {
+	// The values are store in a list of bounded arrays
+	// The bounds are part of this composite node.
+	// The array is stored by reference.
+	// Bounded array defines the bounds of an ndarray	
+	message Bounds {
+		required sint64 lb = 1;
+		required sint64 ub = 2;
+	}
+	
+	repeated Bounds bounds = 1; 
+
+	// Reference to an array from cdmarray.proto
+	required net.ooici.core.link.CASRef ndarray = 2;
+}
+
+// From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+//
+// A Structure is a type of Variable that contains other Variables, analogous to
+// a struct in C, or a row in a relational database. In general, the data in a
+// Structure are physically stored close together on disk, so that it is
+// efficient to retrieve all of the data in a Structure at the same time. A
+// Variable contained in a Structure is a member Variable, and can only be read
+// in the context of its containing Structure.
+
+message Structure {
+    // A structure is a single composite GPB composed of member Variables
+	repeated net.ooici.data.cdm.syntactic.Variable members = 1;
+}
+
+
+// From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+//
+// A Sequence is a one dimensional Structure whose length is not known until you
+// actually read the data. To access the data in a Sequence, you can only
+// iterate through the Sequence, getting the data in one Structure instance at a
+// time.
+message Sequence {
+    // A sequence is a single composite GPB composed of Structure items
+	repeated net.ooici.data.cdm.syntactic.Structure items = 1;
+}
+
+
+message Variable {
+	required string name = 1;
+	required int32 id = 2;
+	
+	// The datatype of the variable
+	required net.ooici.data.cdm.syntactic.DataType datatype = 3;
+
+	// The attributes of the variable 
+	repeated net.ooici.core.link.CASRef attributes = 4;
+	
+	// The dimensions of the variable are stored in the shape field
+	repeated net.ooici.core.link.CASRef shape = 5;
+
+	// Content is a reference the data in a variable
+	// it may be a Bounded Array, a Structure or a Sequence
+	repeated net.ooici.core.link.CASRef content = 6;
+
+	// Reference to the typedef if this is an enum
+	optional net.ooici.core.link.CASRef enumtypedef = 7;
+}
+
+
+
+
+

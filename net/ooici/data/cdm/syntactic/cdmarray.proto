@@ -1,16 +1,21 @@
-package net.ooici.data.cdm;
+package net.ooici.data.cdm.syntactic;
 
 
-// NetCDF Common Data Model Array Types
-// Not all types in the CDM map to protobuffers
+// NetCDF Common Data Model Arrays
 //
 // From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+// An Array contains the actual data for a Variable after it is read from the
+// disk or network. You get an Array from a Variable by calling read() or its
+// variants. An Array is rectangular in shape (like Fortran arrays). There is a
+// specialized Array type for each of the DataTypes.
+//
+// Array types:
 // The primitive numeric types are byte, short, int, long, float and double. The
 // integer types (8-bit byte, 16-bit short, 32-bit int, 64-bit long) may be
 // signed or unsigned. Variable and Array objects have isUnsigned() methods to
 // indicate, and conversion to wider types is correctly done
 //
-// GPB uses a variable length encoding and does not speficy short and byte
+// GPB uses a variable length encoding and so does not speficy short and byte
 
 message int32Array {
 	repeated uint32 dimensions = 1;
@@ -54,6 +59,8 @@ message string {
 	//
 	// The char type contains uninterpreted characters, one character per
 	// byte. Typically these contain 7-bit ASCII characters.
+	//
+	// Char does not exist in GPB
 	
 	repeated uint32 dimensions = 1;
 	repeated string value = 2;
