@@ -9,8 +9,8 @@ message BoundedArray {
 	// The array is stored by reference.
 	// Bounded array defines the bounds of an ndarray	
 	message Bounds {
-		required sint64 lb = 1;
-		required sint64 ub = 2;
+		required sint64 origin = 1;
+		required uint64 size = 2;
 	}
 	
 	repeated Bounds bounds = 1; 
@@ -48,7 +48,7 @@ message Sequence {
 
 message Variable {
 	required string name = 1;
-	required int32 id = 2;
+	optional string sourcename = 2;
 	
 	// The datatype of the variable
 	required net.ooici.data.cdm.syntactic.DataType datatype = 3;

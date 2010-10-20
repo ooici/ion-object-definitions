@@ -1,11 +1,10 @@
-package net.ooici.data.registry;
+package net.ooici.data.cdm;
 
 import "net/ooici/core/link/link.proto";
 
-message OOIDataset {
+
+message Dataset {
    required net.ooici.core.link.CASRef group = 1;
    repeated net.ooici.core.link.CASRef coordinates = 2;
    repeated net.ooici.core.link.CASRef features = 3;
-   repeated net.ooici.core.link.CASRef variables = 4;
-   repeated net.ooici.core.link.CASRef properties = 5;
 }

@@ -1,5 +1,6 @@
 package net.ooici.data.cdm.syntactic;
 
+import "net/ooici/core/link/link.proto";
 import "net/ooici/data/cdm/syntactic/cdmdimension.proto";
 import "net/ooici/data/cdm/syntactic/cdmattribute.proto";
 import "net/ooici/data/cdm/syntactic/cdmvariable.proto";
@@ -12,13 +13,19 @@ message EnumTypedef { //
 	repeated EnumPair pairs = 5;
 }
 
+// From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+//
+// A Group is a container for Attributes, Dimensions, EnumTypedefs, Variables,
+// and nested Groups. The Groups in a Dataset form a hierarchical tree, like
+// directories on a disk.There is always at least one Group in a Dataset, the
+// root Group, whose name is the empty string.
 
 message Group { 
         required string name = 1;
-        repeated net.ooici.data.cdm.syntactic.Dimension dimensions = 2;              
-        repeated net.ooici.data.cdm.syntactic.Attribute attributes = 3;              
-        repeated net.ooici.data.cdm.syntactic.Variable variables = 4;
-	// variables may refer to any generalization of sequence including
-	// structure and variable
-        optional EnumTypedef enumdef = 5;
+	optional string sourcename = 2;
+	repeated net.ooici.core.link.CASRef groups = 3;
+        repeated net.ooici.core.link.CASRef dimensions = 4;              
+        repeated net.ooici.core.link.CASRef attributes = 5;              
+        repeated net.ooici.core.link.CASRef variables = 6;
+        repeated net.ooici.core.link.CASRef enumdefs = 7;
 }  

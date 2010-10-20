@@ -18,37 +18,31 @@ package net.ooici.data.cdm.syntactic;
 // GPB uses a variable length encoding and so does not speficy short and byte
 
 message int32Array {
-	repeated uint32 dimensions = 1;
-	repeated sint32 value = 2 [packed=true];
+	repeated sint32 value = 1 [packed=true];
 }
 
 message uint32Array {
-	repeated uint32 dimensions = 1;
-	repeated uint32 value = 2 [packed=true];
+	repeated uint32 value = 1 [packed=true];
 }
 
 message int64Array {
-	repeated uint32 dimensions = 1;
-	repeated sint64 value = 2 [packed=true];
+	repeated sint64 value = 1 [packed=true];
 }
 
 message uint64Array {
-	repeated int32 dimensions = 1;
-	repeated uint64 value = 2 [packed=true];
+	repeated uint64 value = 1 [packed=true];
 }
 
 
 message f32Array {
-	repeated uint32 dimensions = 1;
-	repeated float value = 2 [packed=true];
+	repeated float value = 1 [packed=true];
 }
 
 message f64Array {
-	repeated uint32 dimensions = 1;
-	repeated double value = 2 [packed=true];
+	repeated double value = 1 [packed=true];
 }
 
-message string {
+message stringArray {
 	// From http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
 	//
 	// A String is a variable length array of Unicode characters. When
@@ -62,8 +56,7 @@ message string {
 	//
 	// Char does not exist in GPB
 	
-	repeated uint32 dimensions = 1;
-	repeated string value = 2;
+	repeated string value = 1;
 }
 
 // The cdm enum types are additional properties of the variable. The actual
@@ -74,11 +67,13 @@ message string {
 // String enum value. There are 3 enum types : enum1, enum2, and enum4,
 // corresponding to storing the integer as a byte, short, or int.
 
-message opaque {
+message opaqueArray {
 	// An opaque type stores uninterpreted blobs of bytes. The length of the
 	// blob is not known until it is read. An array of opaque objects may
 	// have different lengths for each of the blobs. 
 	
-	repeated uint32 dimensions = 1;
-	repeated bytes value = 2;
+	repeated bytes value = 1;
 }
+
+// I believe that ArrayStructure and StructureData are not needed in the OOI
+// representation of CDM

@@ -1,9 +1,15 @@
 package net.ooici.data.cdm.syntactic;
 
 import "net/ooici/core/link/link.proto";
+import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
 
 message Attribute {
 	required string name = 1;
-	required int32 attid = 2;
-	required net.ooici.core.link.CASRef value = 3;
+	optional string sourcename = 2;
+
+	// The datatype of the attribute
+	required net.ooici.data.cdm.syntactic.DataType datatype = 3;
+	
+	// An ndarray of values
+	required net.ooici.core.link.CASRef array = 4;
 }
