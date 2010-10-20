@@ -2,6 +2,10 @@ package net.ooici.data.cdm.coordinate;
 
 import "net/ooici/core/link/link.proto";
 
+
+// The Coordinate System objects of the Unidata Common Data Model 
+// http://www.unidata.ucar.edu/software/netcdf-java/CDM/
+//
 // The AxisType enumerations are specific to the case of georeferencing coordinate
 // systems. Time refers to the real date/time of the dataset. Latitude and
 // Longitude identify standard horizontal coordinates. Height and Pressure
@@ -43,6 +47,7 @@ message CoordinateAxis {
 // Transform.
 message CoordinateTransform{
      //The name of the projection or vertical transform
+     //This is insufficient - a place holder
      required string transform= 1;
 }
 

@@ -12,7 +12,7 @@ enum FeatureType{
     StationProfileFeature = 4;
     StationTimeSeriesFeature = 5;
     TrajectoryFeature = 6;
-    FeatureCollection = 7;
+    CollectionFeature = 7;
 }
 
 message FeatureCollection{

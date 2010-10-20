@@ -1,13 +1,15 @@
-package net.ooici.feature;
+package net.ooici.data.cdm.feature;
 
 import "net/ooici/core/link/link.proto";
 // Still needs refactoring
+
 message StationFeature{
      required string name = 1;
      required float long = 2;
      required float lat = 3;
      optional float z = 4;
-     //This should use an array type 
+     //This should use an array type
+     
      message PointObservations {
          optional float time = 4;
          required double data = 5;
