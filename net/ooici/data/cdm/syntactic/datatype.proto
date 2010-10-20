@@ -1,0 +1,18 @@
+package net.ooici.data.cdm.syntactic;
+
+// enumeration of the NetCDF syntactic data types
+
+enum dataType {
+    byte = 1;
+    short = 2;
+    int = 3;
+    long = 4;
+    float = 5;
+    double = 6;
+    char = 7;
+    string = 8;
+    structure = 9;
+    sequence = 10;
+    enum = 11;
+    opaque = 12;
+  }
