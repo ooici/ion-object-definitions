@@ -22,7 +22,7 @@ message EnumTypedef { //
 
 message Group { 
         required string name = 1;
-	optional string sourcename = 2;
+	optional string source_name = 2;
 	repeated net.ooici.core.link.CASRef groups = 3;
         repeated net.ooici.core.link.CASRef dimensions = 4;              
         repeated net.ooici.core.link.CASRef attributes = 5;              

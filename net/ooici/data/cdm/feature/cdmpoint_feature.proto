@@ -1,6 +1,8 @@
-package net.ooici.feature;
+package net.ooici.data.cdm.feature;
 
 import "net/ooici/core/link/link.proto";
+
+// Still needs refactoring
 
 message PointFeature{
      required float long = 1;

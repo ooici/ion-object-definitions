@@ -5,10 +5,10 @@ import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
 
 message Attribute {
 	required string name = 1;
-	optional string sourcename = 2;
+	optional string source_name = 2;
 
 	// The datatype of the attribute
-	required net.ooici.data.cdm.syntactic.DataType datatype = 3;
+	required net.ooici.data.cdm.syntactic.DataType data_type = 3;
 	
 	// An ndarray of values
 	required net.ooici.core.link.CASRef array = 4;

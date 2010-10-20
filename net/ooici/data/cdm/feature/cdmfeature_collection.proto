@@ -1,0 +1,25 @@
+package net.ooici.data.cdm.feature;
+
+import "net/ooici/core/link/link.proto";
+
+
+// http://www.unidata.ucar.edu/software/netcdf-java/reference/FeatureDatasets/PointUML.html
+
+enum FeatureType{
+    PointFeature = 1;
+    SectionFeature = 2;
+    ProfileFeature = 3;
+    StationProfileFeature = 4;
+    StationTimeSeriesFeature = 5;
+    TrajectoryFeature = 6;
+    FeatureCollection = 7;
+}
+
+message FeatureCollection{
+    required string name = 1;
+    required FeatureType feature_type = 2;
+
+    repeated net.ooici.core.link.CASRef features = 3;
+}
+
+

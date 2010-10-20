@@ -1,21 +1,59 @@
-package net.ooici.coordinate;
+package net.ooici.data.cdm.coordinate;
 
+import "net/ooici/core/link/link.proto";
 
+// The AxisType enumerations are specific to the case of georeferencing coordinate
+// systems. Time refers to the real date/time of the dataset. Latitude and
+// Longitude identify standard horizontal coordinates. Height and Pressure
+// identify the vertical coordinate. GeoX and GeoY are used in transfomations
+// (eg projections) to Latitude, Longitude. GeoZ is used in vertical
+// transformations to vertical Height or Pressure. RadialAzimuth,
+// RadialElevation and RadialDistance designate polar coordinates and are used
+// for Radial DataTypes. RunTime and Ensemble are used in forecast model output
+// data. Often much more detailed information is required (geoid reference,
+// projection parameters, etc), so these enumerations are quite minimal.
+enum AxisType {
+     Time = 1;
+     Lat = 2;
+     Lon = 3;
+     Height = 4;
+     Pressure = 5;
+     GeoX = 6;
+     GeoY = 7;
+     GeoZ = 8;
+     RadialAzimuth = 9;
+     RadialElevation = 10;
+     RadialDistance = 11;
+     RunTime = 12;
+     Ensemble = 13;
+}
+
+// A CoordinateAxis is a subtype of Variable, and is optionally classified
+// according to the types in AxisType.
+message CoordinateAxis {
+
+     required AxisType axis_type = 1;
+     
+     // Link to the variable for this axis
+     required net.ooici.core.link.CASRef variable = 2;
+}
+
+// A CoordinateTransform abstractly represents a transformation between
+// CoordinateSystems, and currently is either a Projection or a Vertical
+// Transform.
 message CoordinateTransform{
      //The name of the projection or vertical transform
      required string transform= 1;
 }
 
 
-message CoordinateAxis {
-    //This handles 4 dimensions along with transformed coordinates.
-    required double time = 1;
-    required float latitude = 2;
-    required float longitude = 3;
-    optional float height = 4;
-    optional float pressure = 5;
-    optional float GeoX = 6;
-    optional float GeoY = 7;
-    optional float GeoZ = 8;
-    // In the future we can add RadialAzimuth, RadialElevation, RadialDistance, Runtime, and Ensemble
+// A Coordinate System has one or more CoordinateAxis, and zero or more
+// CoordinateTransforms.
+message CoordinateSystem{
+
+     //The name of the projection or vertical transform
+     repeated CoordinateTransform transforms = 1;
+
+     // Link to the variable for each axis
+     repeated CoordinateAxis axes = 2;
 }

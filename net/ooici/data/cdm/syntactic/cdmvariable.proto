@@ -48,10 +48,10 @@ message Sequence {
 
 message Variable {
 	required string name = 1;
-	optional string sourcename = 2;
+	optional string source_name = 2;
 	
 	// The datatype of the variable
-	required net.ooici.data.cdm.syntactic.DataType datatype = 3;
+	required net.ooici.data.cdm.syntactic.DataType data_type = 3;
 
 	// The attributes of the variable 
 	repeated net.ooici.core.link.CASRef attributes = 4;
@@ -64,7 +64,10 @@ message Variable {
 	repeated net.ooici.core.link.CASRef content = 6;
 
 	// Reference to the typedef if this is an enum
-	optional net.ooici.core.link.CASRef enumtypedef = 7;
+	optional net.ooici.core.link.CASRef enum_typedef = 7;
+	
+	// Coordinate system reference
+	repeated net.ooici.core.link.CASRef coordinate_systems = 8;
 }
 
 

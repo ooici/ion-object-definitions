@@ -4,7 +4,7 @@ import "net/ooici/core/link/link.proto";
 
 message Dimension {
 	required string name = 1;
-	optional string sourcename = 2;
+	optional string source_name = 2;
 	required uint64 length = 3;
-	optional bool variablelength = 4;
+	optional bool variable_length = 4;
 }
