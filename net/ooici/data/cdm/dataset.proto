@@ -3,9 +3,9 @@ package net.ooici.data.registry;
 import "net/ooici/core/link/link.proto";
 
 message OOIDataset {
-   required net.ooici.core.link.CASRef dataset = 1;
-   required net.ooici.core.link.CASRef features = 2;
-   required net.ooici.core.link.CASRef coordinates = 3;
-
-
+   required net.ooici.core.link.CASRef group = 1;
+   repeated net.ooici.core.link.CASRef coordinates = 2;
+   repeated net.ooici.core.link.CASRef features = 3;
+   repeated net.ooici.core.link.CASRef variables = 4;
+   repeated net.ooici.core.link.CASRef properties = 5;
 }

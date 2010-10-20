@@ -1,0 +1,31 @@
+package net.ooici.data.cdm.syntactic;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/data/cdm/syntactic/datatype.proto";
+message NCObject {
+	required string name = 1;
+	required net.ooici.core.link.CASRef value = 2;
+	}
+
+
+
+message NCVariable {
+	required string name = 1;
+	required int32 id = 2;
+	required dataType = 3;
+	repeated net.ooici.core.link.CASRef attributes = 3;
+	repeated net.ooici.core.link.CASRef shape = 4;
+	repeated net.ooici.core.link.CASRef data = 5;
+}
+
+
+
+
+
+message enum { // Do I want to use a cas ref or make enum1,2,4 that matches cdm directly?
+	message pair {
+		required uint32 value = 1;
+		required string string = 2;
+	}
+	repeated net.ooici.core.link.CASRef intarray = 5;
+}

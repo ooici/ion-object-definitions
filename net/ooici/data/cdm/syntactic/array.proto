@@ -1,0 +1,77 @@
+package net.ooici.data.cdm;
+
+
+// NetCDF Common Data Model Array Types
+// Not all types in the CDM map to protobuffers
+//
+// From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+// The primitive numeric types are byte, short, int, long, float and double. The
+// integer types (8-bit byte, 16-bit short, 32-bit int, 64-bit long) may be
+// signed or unsigned. Variable and Array objects have isUnsigned() methods to
+// indicate, and conversion to wider types is correctly done
+//
+// GPB uses a variable length encoding and does not speficy short and byte
+
+message int32Array {
+	repeated uint32 dimensions = 1;
+	repeated sint32 value = 2 [packed=true];
+}
+
+message uint32Array {
+	repeated uint32 dimensions = 1;
+	repeated uint32 value = 2 [packed=true];
+}
+
+message int64Array {
+	repeated uint32 dimensions = 1;
+	repeated sint64 value = 2 [packed=true];
+}
+
+message uint64Array {
+	repeated int32 dimensions = 1;
+	repeated uint64 value = 2 [packed=true];
+}
+
+
+message f32Array {
+	repeated uint32 dimensions = 1;
+	repeated float value = 2 [packed=true];
+}
+
+message f64Array {
+	repeated uint32 dimensions = 1;
+	repeated double value = 2 [packed=true];
+}
+
+message string {
+	// From http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
+	//
+	// A String is a variable length array of Unicode characters. When
+	// reading/writing a String to a file or other external representation,
+	// the characters are by default UTF-8 encoded (note that ASCII is a
+	// subset of UTF-8). Libraries may use different internal
+	// representations, for example the Java library uses UTF-16 encoding.
+	//
+	// The char type contains uninterpreted characters, one character per
+	// byte. Typically these contain 7-bit ASCII characters.
+	
+	repeated uint32 dimensions = 1;
+	repeated string value = 2;
+}
+
+// The cdm enum types are additional properties of the variable. The actual
+// arrays of values are just integers.
+//
+// An enum type is an enumeration of (distinct integer value, String) pairs. A
+// Variable with enum type stores integer values, which can be converted to the
+// String enum value. There are 3 enum types : enum1, enum2, and enum4,
+// corresponding to storing the integer as a byte, short, or int.
+
+message opaque {
+	// An opaque type stores uninterpreted blobs of bytes. The length of the
+	// blob is not known until it is read. An array of opaque objects may
+	// have different lengths for each of the blobs. 
+	
+	repeated uint32 dimensions = 1;
+	repeated bytes value = 2;
+}
