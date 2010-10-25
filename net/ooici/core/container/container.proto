@@ -7,11 +7,12 @@ import "net/ooici/core/mutable/mutable.proto";
 message StructureElement {
         required string key = 1;
         required net.ooici.core.type.GPBType type = 2;
-        required bytes value = 3;
+	required bool isleaf = 3;
+        required bytes value = 4;
     }
 
 message Structure {
-	optional net.ooici.core.mutable.MutableNode mutablehead = 1;
+	required StructureElement head = 1;
 	repeated StructureElement items = 2;
 }
 
