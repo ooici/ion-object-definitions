@@ -3,25 +3,22 @@ package net.ooici.resource;
 import "net/ooici/core/link/link.proto";
 
 enum LifeCycleState {
-    Develop=1;
-    Register=2;
-    Document=3;
-    Commission=4;
-    Activate=5;
-    Announce=6;
-    Discover=7;
-    Acquire=8;
-    Associate=9;
-    Govern=10;
-    Manage=11;
-    Use=12;
-    Release=13;
-    Deactivate=14;
-    Decommission=15;
+    New=1;
+    Active=2;
+    Inactive=3;
+    Commissioned=4;
+    Decommissioned=5;
+    Retired=6;
+    Developed=7;
 }
 
 
-message LCResource {
-    required LifeCycleState lc = 1;
-    required net.ooici.core.link.CASRef object = 2;
+message Resource {
+    // An OOI Resource object has several metadata parameters describing it in
+    // a standard from. The actual resource object is contained by reference by
+    // the resource field of type link.
+    required string name = 1; 
+    required LifeCycleState lcs = 2; 
+    required net.ooici.core.link.CASRef resource = 3;
+    optional string description = 4;
 }
