@@ -15,11 +15,14 @@ enum FeatureType{
     CollectionFeature = 7;
 }
 
-message FeatureCollection{
+
+message Feature{
     required string name = 1;
     required FeatureType feature_type = 2;
+}
 
-    repeated net.ooici.core.link.CASRef features = 3;
+message FeatureCollection{
+    repeated Feature feature = 1;
 }
 
 
