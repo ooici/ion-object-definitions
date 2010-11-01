@@ -12,7 +12,7 @@ message StructureElement {
     }
 
 message Structure {
-	required StructureElement head = 1;
+	optional StructureElement head = 1;
 	repeated StructureElement items = 2;
 }
 

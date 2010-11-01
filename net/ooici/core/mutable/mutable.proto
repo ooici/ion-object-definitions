@@ -4,20 +4,38 @@ import "net/ooici/core/link/link.proto";
 
 
 message Branch {
-	required string branchname = 1;
+	required string branchkey = 1;
 	required net.ooici.core.link.CASRef commitref = 2;
+	repeated net.ooici.core.link.CASRef mergeonread =3;
 }
 
 message MutableNode {
-	required string key = 1;
+	required string repositorykey = 1;
 	repeated Branch branches = 2;
-	optional string name = 3;
+}
+
+enum Relationship{
+	Parent = 1;
+	MergedFrom = 2;
+}
+
+
+message ParentRef{
+
+	enum Relationship{
+		Parent = 1;
+		MergedFrom = 2;
+	}
+
+	required Relationship relationship = 1;
+	required net.ooici.core.link.CASRef commitref = 2;
+
 }
 
 message CommitRef {
 	required string comment = 1;
 	required double date = 2;
-	repeated Branch ancestors = 3;
+	repeated ParentRef parentrefs = 3;
 	required net.ooici.core.link.CASRef objectroot = 4;
 }
 
