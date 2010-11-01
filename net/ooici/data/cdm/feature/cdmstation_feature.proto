@@ -3,7 +3,7 @@ package net.ooici.data.cdm.feature;
 import "net/ooici/core/link/link.proto";
 // Still needs refactoring
 
-message StationFeature{
+message CDMStationFeature{
      required string name = 1;
      required float long = 2;
      required float lat = 3;
