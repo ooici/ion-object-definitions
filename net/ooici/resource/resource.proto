@@ -13,7 +13,7 @@ enum LifeCycleState {
 }
 
 
-message Resource {
+message OOIResource {
     // An OOI Resource object has several metadata parameters describing it in
     // a standard from. The actual resource object is contained by reference by
     // the resource field of type link.
