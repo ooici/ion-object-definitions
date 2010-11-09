@@ -4,7 +4,5 @@ import "net/ooici/core/link/link.proto";
 
 
 message Dataset {
-   required net.ooici.core.link.CASRef group = 1;
-   repeated net.ooici.core.link.CASRef coordinates = 2;
-   repeated net.ooici.core.link.CASRef features = 3;
+   required net.ooici.core.link.CASRef rootGroup = 1;
 }
