@@ -5,8 +5,7 @@ import "net/ooici/core/link/link.proto";
 
 message Branch {
 	required string branchkey = 1;
-	required net.ooici.core.link.CASRef commitref = 2;
-	repeated net.ooici.core.link.CASRef mergeonread =3;
+	repeated net.ooici.core.link.CASRef commitrefs = 2;
 }
 
 message MutableNode {
