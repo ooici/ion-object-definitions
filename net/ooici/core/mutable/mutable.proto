@@ -13,10 +13,10 @@ message MutableNode {
 	repeated Branch branches = 2;
 }
 
-enum Relationship{
-	Parent = 1;
-	MergedFrom = 2;
-}
+//enum Relationship{
+//	Parent = 1;
+//	MergedFrom = 2;
+//}
 
 
 message ParentRef{
