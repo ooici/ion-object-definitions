@@ -66,8 +66,6 @@ message Variable {
 	// Reference to the typedef if this is an enum
 	optional net.ooici.core.link.CASRef enum_typedef = 7;
 	
-	// Coordinate system reference
-	repeated net.ooici.core.link.CASRef coordinate_systems = 8;
 }
 
 
