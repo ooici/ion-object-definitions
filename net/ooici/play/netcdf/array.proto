@@ -1,6 +1,0 @@
-package net.ooici.data.netcdf;
-
-message IArray {
-	required string type = 1;
-	repeated int32 value = 2;
-}

@@ -1,0 +1,63 @@
+package net.ooici.play;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/basic/basic.proto";
+
+message Location{
+	optional double lat = 1;
+	optional double lon = 2;
+	optional double depth = 3;
+	optional double time = 4;
+}
+
+message ScalarDataPoint{
+	required net.ooici.core.link.CASRef location =1;
+	required double val = 2;
+}
+
+message VectorData{
+	required double xi = 1;
+	required double xj = 2;
+	required double xk = 3;
+}
+
+message VectorDataPoint{
+	required net.ooici.core.link.CASRef location = 1;
+	required VectorData vector = 2;
+}
+
+message CTDSensor{
+	required string id = 1;
+	optional string name = 2;
+	repeated ScalarDataPoint temperature = 3;
+	repeated ScalarDataPoint salinity = 4;	
+}
+
+
+message ADCPSensor{
+	required string id = 1;
+	optional string name = 2;
+	repeated ScalarDataPoint temperature = 3;
+	repeated ScalarDataPoint salinity = 4;	
+}
+
+enum InstrumentType {
+    ADCP = 1;
+    CDTD = 2;
+    NONE = 3;
+    }
+    
+message Instrument{
+	required string id = 1;
+	optional string name = 2;
+	required InstrumentType type = 3;
+	repeated net.ooici.core.link.CASRef sensors = 4;
+}
+
+
+message Mooring{
+	required string id = 1;
+	optional string name = 2;
+	required Location location = 3;
+	repeated Instrument instruments = 4;
+}

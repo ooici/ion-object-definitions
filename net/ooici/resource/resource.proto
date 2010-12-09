@@ -1,6 +1,7 @@
 package net.ooici.resource;
 
 import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
 
 enum LifeCycleState {
     New=1;
@@ -13,12 +14,22 @@ enum LifeCycleState {
 }
 
 
+message ResourceDescription {
+	required net.ooici.core.type.GPBType type=1;
+	required string name=2;
+	optional string description=3;
+}
+
+
 message OOIResource {
     // An OOI Resource object has several metadata parameters describing it in
     // a standard from. The actual resource object is contained by reference by
     // the resource field of type link.
-    required string name = 1; 
-    required LifeCycleState lcs = 2; 
-    required net.ooici.core.link.CASRef resource = 3;
-    optional string description = 4;
+    required string name = 1;
+    required string identity = 2;
+    required net.ooici.core.type.GPBType type=3;
+    required LifeCycleState lcs = 4 [default = New];
+    required net.ooici.core.link.CASRef resource_object = 5;
+    optional string description = 6;
+
 }

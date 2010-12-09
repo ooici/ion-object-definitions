@@ -10,7 +10,7 @@ message CASRef {
 
 message IDRef {
 	required string key = 1;
-	required net.ooici.core.type.GPBType type = 2;
-	optional string branchname = 3;
+	//required net.ooici.core.type.GPBType type = 2;
+	optional string branch = 3;
 	optional string commit = 4;
 }

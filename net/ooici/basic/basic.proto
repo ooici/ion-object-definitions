@@ -1,0 +1,42 @@
+package net.ooici.basic;
+
+import "net/ooici/core/link/link.proto";
+
+
+message ListObj{
+	repeated net.ooici.core.link.CASRef item = 1;
+}
+
+message KeyValue{
+	required string key = 1;
+	required string value = 2;
+}
+
+message StringDict{
+	repeated KeyValue items = 1;
+}
+
+message StringComposite{
+	optional string key = 1;
+	optional net.ooici.core.link.CASRef value = 2;
+}
+
+message IntComposite{
+	optional int32 key = 1;
+	optional net.ooici.core.link.CASRef value = 2;
+}
+
+message ObjectDict{
+	// Does not actually have dictionary like behavior but
+	// it can represent the data structure.
+	repeated net.ooici.core.link.CASRef composite = 1;
+}
+
+message TestObj{
+	optional string string=1;
+	optional int32 integer=2;
+	optional float float=3;
+	repeated string strings=4;
+	repeated int32 integers=5;
+	repeated float floats=6;
+}

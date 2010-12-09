@@ -1,10 +1,41 @@
-from distutils.core import setup 
-import fnmatch
-import os
+#!/usr/bin/env python
 
-pymods = []
-for root, dirnames, filenames in os.walk('net'):
-  for filename in fnmatch.filter(filenames, '*.py'):
-      pymods.append(os.path.join(root, filename[:-3]))
+"""
+@file setup.py
+@author Paul Hubbard
+@author David Stuebe
+@date 11/19/10
+@brief setup file for OOI protobuffers code
+"""
 
-setup(name="ooi_data_format", version="0.000001", py_modules=pymods)
+setupdict = {
+    'name' : 'ionproto',
+    'version' : '0.1.0',
+    'description' : 'OOI LCA protocol buffers auto-generated code',
+    'url': 'http://www.oceanobservatories.org/spaces/display/CIDev/LCAARCH+Development+Project',
+    'download_url' : 'http://ooici.net/packages',
+    'license' : 'Apache 2.0',
+    'author' :'David Stuebe',
+    'author_email' : 'dstuebe@asasciences.com',
+    'keywords': ['ooci','protocol_buffers'],
+    'classifiers' : [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: Apache Software License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Topic :: Scientific/Engineering'],
+}
+
+try:
+    from setuptools import setup, find_packages
+    setupdict['packages'] = find_packages()
+    setupdict['install_requires'] = ['protobuf>=2.3.0']
+    setupdict['include_package_data'] = True
+    setup(**setupdict)
+
+except ImportError:
+    from distutils.core import setup
+    setupdict['packages'] = ['ionproto']
+    setup(**setupdict)

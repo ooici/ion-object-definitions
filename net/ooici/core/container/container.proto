@@ -5,10 +5,10 @@ import "net/ooici/core/mutable/mutable.proto";
 
 
 message StructureElement {
-        required string key = 1;
-        required net.ooici.core.type.GPBType type = 2;
+	required string key = 1;
+	required net.ooici.core.type.GPBType type = 2;
 	required bool isleaf = 3;
-        required bytes value = 4;
+    required bytes value = 4;
     }
 
 message Structure {

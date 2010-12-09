@@ -26,6 +26,8 @@ message Person {
 // Our address book file is just one of these.
 message AddressBook {
   repeated Person person = 1;
+  optional Person owner = 2;
+  optional string title = 3;
 }
 
 
@@ -33,4 +35,5 @@ message AddressBook {
 message AddressLink {
   repeated net.ooici.core.link.CASRef person = 1;
   optional net.ooici.core.link.CASRef owner = 2;
+  optional string title = 3;
 }
