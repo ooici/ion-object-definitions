@@ -10,7 +10,7 @@
 
 setupdict = {
     'name' : 'ionproto',
-    'version' : '0.1.0',
+    'version' : '0.1.1',
     'description' : 'OOI LCA protocol buffers auto-generated code',
     'url': 'http://www.oceanobservatories.org/spaces/display/CIDev/LCAARCH+Development+Project',
     'download_url' : 'http://ooici.net/packages',

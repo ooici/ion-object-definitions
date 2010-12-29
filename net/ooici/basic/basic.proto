@@ -4,7 +4,7 @@ import "net/ooici/core/link/link.proto";
 
 
 message ListObj{
-	repeated net.ooici.core.link.CASRef item = 1;
+	repeated net.ooici.core.link.CASRef items = 1;
 }
 
 message KeyValue{
