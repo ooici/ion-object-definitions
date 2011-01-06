@@ -65,7 +65,7 @@ message ColumnFamily{
     optional string preload_row_cache=8; // Set to true to automatically load the row cache
     optional double key_cache_size=9; // Number of keys to cache
     optional string validation_class=10; // The class to use for validation ? defined in Telephus but not cassandra wiki?
-    repeated net.ooici.core.link.CASRef column_metadata=10; // Defined columns 
+    repeated net.ooici.core.link.CASRef column_metadata=11; // Defined columns 
 }
 
 // Map to telephus ttype ColumnDef:
