@@ -1,0 +1,80 @@
+package net.ooici.storage;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+// HostList is a component of a Storage Deployment
+
+message Host{
+    required string host=1;
+    optional string port=2;
+}
+
+
+// Credentials are used to log into a storage deployment
+message SimplePassword{
+    optional string name=1;
+    optional string password=2;
+}
+
+// A Storage Deployment is an operational deployment of a backend storage resource
+// An exampel would be a Cassandra Cluster or a IRODs Zone
+message CassandraCluster {
+
+    required string name=1;
+    repeated Host hosts=2;
+    required string version=3;
+    optional net.ooici.core.link.CASRef key_ring=4;
+    optional net.ooici.core.link.CASRef credentials=5;
+}
+
+message IrodsZone{
+    required string name=1;
+    repeated Host hosts=2;
+    required string version=3;
+    optional net.ooici.core.link.CASRef credentials=4;
+}
+
+
+// Persistent Archive is the space in a Storage Deployment in which an ION
+// org operates. Each application can have seperate namespaces (Cache) with in a
+// persistent archive but access is shared under a single archive.
+
+// Map to telephus ttype KsDef
+message CassandraKeySpace{
+    required string name=1;
+    optional string strategy_class=2;
+    optional string replication_factor=3;
+    repeated net.ooici.core.link.CASRef column_family=4;
+}
+
+// Cache is subsumed - part of the Persistent Archive resource. This is consistent
+// with the cassandra model. Need to investigate Irods.
+// Cassandra see https://github.com/driftx/Telephus/blob/0.7/telephus/cassandra/ttypes.py
+// for more details about the types of each argument.
+
+// Map to telephus ttype CFDef
+message ColumnFamily{
+    required string table=1; // name of the keyspace this CF belongs to
+    required string name=2; // name of the column family
+    optional string column_type=3; // One of "Standard" or "Super"
+    optional string comparator_type=4; // Name of comparator used for column sorting
+    optional string subcomparator_type=5; // Name of comparator used for subcolumns (when column_type="Super" only)
+    optional string comment=6; // Human-readable description of column family
+    optional double row_cache_size=7; // number of rows to cache
+    optional string preload_row_cache=8; // Set to true to automatically load the row cache
+    optional double key_cache_size=9; // Number of keys to cache
+    optional string validation_class=10; // The class to use for validation ? defined in Telephus but not cassandra wiki?
+    repeated net.ooici.core.link.CASRef column_metadata=10; // Defined columns 
+}
+
+// Map to telephus ttype ColumnDef:
+message ColumnDef{
+    optional string column_name=1;
+    optional string validation_class=2;
+    optional string index_type=3;
+    optional string index_name=4;
+}
+
+
+
