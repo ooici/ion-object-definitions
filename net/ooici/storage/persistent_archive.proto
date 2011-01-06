@@ -55,7 +55,7 @@ message CassandraKeySpace{
 
 // Map to telephus ttype CFDef
 message ColumnFamily{
-    required string table=1; // name of the keyspace this CF belongs to
+    required string keyspace=1; // name of the keyspace this CF belongs to
     required string name=2; // name of the column family
     optional string column_type=3; // One of "Standard" or "Super"
     optional string comparator_type=4; // Name of comparator used for column sorting
