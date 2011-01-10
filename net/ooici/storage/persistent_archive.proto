@@ -7,14 +7,14 @@ import "net/ooici/core/type/type.proto";
 
 message CassandraHost{
     required string host=1;
-    optional string port=2;
+    optional int32 port=2;
 }
 
 
-// Persistence Credential //
-// A Persistence Credential is used to log into an instance of a persistence technology
+// Persistence Credentials //
+// Persistence Credentials are used to log into an instance of a persistence technology
 message SimplePassword{
-    optional string name=1;
+    optional string username=1;
     optional string password=2;
 }
 
