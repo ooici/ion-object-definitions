@@ -1,0 +1,29 @@
+package net.ooici.play;
+
+// Can we sort out the name space by modifying the name of the enums?
+
+message A{
+	enum message_A_type_id {
+		id = 1;
+	
+	}
+	optional double afield = 1;
+}
+
+message B{
+	enum message_B_type_id {
+		id = 2;
+	
+	}
+	
+	required double bfield = 1;
+}
+
+message C{
+	enum message_C_type_id {
+		id = 3;
+	
+	}
+	
+	required double cfield = 1;
+}

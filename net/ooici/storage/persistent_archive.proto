@@ -5,78 +5,99 @@ import "net/ooici/core/type/type.proto";
 
 // HostList is a component of a Storage Deployment
 
-message Host{
+message CassandraHost{
     required string host=1;
     optional string port=2;
 }
 
 
-// Credentials are used to log into a storage deployment
+// Persistence Credential //
+// A Persistence Credential is used to log into an instance of a persistence technology
 message SimplePassword{
     optional string name=1;
     optional string password=2;
 }
 
-// A Storage Deployment is an operational deployment of a backend storage resource
+message CassandraCredential{
+    enum ACL {
+    ReadOnly=1;
+    ReadWrite=2;
+    Admin=3;
+    }
+    optional ACL acl=1;
+    optional net.ooici.core.link.CASRef token=2;
+}
+
+// Persistence Technology //
+// A Persistence Technology is an operational deployment of a backend storage resource
 // An exampel would be a Cassandra Cluster or a IRODs Zone
 message CassandraCluster {
 
-    required string name=1;
-    repeated Host hosts=2;
-    required string version=3;
-    optional net.ooici.core.link.CASRef key_ring=4;
-    optional net.ooici.core.link.CASRef credentials=5;
+    optional string name=1; // Cluster Name
+    repeated CassandraHost hosts=2; // Cassandra cluster host list
+    optional string version=3; // Cassandra cluster version
+    optional net.ooici.core.link.CASRef key_ring=4; // Not sure what this is yet
+    repeated net.ooici.core.link.IDRef credentials=5;
 }
 
+// Persistence Technology //
+// IRODS is a second backend persistence technology.
 message IrodsZone{
     required string name=1;
-    repeated Host hosts=2;
+    repeated string hosts=2;
     required string version=3;
-    optional net.ooici.core.link.CASRef credentials=4;
+    optional net.ooici.core.link.IDRef credentials=4;
 }
 
 
-// Persistent Archive is the space in a Storage Deployment in which an ION
+// Persistent Archive //
+// A Persistent Archive is the space in a Storage Deployment in which an ION
 // org operates. Each application can have seperate namespaces (Cache) with in a
 // persistent archive but access is shared under a single archive.
 
-// Map to telephus ttype KsDef
+// ION Persistent Archive maps to telephus ttype KsDef
 message CassandraKeySpace{
     required string name=1;
     optional string strategy_class=2;
     optional string replication_factor=3;
-    repeated net.ooici.core.link.CASRef column_family=4;
+    repeated net.ooici.core.link.IDRef column_family=4;
 }
 
-// Cache is subsumed - part of the Persistent Archive resource. This is consistent
+// ION Persistent Archive maps to Irods ?
+
+
+// Cache //
+// A Cache is subsumed - part of the Persistent Archive resource. This is consistent
 // with the cassandra model. Need to investigate Irods.
 // Cassandra see https://github.com/driftx/Telephus/blob/0.7/telephus/cassandra/ttypes.py
 // for more details about the types of each argument.
 
 // Map to telephus ttype CFDef
 message ColumnFamily{
-    required string keyspace=1; // name of the keyspace this CF belongs to
+    //required string keyspace=1; // name of the keyspace this CF belongs to
     required string name=2; // name of the column family
     optional string column_type=3; // One of "Standard" or "Super"
-    optional string comparator_type=4; // Name of comparator used for column sorting
-    optional string subcomparator_type=5; // Name of comparator used for subcolumns (when column_type="Super" only)
-    optional string comment=6; // Human-readable description of column family
-    optional double row_cache_size=7; // number of rows to cache
-    optional string preload_row_cache=8; // Set to true to automatically load the row cache
-    optional double key_cache_size=9; // Number of keys to cache
-    optional string validation_class=10; // The class to use for validation ? defined in Telephus but not cassandra wiki?
-    repeated net.ooici.core.link.CASRef column_metadata=11; // Defined columns 
-    optional double gc_grace_seconds=12; // Number of seconds between major compaction(Garbage Collection) 
-    optional string default_validation_class=13; //Class that specifies the type of the column; useful for indexing
-    required double id=14; //The id of the ColumnFamily; needed for updating the CfDef
+    // 4 None
+    optional string comparator_type=5; // Name of comparator used for column sorting
+    optional string subcomparator_type=6; // Name of comparator used for subcolumns (when column_type="Super" only)
+    // 7 None
+    optional string comment=8; // Human-readable description of column family
+    optional double row_cache_size=9; // number of rows to cache
+    // 10 None  
+    optional double key_cache_size=11; // Number of keys to cache
+    optional double read_repair_chance=12;
+    repeated net.ooici.core.link.CASRef column_metadata=13; // Defined columns 
+    optional double gc_grace_seconds=14; // Number of seconds between major compaction(Garbage Collection) 
+    optional string default_validation_class=15; //Class that specifies the type of the column; useful for indexing
+    optional sint32 id=16; //The id of the ColumnFamily; needed for updating the CfDef
     //These will probably not be used. They are for advanced tuning of the system, preferably by an operator.
-    optional double min_compaction_threshold=15; //Setting affecting compaction
-    optional double max_compaction_threshold=16; //Setting affecting compaction
-    optional double row_cache_save_period_in_seconds=17; //Period of which to persist a row cache 
-    optional double key_cache_save_period_in_seconds=18; //Period of which to persist a key cache
-    optional double memtable_flush_after_mins=19; //Write out the memtable after so many minutes
-    optional double memtable_throughput_in_mb=20; //Write out the memtable after these many MBs have been written
-    optional double memtable_operations_in_millions=21; //Write out the memtable after these many operations 
+    optional sint32 min_compaction_threshold=17; //Setting affecting compaction
+    optional sint32 max_compaction_threshold=18; //Setting affecting compaction
+    optional sint32 row_cache_save_period_in_seconds=19; //Period of which to persist a row cache 
+    optional sint32 key_cache_save_period_in_seconds=20; //Period of which to persist a key cache
+    optional sint32 memtable_flush_after_mins=21; //Write out the memtable after so many minutes
+    optional sint32 memtable_throughput_in_mb=22; //Write out the memtable after these many MBs have been written
+    optional double memtable_operations_in_millions=23; //Write out the memtable after these many operations 
 }
 
 // Map to telephus ttype ColumnDef:
@@ -88,4 +109,4 @@ message ColumnDef{
 }
 
 
-
+// ION Cache maps to Irods ?

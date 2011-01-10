@@ -1,0 +1,31 @@
+package net.ooici.play;
+
+// I am confused - this is working in my proto build?
+// From my understanding of what you said having two enums with the same name
+// and string constant 'id' should fail to compile? Does the compile fail silently?
+
+message A{
+	enum message_type_id {
+		id = 1;
+	
+	}
+	optional double afield = 1;
+}
+
+message B{
+	enum message_type_id {
+		id = 2;
+	
+	}
+	
+	required double bfield = 1;
+}
+
+message C{
+	enum message_type_id {
+		id = 3;
+	
+	}
+	
+	required double cfield = 1;
+}

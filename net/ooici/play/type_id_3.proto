@@ -1,0 +1,29 @@
+package net.ooici.play;
+
+// What about by appending the name of the message to the string constant?
+
+message A{
+	enum message_type_id {
+		A_id = 1;
+	
+	}
+	optional double afield = 1;
+}
+
+message B{
+	enum message_type_id {
+		B_id = 2;
+	
+	}
+	
+	required double bfield = 1;
+}
+
+message C{
+	enum message_type_id {
+		C_id = 3;
+	
+	}
+	
+	required double cfield = 1;
+}
