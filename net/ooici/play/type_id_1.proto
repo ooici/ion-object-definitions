@@ -1,8 +1,7 @@
 package net.ooici.play;
 
-// I am confused - this is working in my proto build?
-// From my understanding of what you said having two enums with the same name
-// and string constant 'id' should fail to compile? Does the compile fail silently?
+// An example of three message A,B,C which express a type id and version using
+// a convention based on the ENUM provided by protocol buffers.
 
 message A{
 	enum _MessageTypeIdentifier {
