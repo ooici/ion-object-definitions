@@ -5,26 +5,30 @@ package net.ooici.play;
 // and string constant 'id' should fail to compile? Does the compile fail silently?
 
 message A{
-	enum message_type_id {
-		id = 1;
-	
+	enum _MessageTypeIdentifier {
+		_ID = 1;
+		_VERSION = 1;
 	}
 	optional double afield = 1;
+	
+	// Using capitals and underscores prevents namespace conflicts
+	optional double id = 2;
+	optional string messagetypeidentifier = 3; 
 }
 
 message B{
-	enum message_type_id {
-		id = 2;
-	
+	enum _MessageTypeIdetifier {
+		_ID = 2;
+		_VERSION = 1;
 	}
 	
 	required double bfield = 1;
 }
 
 message C{
-	enum message_type_id {
-		id = 3;
-	
+	enum _MessageTypeIdetifier {
+		_ID = 3;
+		_VERSION = 1;
 	}
 	
 	required double cfield = 1;
