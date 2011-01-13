@@ -5,6 +5,10 @@ import "net/ooici/basic/basic.proto";
 
 
 message Location{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	optional double lat = 1;
 	optional double lon = 2;
 	optional double depth = 3;
@@ -12,22 +16,38 @@ message Location{
 }
 
 message ScalarDataPoint{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required Location location =1;
 	required double val = 2;
 }
 
 message VectorData{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required double xi = 1;
 	required double xj = 2;
 	required double xk = 3;
 }
 
 message VectorDataPoint{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required Location location = 1;
 	required VectorData vector = 2;
 }
 
 message CTDSensor{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required string id = 1;
 	optional string name = 2;
 	repeated ScalarDataPoint temperature = 3;
@@ -36,6 +56,10 @@ message CTDSensor{
 
 
 message ADCPSensor{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required string id = 1;
 	optional string name = 2;
 	repeated ScalarDataPoint temperature = 3;
@@ -44,6 +68,10 @@ message ADCPSensor{
 
 
 message Mooring{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required string id = 1;
 	optional string name = 2;
 	required Location location = 3;

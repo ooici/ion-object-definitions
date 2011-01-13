@@ -5,6 +5,10 @@ package net.ooici.play;
 import "net/ooici/core/link/link.proto";
 
 message Person {
+  enum _MessageTypeIdentifier {
+    _ID = -1;
+    _VERSION = 1;
+  }
   required string name = 1;
   required int32 id = 2;        // Unique ID number for this person.
   optional string email = 3;
@@ -25,6 +29,10 @@ message Person {
 
 // Our address book file is just one of these.
 message AddressBook {
+  enum _MessageTypeIdentifier {
+    _ID = -1;
+    _VERSION = 1;
+  }
   repeated Person person = 1;
   optional Person owner = 2;
   optional string title = 3;
@@ -33,6 +41,10 @@ message AddressBook {
 
 // Our address book file is just one of these.
 message AddressLink {
+  enum _MessageTypeIdentifier {
+    _ID = -1;
+    _VERSION = 1;
+  }
   repeated net.ooici.core.link.CASRef person = 1;
   optional net.ooici.core.link.CASRef owner = 2;
   optional string title = 3;

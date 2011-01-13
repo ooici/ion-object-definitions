@@ -4,6 +4,10 @@ import "net/ooici/core/link/link.proto";
 import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
 
 message BoundedArray {
+    enum _MessageTypeIdentifier {
+        _ID = 10021;
+        _VERSION = 1;
+    }
 	// The values are store in a list of bounded arrays
 	// The bounds are part of this composite node.
 	// The array is stored by reference.
@@ -29,6 +33,10 @@ message BoundedArray {
 // in the context of its containing Structure.
 
 message Structure {
+    enum _MessageTypeIdentifier {
+        _ID = 10022;
+        _VERSION = 1;
+    }
     // A structure is a single composite GPB composed of member Variables
 	repeated net.ooici.data.cdm.syntactic.Variable members = 1;
 }
@@ -41,12 +49,20 @@ message Structure {
 // iterate through the Sequence, getting the data in one Structure instance at a
 // time.
 message Sequence {
+    enum _MessageTypeIdentifier {
+        _ID = 10023;
+        _VERSION = 1;
+    }
     // A sequence is a single composite GPB composed of Structure items
 	repeated net.ooici.data.cdm.syntactic.Structure items = 1;
 }
 
 
 message Variable {
+    enum _MessageTypeIdentifier {
+        _ID = 10024;
+        _VERSION = 1;
+    }
 	required string name = 1;
 	optional string source_name = 2;
 	

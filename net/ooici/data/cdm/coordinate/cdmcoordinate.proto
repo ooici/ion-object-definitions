@@ -35,7 +35,10 @@ enum AxisType {
 // A CoordinateAxis is a subtype of Variable, and is optionally classified
 // according to the types in AxisType.
 message CoordinateAxis {
-
+   enum _MessageTypeIdentifier {
+        _ID = 10002;
+        _VERSION = 1;
+    }
      required AxisType axis_type = 1;
      
      // Link to the variable for this axis
@@ -46,6 +49,10 @@ message CoordinateAxis {
 // CoordinateSystems, and currently is either a Projection or a Vertical
 // Transform.
 message CoordinateTransform{
+   enum _MessageTypeIdentifier {
+        _ID = 10003;
+        _VERSION = 1;
+    }
      //The name of the projection or vertical transform
      //This is insufficient - a place holder
      required string transform= 1;
@@ -55,7 +62,10 @@ message CoordinateTransform{
 // A Coordinate System has one or more CoordinateAxis, and zero or more
 // CoordinateTransforms.
 message CoordinateSystem{
-
+   enum _MessageTypeIdentifier {
+        _ID = 10004;
+        _VERSION = 1;
+    }
      //The name of the projection or vertical transform
      repeated CoordinateTransform transforms = 1;
 

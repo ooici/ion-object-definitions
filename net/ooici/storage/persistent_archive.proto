@@ -6,6 +6,10 @@ import "net/ooici/core/type/type.proto";
 // HostList is a component of a Storage Deployment
 
 message CassandraHost{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     required string host=1;
     optional int32 port=2;
 }
@@ -14,11 +18,19 @@ message CassandraHost{
 // Persistence Credentials //
 // Persistence Credentials are used to log into an instance of a persistence technology
 message SimplePassword{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     optional string username=1;
     optional string password=2;
 }
 
 message CassandraCredential{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     enum ACL {
     ReadOnly=1;
     ReadWrite=2;
@@ -30,9 +42,12 @@ message CassandraCredential{
 
 // Persistence Technology //
 // A Persistence Technology is an operational deployment of a backend storage resource
-// An exampel would be a Cassandra Cluster or a IRODs Zone
+// An example would be a Cassandra Cluster or a IRODs Zone
 message CassandraCluster {
-
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     optional string name=1; // Cluster Name
     repeated CassandraHost hosts=2; // Cassandra cluster host list
     optional string version=3; // Cassandra cluster version
@@ -43,6 +58,10 @@ message CassandraCluster {
 // Persistence Technology //
 // IRODS is a second backend persistence technology.
 message IrodsZone{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     required string name=1;
     repeated string hosts=2;
     required string version=3;
@@ -57,6 +76,10 @@ message IrodsZone{
 
 // ION Persistent Archive maps to telephus ttype KsDef
 message CassandraKeySpace{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     required string name=1;
     optional string strategy_class=2;
     optional sint32 replication_factor=3;
@@ -74,6 +97,10 @@ message CassandraKeySpace{
 
 // Map to telephus ttype CFDef
 message ColumnFamily{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     //required string keyspace=1; // name of the keyspace this CF belongs to
     required string name=2; // name of the column family
     optional string column_type=3; // One of "Standard" or "Super"
@@ -102,6 +129,10 @@ message ColumnFamily{
 
 // Map to telephus ttype ColumnDef:
 message ColumnDef{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     optional string column_name=1;
     optional string validation_class=2;
     optional sint32 index_type=3;

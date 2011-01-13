@@ -15,6 +15,10 @@ enum LifeCycleState {
 
 
 message ResourceDescription {
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required net.ooici.core.type.GPBType type=1;
 	required string name=2;
 	optional string description=3;
@@ -22,6 +26,10 @@ message ResourceDescription {
 
 
 message OOIResource {
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
     // An OOI Resource object has several metadata parameters describing it in
     // a standard from. The actual resource object is contained by reference by
     // the resource field of type link.
