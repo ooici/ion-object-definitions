@@ -5,7 +5,7 @@ import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
 
 message Attribute {
     enum _MessageTypeIdentifier {
-        _ID = 10017
+        _ID = 10017;
         _VERSION = 1;
     }
 	required string name = 1;
