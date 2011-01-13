@@ -1,34 +1,76 @@
 package net.ooici.play;
+// The package structure must be specified to compile propertly
 
-// An example of three message A,B,C which express a type id and version using
-// a convention based on the ENUM provided by protocol buffers.
+// This is an example of three message A,B,C which express type id and version
+// using the ION convention based on the ENUM provided by protocol buffers.
 
+import "net/ooici/core/link/link.proto";
+// Import statements allow the use of message types defined in other packages
+
+// Here is the simplest possible ION message object including an identifier:
 message A{
+	// The MessageName is CamelCase
+	
+	// The message ID enum goes at the top of the message
 	enum _MessageTypeIdentifier {
 		_ID = 1;
 		_VERSION = 1;
 	}
-	optional double afield = 1;
 	
-	// Using capitals and underscores prevents namespace conflicts
-	optional double id = 2;
-	optional string messagetypeidentifier = 3; 
+	// Message fields are defined sequentially 
+	optional double afield = 1;
 }
 
+//Here is an example which includes a second enum used by the message
 message B{
+	// The message ID enum goes at the top of the message
 	enum _MessageTypeIdetifier {
 		_ID = 2;
 		_VERSION = 1;
 	}
 	
+	// Add an enum for use in the message
+	enum UserName {
+		// The enum uses capitals to prevents namespace conflicts
+		MATTHEW = 1;
+		JOHN = 2;
+		MICHAEL = 3;
+	}
+	
+	// Add message fields
 	required double bfield = 1;
+	
+	// The type of the second field is the enum type UserName
+	optional UserName username = 2;
+	
 }
 
+
+// Now lets define a more complete use case
 message C{
 	enum _MessageTypeIdetifier {
 		_ID = 3;
 		_VERSION = 1;
 	}
-	
+
+	// Add message fields
 	required double cfield = 1;
+
+	// Use the link convention. The field name hints that the link type will
+	// be message A - but it can be any typed mesage.
+	optional net.ooici.core.link.CASRef message_a = 2;
+
+	// Use protocol buffers nested message to build a composit data
+	// structure. Component objects defined and used in this way do not need
+	// an identifier
+	optional C_Internal position = 3;
 }
+
+message C_Internal {
+	// This message does not have an identifier, it is purely for internal
+	// use, nested inside message C above...
+	optional float x = 1;
+	optional float y = 2;
+	optional float z = 3;
+}
+
