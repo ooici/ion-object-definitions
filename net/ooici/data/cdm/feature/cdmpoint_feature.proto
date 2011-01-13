@@ -5,6 +5,10 @@ import "net/ooici/core/link/link.proto";
 // Still needs refactoring
 
 message CDMPointFeature{
+   enum _MessageTypeIdentifier {
+        _ID = 10007;
+        _VERSION = 1;
+    }
      required float long = 1;
      required float lat = 2;
      optional float z = 3;

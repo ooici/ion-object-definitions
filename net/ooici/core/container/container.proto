@@ -5,6 +5,10 @@ import "net/ooici/core/mutable/mutable.proto";
 
 
 message StructureElement {
+    enum _MessageTypeIdentifier {
+        _ID = 1;
+        _VERSION = 1;
+    }
 	required string key = 1;
 	required net.ooici.core.type.GPBType type = 2;
 	required bool isleaf = 3;
@@ -12,6 +16,10 @@ message StructureElement {
     }
 
 message Structure {
+    enum _MessageTypeIdentifier {
+        _ID = 2;
+        _VERSION = 1;
+    }
 	optional StructureElement head = 1;
 	repeated StructureElement items = 2;
 }

@@ -48,7 +48,7 @@ message B{
 
 // Now lets define a more complete use case
 message C{
-	enum _MessageTypeIdetifier {
+	enum _MessageTypeIdentifier {
 		_ID = 3;
 		_VERSION = 1;
 	}

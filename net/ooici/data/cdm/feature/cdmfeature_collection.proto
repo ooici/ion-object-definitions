@@ -17,11 +17,19 @@ enum FeatureType{
 
 
 message Feature{
+   enum _MessageTypeIdentifier {
+        _ID = 10005;
+        _VERSION = 1;
+    }
     required string name = 1;
     required FeatureType feature_type = 2;
 }
 
 message FeatureCollection{
+   enum _MessageTypeIdentifier {
+        _ID = 10006;
+        _VERSION = 1;
+    }
     repeated Feature feature = 1;
 }
 
