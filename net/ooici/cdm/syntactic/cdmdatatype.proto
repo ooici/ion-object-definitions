@@ -1,9 +1,9 @@
-package net.ooici.data.cdm.syntactic;
+package net.ooici.cdm.syntactic;
 
 // enumeration of the NetCDF syntactic data types
 
 enum DataType {
-	BOOLEAN = 1;
+    BOOLEAN = 1;
     BYTE = 2;
     SHORT = 3;
     INT = 4;

@@ -1,7 +1,6 @@
 package net.ooici.play;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/basic/basic.proto";
 
 
 message Location{

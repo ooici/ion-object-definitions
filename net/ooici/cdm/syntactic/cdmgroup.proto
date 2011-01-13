@@ -1,9 +1,6 @@
-package net.ooici.data.cdm.syntactic;
+package net.ooici.cdm.syntactic;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/data/cdm/syntactic/cdmdimension.proto";
-import "net/ooici/data/cdm/syntactic/cdmattribute.proto";
-import "net/ooici/data/cdm/syntactic/cdmvariable.proto";
 
 message EnumTypedef { // 
     enum _MessageTypeIdentifier {

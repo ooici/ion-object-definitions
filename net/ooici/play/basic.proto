@@ -1,4 +1,4 @@
-package net.ooici.basic;
+package net.ooici.play;
 
 import "net/ooici/core/link/link.proto";
 
