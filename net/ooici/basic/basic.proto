@@ -4,35 +4,63 @@ import "net/ooici/core/link/link.proto";
 
 
 message ListObj{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	repeated net.ooici.core.link.CASRef items = 1;
 }
 
 message KeyValue{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	required string key = 1;
 	required string value = 2;
 }
 
 message StringDict{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	repeated KeyValue items = 1;
 }
 
 message StringComposite{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	optional string key = 1;
 	optional net.ooici.core.link.CASRef value = 2;
 }
 
 message IntComposite{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	optional int32 key = 1;
 	optional net.ooici.core.link.CASRef value = 2;
 }
 
 message ObjectDict{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	// Does not actually have dictionary like behavior but
 	// it can represent the data structure.
 	repeated net.ooici.core.link.CASRef composite = 1;
 }
 
 message TestObj{
+    enum _MessageTypeIdentifier {
+      _ID = -1;
+      _VERSION = 1;
+    }
 	optional string string=1;
 	optional int32 integer=2;
 	optional float float=3;

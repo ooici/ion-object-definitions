@@ -6,6 +6,10 @@ import "net/ooici/data/cdm/syntactic/cdmattribute.proto";
 import "net/ooici/data/cdm/syntactic/cdmvariable.proto";
 
 message EnumTypedef { // 
+    enum _MessageTypeIdentifier {
+        _ID = 10019;
+        _VERSION = 1;
+    }
 	message EnumPair {
 		required uint32 key = 1;
 		required string value = 2;
@@ -20,12 +24,16 @@ message EnumTypedef { //
 // directories on a disk.There is always at least one Group in a Dataset, the
 // root Group, whose name is the empty string.
 
-message Group { 
-        required string name = 1;
-	optional string source_name = 2;
-	repeated net.ooici.core.link.CASRef groups = 3;
-        repeated net.ooici.core.link.CASRef dimensions = 4;              
-        repeated net.ooici.core.link.CASRef attributes = 5;              
-        repeated net.ooici.core.link.CASRef variables = 6;
-        repeated net.ooici.core.link.CASRef enumdefs = 7;
+message Group {
+    enum _MessageTypeIdentifier {
+        _ID = 10020;
+        _VERSION = 1;
+    }
+    required string name = 1;
+    optional string source_name = 2;
+    repeated net.ooici.core.link.CASRef groups = 3;
+    repeated net.ooici.core.link.CASRef dimensions = 4;              
+    repeated net.ooici.core.link.CASRef attributes = 5;              
+    repeated net.ooici.core.link.CASRef variables = 6;
+    repeated net.ooici.core.link.CASRef enumdefs = 7;
 }  

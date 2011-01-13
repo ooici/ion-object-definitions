@@ -4,5 +4,9 @@ import "net/ooici/core/link/link.proto";
 
 
 message Dataset {
+   enum _MessageTypeIdentifier {
+        _ID = 10001;
+        _VERSION = 1;
+    }
    required net.ooici.core.link.CASRef rootGroup = 1;
 }

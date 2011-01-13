@@ -4,6 +4,10 @@ import "net/ooici/core/link/link.proto";
 import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
 
 message Attribute {
+    enum _MessageTypeIdentifier {
+        _ID = 10017
+        _VERSION = 1;
+    }
 	required string name = 1;
 	optional string source_name = 2;
 

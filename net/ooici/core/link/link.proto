@@ -3,12 +3,20 @@ package net.ooici.core.link;
 import "net/ooici/core/type/type.proto";
 
 message CASRef {
+    enum _MessageTypeIdentifier {
+        _ID = 3;
+        _VERSION = 1;
+    }
 	required string key = 1;
 	required net.ooici.core.type.GPBType type = 2;
 	required bool isleaf = 3;
 }
 
 message IDRef {
+    enum _MessageTypeIdentifier {
+        _ID = 4;
+        _VERSION = 1;
+    }
 	required string key = 1;
 	//required net.ooici.core.type.GPBType type = 2;
 	optional string branch = 3;
