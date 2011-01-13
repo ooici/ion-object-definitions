@@ -59,7 +59,7 @@ message IrodsZone{
 message CassandraKeySpace{
     required string name=1;
     optional string strategy_class=2;
-    optional string replication_factor=3;
+    optional sint32 replication_factor=3;
     repeated net.ooici.core.link.IDRef column_family=4;
 }
 
@@ -104,7 +104,7 @@ message ColumnFamily{
 message ColumnDef{
     optional string column_name=1;
     optional string validation_class=2;
-    optional string index_type=3;
+    optional sint32 index_type=3;
     optional string index_name=4;
 }
 
