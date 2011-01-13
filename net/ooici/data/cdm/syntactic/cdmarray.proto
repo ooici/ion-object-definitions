@@ -18,31 +18,59 @@ package net.ooici.data.cdm.syntactic;
 // GPB uses a variable length encoding and so does not speficy short and byte
 
 message int32Array {
+   enum _MessageTypeIdentifier {
+        _ID = 10009;
+        _VERSION = 1;
+    }
 	repeated sint32 value = 1 [packed=true];
 }
 
 message uint32Array {
+    enum _MessageTypeIdentifier {
+        _ID = 10010;
+        _VERSION = 1;
+    }
 	repeated uint32 value = 1 [packed=true];
 }
 
 message int64Array {
+   enum _MessageTypeIdentifier {
+        _ID = 10011;
+        _VERSION = 1;
+    }
 	repeated sint64 value = 1 [packed=true];
 }
 
 message uint64Array {
+   enum _MessageTypeIdentifier {
+        _ID = 10012;
+        _VERSION = 1;
+    }
 	repeated uint64 value = 1 [packed=true];
 }
 
 
 message f32Array {
+   enum _MessageTypeIdentifier {
+        _ID = 10013;
+        _VERSION = 1;
+    }
 	repeated float value = 1 [packed=true];
 }
 
 message f64Array {
+   enum _MessageTypeIdentifier {
+        _ID = 10014;
+        _VERSION = 1;
+    }
 	repeated double value = 1 [packed=true];
 }
 
 message stringArray {
+   enum _MessageTypeIdentifier {
+        _ID = 10015;
+        _VERSION = 1;
+    }
 	// From http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
 	//
 	// A String is a variable length array of Unicode characters. When
@@ -68,6 +96,10 @@ message stringArray {
 // corresponding to storing the integer as a byte, short, or int.
 
 message opaqueArray {
+   enum _MessageTypeIdentifier {
+        _ID = 10016;
+        _VERSION = 1;
+    }
 	// An opaque type stores uninterpreted blobs of bytes. The length of the
 	// blob is not known until it is read. An array of opaque objects may
 	// have different lengths for each of the blobs. 

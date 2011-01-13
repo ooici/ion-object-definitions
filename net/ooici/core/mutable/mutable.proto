@@ -4,11 +4,19 @@ import "net/ooici/core/link/link.proto";
 
 
 message Branch {
+    enum _MessageTypeIdentifier {
+        _ID = 5;
+        _VERSION = 1;
+    }
 	required string branchkey = 1;
 	repeated net.ooici.core.link.CASRef commitrefs = 2;
 }
 
 message MutableNode {
+    enum _MessageTypeIdentifier {
+        _ID = 6;
+        _VERSION = 1;
+    }
 	required string repositorykey = 1;
 	repeated Branch branches = 2;
 }
@@ -20,7 +28,10 @@ message MutableNode {
 
 
 message ParentRef{
-
+    enum _MessageTypeIdentifier {
+        _ID = 7;
+        _VERSION = 1;
+    }
 	enum Relationship{
 		Parent = 1;
 		MergedFrom = 2;
@@ -32,6 +43,10 @@ message ParentRef{
 }
 
 message CommitRef {
+    enum _MessageTypeIdentifier {
+        _ID = 8;
+        _VERSION = 1;
+    }
 	required string comment = 1;
 	required double date = 2;
 	repeated ParentRef parentrefs = 3;

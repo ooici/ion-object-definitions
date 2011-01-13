@@ -10,13 +10,15 @@ message A{
 	}
 	optional double afield = 1;
 	
-	// Using capitals and underscores prevents namespace conflicts
+	// By convention, use only lower-case names for message fields
+	//   to avoid conflicts with the Message Type Identifier and
+	//   preexisting or generated keywords/fields
 	optional double id = 2;
 	optional string messagetypeidentifier = 3; 
 }
 
 message B{
-	enum _MessageTypeIdetifier {
+	enum _MessageTypeIdentifier {
 		_ID = 2;
 		_VERSION = 1;
 	}
@@ -25,7 +27,7 @@ message B{
 }
 
 message C{
-	enum _MessageTypeIdetifier {
+	enum _MessageTypeIdentifier {
 		_ID = 3;
 		_VERSION = 1;
 	}
