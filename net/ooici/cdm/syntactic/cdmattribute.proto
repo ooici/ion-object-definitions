@@ -1,7 +1,7 @@
-package net.ooici.data.cdm.syntactic;
+package net.ooici.cdm.syntactic;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
+import "net/ooici/cdm/syntactic/cdmdatatype.proto";
 
 message Attribute {
     enum _MessageTypeIdentifier {
@@ -12,7 +12,7 @@ message Attribute {
 	optional string source_name = 2;
 
 	// The datatype of the attribute
-	required net.ooici.data.cdm.syntactic.DataType data_type = 3;
+	required net.ooici.cdm.syntactic.DataType data_type = 3;
 	
 	// An ndarray of values
 	required net.ooici.core.link.CASRef array = 4;

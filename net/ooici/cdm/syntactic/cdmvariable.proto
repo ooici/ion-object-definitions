@@ -1,7 +1,7 @@
-package net.ooici.data.cdm.syntactic;
+package net.ooici.cdm.syntactic;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/data/cdm/syntactic/cdmdatatype.proto";
+import "net/ooici/cdm/syntactic/cdmdatatype.proto";
 
 message BoundedArray {
     enum _MessageTypeIdentifier {
@@ -38,7 +38,7 @@ message Structure {
         _VERSION = 1;
     }
     // A structure is a single composite GPB composed of member Variables
-	repeated net.ooici.data.cdm.syntactic.Variable members = 1;
+	repeated net.ooici.cdm.syntactic.Variable members = 1;
 }
 
 
@@ -54,7 +54,7 @@ message Sequence {
         _VERSION = 1;
     }
     // A sequence is a single composite GPB composed of Structure items
-	repeated net.ooici.data.cdm.syntactic.Structure items = 1;
+	repeated net.ooici.cdm.syntactic.Structure items = 1;
 }
 
 
@@ -67,7 +67,7 @@ message Variable {
 	optional string source_name = 2;
 	
 	// The datatype of the variable
-	required net.ooici.data.cdm.syntactic.DataType data_type = 3;
+	required net.ooici.cdm.syntactic.DataType data_type = 3;
 
 	// The attributes of the variable 
 	repeated net.ooici.core.link.CASRef attributes = 4;

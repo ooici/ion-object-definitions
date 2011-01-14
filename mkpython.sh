@@ -12,18 +12,18 @@ for d in $dirs; do
 
     # Wipe the last build
     rm __init__.py
-
-    # Import from child package dirs
-    pbdirs=`ls -1d */ 2> /dev/null | sed 's#/##'`
-    for pbd in $pbdirs; do
-        echo "from $pbd import *" >> __init__.py
-    done
-
-    # Import from child package files
-    pbfiles=`ls -1 *_pb2.py 2> /dev/null | sed 's#\.py##'`
-    for pbf in $pbfiles; do
-        echo "from $pbf import *" >> __init__.py
-    done
+    touch __init__.py
 
     popd > /dev/null
 done
+
+# Store a list of all proto packages
+pkglist=""
+pushd python/net > /dev/null
+protopkgs=`find . -name \*_pb2.py | sed 's#^\./\(.*_pb2\)\.py$#\1#' | sed 's#/#.#g'`
+for pkg in $protopkgs; do
+    pkglist="$pkglist\n    , '$pkg'"
+done
+echo "protos = [\n      ${pkglist:8}\n]" >> __init__.py
+popd > /dev/null
+

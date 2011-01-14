@@ -1,11 +1,10 @@
 package net.ooici.play;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/basic/basic.proto";
 
 message Location{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20018;
       _VERSION = 1;
     }
 	optional double lat = 1;
@@ -16,7 +15,7 @@ message Location{
 
 message ScalarDataPoint{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20019;
       _VERSION = 1;
     }
 	required net.ooici.core.link.CASRef location =1;
@@ -25,7 +24,7 @@ message ScalarDataPoint{
 
 message VectorData{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20020;
       _VERSION = 1;
     }
 	required double xi = 1;
@@ -35,7 +34,7 @@ message VectorData{
 
 message VectorDataPoint{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20021;
       _VERSION = 1;
     }
 	required net.ooici.core.link.CASRef location = 1;
@@ -44,7 +43,7 @@ message VectorDataPoint{
 
 message CTDSensor{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20022;
       _VERSION = 1;
     }
 	required string id = 1;
@@ -56,7 +55,7 @@ message CTDSensor{
 
 message ADCPSensor{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20023;
       _VERSION = 1;
     }
 	required string id = 1;
@@ -73,7 +72,7 @@ enum InstrumentType {
     
 message Instrument{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20024;
       _VERSION = 1;
     }
 	required string id = 1;
@@ -85,7 +84,7 @@ message Instrument{
 
 message Mooring{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20025;
       _VERSION = 1;
     }
 	required string id = 1;

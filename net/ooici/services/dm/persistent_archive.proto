@@ -7,7 +7,7 @@ import "net/ooici/core/type/type.proto";
 
 message CassandraHost{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2501;
       _VERSION = 1;
     }
     required string host=1;
@@ -19,7 +19,7 @@ message CassandraHost{
 // Persistence Credentials are used to log into an instance of a persistence technology
 message SimplePassword{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2502;
       _VERSION = 1;
     }
     optional string username=1;
@@ -28,7 +28,7 @@ message SimplePassword{
 
 message CassandraCredential{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2503;
       _VERSION = 1;
     }
     enum ACL {
@@ -45,7 +45,7 @@ message CassandraCredential{
 // An example would be a Cassandra Cluster or a IRODs Zone
 message CassandraCluster {
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2504;
       _VERSION = 1;
     }
     optional string name=1; // Cluster Name
@@ -59,7 +59,7 @@ message CassandraCluster {
 // IRODS is a second backend persistence technology.
 message IrodsZone{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2505;
       _VERSION = 1;
     }
     required string name=1;
@@ -77,12 +77,12 @@ message IrodsZone{
 // ION Persistent Archive maps to telephus ttype KsDef
 message CassandraKeySpace{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2506;
       _VERSION = 1;
     }
     required string name=1;
     optional string strategy_class=2;
-    optional string replication_factor=3;
+    optional sint32 replication_factor=3;
     repeated net.ooici.core.link.IDRef column_family=4;
 }
 
@@ -98,7 +98,7 @@ message CassandraKeySpace{
 // Map to telephus ttype CFDef
 message ColumnFamily{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2507;
       _VERSION = 1;
     }
     //required string keyspace=1; // name of the keyspace this CF belongs to
@@ -130,12 +130,12 @@ message ColumnFamily{
 // Map to telephus ttype ColumnDef:
 message ColumnDef{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 2508;
       _VERSION = 1;
     }
     optional string column_name=1;
     optional string validation_class=2;
-    optional string index_type=3;
+    optional sint32 index_type=3;
     optional string index_name=4;
 }
 
