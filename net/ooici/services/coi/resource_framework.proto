@@ -1,4 +1,4 @@
-package net.ooici.resource;
+package net.ooici.services.coi;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
