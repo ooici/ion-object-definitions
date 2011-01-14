@@ -5,8 +5,7 @@ message  GPBType{
         _ID = 9;
         _VERSION = 1;
     }
-    required string package = 1;
-    required string protofile = 2;
-    required string cls = 3;
+    required int32 object_id = 1;
+    required int32 version = 2;
     }
 
