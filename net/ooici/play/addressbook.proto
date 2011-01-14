@@ -6,7 +6,7 @@ import "net/ooici/core/link/link.proto";
 
 message Person {
   enum _MessageTypeIdentifier {
-    _ID = -1;
+    _ID = 20001;
     _VERSION = 1;
   }
   required string name = 1;
@@ -30,7 +30,7 @@ message Person {
 // Our address book file is just one of these.
 message AddressBook {
   enum _MessageTypeIdentifier {
-    _ID = -1;
+    _ID = 20002;
     _VERSION = 1;
   }
   repeated Person person = 1;
@@ -42,7 +42,7 @@ message AddressBook {
 // Our address book file is just one of these.
 message AddressLink {
   enum _MessageTypeIdentifier {
-    _ID = -1;
+    _ID = 20003;
     _VERSION = 1;
   }
   repeated net.ooici.core.link.CASRef person = 1;

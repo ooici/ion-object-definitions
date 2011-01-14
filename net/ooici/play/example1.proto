@@ -5,7 +5,7 @@ import "net/ooici/core/link/link.proto";
 
 message Location{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20011;
       _VERSION = 1;
     }
 	optional double lat = 1;
@@ -16,7 +16,7 @@ message Location{
 
 message ScalarDataPoint{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20012;
       _VERSION = 1;
     }
 	required Location location =1;
@@ -25,7 +25,7 @@ message ScalarDataPoint{
 
 message VectorData{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20013;
       _VERSION = 1;
     }
 	required double xi = 1;
@@ -35,7 +35,7 @@ message VectorData{
 
 message VectorDataPoint{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20014;
       _VERSION = 1;
     }
 	required Location location = 1;
@@ -44,7 +44,7 @@ message VectorDataPoint{
 
 message CTDSensor{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20015;
       _VERSION = 1;
     }
 	required string id = 1;
@@ -56,7 +56,7 @@ message CTDSensor{
 
 message ADCPSensor{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20016;
       _VERSION = 1;
     }
 	required string id = 1;
@@ -68,7 +68,7 @@ message ADCPSensor{
 
 message Mooring{
     enum _MessageTypeIdentifier {
-      _ID = -1;
+      _ID = 20017;
       _VERSION = 1;
     }
 	required string id = 1;
