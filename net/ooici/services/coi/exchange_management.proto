@@ -1,0 +1,85 @@
+package net.ooici.services.coi;
+
+import "net/ooici/core/link/link.proto";
+
+enum LifeCycleState {
+    New=1;
+    Active=2;
+    Inactive=3;
+    Commissioned=4;
+    Decommissioned=5;
+    Retired=6;
+    Developed=7;
+}
+
+
+message ExchangeSpace {
+    enum _MessageTypeIdentifier {
+      _ID = 1001;
+      _VERSION = 1;
+    }
+    required string name = 1;
+    required string description = 2;
+}
+
+message ExchangeName {
+    enum _MessageTypeIdentifier {
+      _ID = 1002;
+      _VERSION = 1;
+    }
+    enum Type {
+        EXCHANGE_NAME = 0;
+        EXCHANGE_POINT = 0;
+    }
+    required string name = 1;
+    required string description = 2;
+    required Type type = 3;
+}
+
+message AMQPMapping {
+    enum _MessageTypeIdentifier {
+      _ID = 1003;
+      _VERSION = 1;
+    }
+    enum ExchangeType {
+        DIRECT = 0;
+        FANOUT = 1;
+        TOPIC = 2;
+    }
+    enum DeliveryMode {
+        TRANSIENT = 1;
+        PERSISTENT = 2;
+    }
+    required string name = 1;
+    required string description = 2;
+    required ExchangeType exchangetype = 3;
+    required DeliveryMode deliverymode = 4;
+    required bool durable = 5;
+    required bool autodelete = 6;
+    required bool autodeclare = 7;
+}
+
+message BrokerCredentials {
+    enum _MessageTypeIdentifier {
+      _ID = 1004;
+      _VERSION = 1;
+    }
+    required string name = 1;
+    required string description = 2;
+    required string hostname = 3;
+    required int32 port = 4;
+    required int32 connecttimeout = 5;
+    required bool ssl = 6;
+    required string vhost = 7;
+    required string userid = 8;
+    required string password = 9;
+}
+
+message BrokerFederation {
+    enum _MessageTypeIdentifier {
+      _ID = 1005;
+      _VERSION = 1;
+    }
+    required string name = 1;
+    required string description = 2;
+}
