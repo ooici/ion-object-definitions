@@ -8,5 +8,5 @@ message Dataset {
         _ID = 10001;
         _VERSION = 1;
     }
-   required net.ooici.core.link.CASRef rootGroup = 1;
+   optional net.ooici.core.link.CASRef root_group = 1;
 }
