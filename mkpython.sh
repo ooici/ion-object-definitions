@@ -11,7 +11,7 @@ for d in $dirs; do
     pushd $d > /dev/null
 
     # Wipe the last build
-    rm __init__.py
+    rm __init__.py >& /dev/null
     touch __init__.py
 
     popd > /dev/null
