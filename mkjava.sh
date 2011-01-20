@@ -12,6 +12,11 @@ protofiles=`find net -name \*.proto`
 
 for f in $protofiles; do 
     protoc --java_out="java/classes" $f;
+    if [ $? -ne 0 ]
+    then
+        echo 'failed to compile...exiting'
+        exit 1
+    fi
 done
 
 
