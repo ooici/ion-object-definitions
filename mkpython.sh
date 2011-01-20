@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 protofiles=`find net -name \*.proto`
 
