@@ -161,11 +161,11 @@ message ConfigurationMessage{
     optional net.ooici.core.link.CASRef pa_configuration = 2;
     
     // The cache resource ID
-    optional net.ooici.core.link.IDRef cache = 1; 
+    optional net.ooici.core.link.IDRef cache = 3; 
 
     // Desired configuration of the cache
     //    Will be type of cache
-    optional net.ooici.core.link.CASRef cache_configuration = 2;
+    optional net.ooici.core.link.CASRef cache_configuration = 4;
 
 
 }
