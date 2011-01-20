@@ -18,8 +18,8 @@ message ExchangeSpace {
       _ID = 1001;
       _VERSION = 1;
     }
-    required string name = 1;
-    required string description = 2;
+    optional string name = 1;
+    optional string description = 2;
 }
 
 message ExchangeName {
@@ -33,11 +33,11 @@ message ExchangeName {
         EXCHANGE_POINT = 3;
         QUEUE = 4;
     }
-    required string name = 1;
-    required string description = 2;
-    required Type type = 3;
- 	required ExchangeSpace exchangespace = 4;
-    required AMQPExchangeMapping mapping = 5;
+    optional string name = 1;
+    optional string description = 2;
+    optional Type type = 3;
+ 	optional ExchangeSpace exchangespace = 4;
+    optional AMQPExchangeMapping mapping = 5;
 }
 
 message Queue {
@@ -45,7 +45,7 @@ message Queue {
       _ID = 1003;
       _VERSION = 1;
     }
-    required AMQPQueueMapping mapping = 1;
+    optional AMQPQueueMapping mapping = 1;
 }
 
 message Binding {
@@ -70,13 +70,13 @@ message AMQPExchangeMapping {
         TRANSIENT = 1;
         PERSISTENT = 2;
     }
-    required string exchangename = 1;  // name="exchange" 
-    required ExchangeType type = 2;
-    required bool passive = 3;
-    required bool durable = 4;
-    required bool autodelete = 5;      // name="auto delete"
-    required bool internal = 6;
-    required bool nowait = 7;
+    optional string exchangename = 1;  // name="exchange" 
+    optional ExchangeType type = 2;
+    optional bool passive = 3;
+    optional bool durable = 4;
+    optional bool autodelete = 5;      // name="auto delete"
+    optional bool internal = 6;
+    optional bool nowait = 7;
 }
 
 message AMQPQueueMapping {
@@ -94,11 +94,11 @@ message AMQPQueueMapping {
         TRANSIENT = 1;
         PERSISTENT = 2;
     }
-    required string queuename = 1;   // name="queue" 
-	required bool passive = 2;
-	required bool durable = 3;
-	required bool exclusive = 4;
-	required bool autodelete = 5;
+    optional string queuename = 1;   // name="queue" 
+	optional bool passive = 2;
+	optional bool durable = 3;
+	optional bool exclusive = 4;
+	optional bool autodelete = 5;
 }
 
 message AMQPBrokerCredentials {
@@ -109,15 +109,15 @@ message AMQPBrokerCredentials {
 
 	// Based on the RabbitMQ 2.2 Java client.
 
-    required string brokername = 1;
-    required string host = 2;
-    required int32  port = 3;
-    required int32 channelmax = 4;
-    required int32 framemax = 5;
-    required int32 heartbeat = 6;
-    required string username = 7;
-    required string password = 8;
-    required bool sslprotocol = 9;
+    optional string brokername = 1;
+    optional string host = 2;
+    optional int32  port = 3;
+    optional int32 channelmax = 4;
+    optional int32 framemax = 5;
+    optional int32 heartbeat = 6;
+    optional string username = 7;
+    optional string password = 8;
+    optional bool sslprotocol = 9;
 }
 
 message BrokerFederation {
@@ -125,6 +125,15 @@ message BrokerFederation {
       _ID = 1008;
       _VERSION = 1;
     }
-    required string name = 1;
-    required string description = 2;
+    optional string name = 1;
+    optional string description = 2;
+}
+
+message HardwareMapping {
+    enum _MessageTypeIdentifier {
+      _ID = 1009;
+      _VERSION = 1;
+    }
+    optional string name = 1;
+    optional string description = 2;
 }
