@@ -31,11 +31,11 @@ setupdict = {
 try:
     from setuptools import setup, find_packages
     setupdict['packages'] = find_packages()
-    setupdict['install_requires'] = ['protobuf>=2.3.0']
+    setupdict['install_requires'] = ['protobuf==2.3.0']
     setupdict['include_package_data'] = True
     setup(**setupdict)
 
 except ImportError:
     from distutils.core import setup
-    setupdict['packages'] = ['ionproto']
+    setupdict['packages'] = ['net']
     setup(**setupdict)
