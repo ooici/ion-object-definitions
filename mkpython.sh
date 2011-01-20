@@ -1,9 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 protofiles=`find net -name \*.proto`
 
 for f in $protofiles; do 
     protoc --python_out=python $f;
+    if [ $? -ne 0 ]
+    then
+        echo 'failed to compile...exiting'
+        exit 1
+    fi
 done
 
 dirs=`find python/net -type d`

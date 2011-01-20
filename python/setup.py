@@ -10,7 +10,7 @@
 
 setupdict = {
     'name' : 'ionproto',
-    'version' : '0.2.1',
+    'version' : '0.2.2',
     'description' : 'OOI LCA protocol buffers auto-generated code',
     'url': 'http://www.oceanobservatories.org/spaces/display/CIDev/LCAARCH+Development+Project',
     'download_url' : 'http://ooici.net/packages',
@@ -31,11 +31,11 @@ setupdict = {
 try:
     from setuptools import setup, find_packages
     setupdict['packages'] = find_packages()
-    setupdict['install_requires'] = ['protobuf>=2.3.0']
+    setupdict['install_requires'] = ['protobuf==2.3.0']
     setupdict['include_package_data'] = True
     setup(**setupdict)
 
 except ImportError:
     from distutils.core import setup
-    setupdict['packages'] = ['ionproto']
+    setupdict['packages'] = ['net']
     setup(**setupdict)

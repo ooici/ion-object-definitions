@@ -141,3 +141,36 @@ message ColumnDef{
 
 
 // ION Cache maps to Irods ?
+
+
+// Persistent Archive Service messages are used to communicate between the
+// management and controller services and the agent which manages the resource
+// and configures the technology.
+
+message ConfigurationMessage{
+    enum _MessageTypeIdentifier {
+      _ID = 2509;
+      _VERSION = 1;
+    }
+    
+    // The persistent archive resource ID
+    optional net.ooici.core.link.IDRef persistent_archive = 1; 
+
+    // Desired configuration of the persistent archive
+    //    Will be type of persistent archive
+    optional net.ooici.core.link.CASRef pa_configuration = 2;
+    
+    // The cache resource ID
+    optional net.ooici.core.link.IDRef cache = 3; 
+
+    // Desired configuration of the cache
+    //    Will be type of cache
+    optional net.ooici.core.link.CASRef cache_configuration = 4;
+
+
+}
+
+
+
+
+
