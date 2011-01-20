@@ -28,17 +28,37 @@ message ExchangeName {
       _VERSION = 1;
     }
     enum Type {
-        EXCHANGE_NAME = 0;
-        EXCHANGE_POINT = 0;
+        PROCESS = 1;
+        SERVICE = 2;
+        EXCHANGE_POINT = 3;
+        QUEUE = 4;
     }
     required string name = 1;
     required string description = 2;
     required Type type = 3;
+ 	required ExchangeSpace exchangespace = 4;
+    required AMQPExchangeMapping mapping = 5;
 }
 
-message AMQPMapping {
+message Queue {
     enum _MessageTypeIdentifier {
       _ID = 1003;
+      _VERSION = 1;
+    }
+    required AMQPQueueMapping mapping = 1;
+}
+
+message Binding {
+    enum _MessageTypeIdentifier {
+      _ID = 1004;
+      _VERSION = 1;
+    }
+}
+
+
+message AMQPExchangeMapping {
+    enum _MessageTypeIdentifier {
+      _ID = 1005;
       _VERSION = 1;
     }
     enum ExchangeType {
@@ -50,34 +70,59 @@ message AMQPMapping {
         TRANSIENT = 1;
         PERSISTENT = 2;
     }
-    required string name = 1;
-    required string description = 2;
-    required ExchangeType exchangetype = 3;
-    required DeliveryMode deliverymode = 4;
-    required bool durable = 5;
-    required bool autodelete = 6;
-    required bool autodeclare = 7;
+    required string exchangename = 1;  // name="exchange" 
+    required ExchangeType type = 2;
+    required bool passive = 3;
+    required bool durable = 4;
+    required bool autodelete = 5;      // name="auto delete"
+    required bool internal = 6;
+    required bool nowait = 7;
 }
 
-message BrokerCredentials {
+message AMQPQueueMapping {
+
     enum _MessageTypeIdentifier {
-      _ID = 1004;
+      _ID = 1006;
       _VERSION = 1;
     }
-    required string name = 1;
-    required string description = 2;
-    required string hostname = 3;
-    required int32 port = 4;
-    required int32 connecttimeout = 5;
-    required bool ssl = 6;
-    required string vhost = 7;
-    required string userid = 8;
-    required string password = 9;
+    enum ExchangeType {
+        DIRECT = 0;
+        FANOUT = 1;
+        TOPIC = 2;
+    }
+    enum DeliveryMode {
+        TRANSIENT = 1;
+        PERSISTENT = 2;
+    }
+    required string queuename = 1;   // name="queue" 
+	required bool passive = 2;
+	required bool durable = 3;
+	required bool exclusive = 4;
+	required bool autodelete = 5;
+}
+
+message AMQPBrokerCredentials {
+    enum _MessageTypeIdentifier {
+      _ID = 1007;
+      _VERSION = 1;
+    }
+
+	// Based on the RabbitMQ 2.2 Java client.
+
+    required string brokername = 1;
+    required string host = 2;
+    required int32  port = 3;
+    required int32 channelmax = 4;
+    required int32 framemax = 5;
+    required int32 heartbeat = 6;
+    required string username = 7;
+    required string password = 8;
+    required bool sslprotocol = 9;
 }
 
 message BrokerFederation {
     enum _MessageTypeIdentifier {
-      _ID = 1005;
+      _ID = 1008;
       _VERSION = 1;
     }
     required string name = 1;
