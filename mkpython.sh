@@ -27,8 +27,11 @@ pkglist=""
 pushd python/net > /dev/null
 protopkgs=`find . -name \*_pb2.py | sed 's#^\./\(.*_pb2\)\.py$#\1#' | sed 's#/#.#g'`
 for pkg in $protopkgs; do
-    pkglist="$pkglist\n    , '$pkg'"
+    pkglist="$pkglist
+    , '$pkg'"
 done
-echo "protos = [\n      ${pkglist:8}\n]" >> __init__.py
+echo "protos = [
+      ${pkglist:7}
+]" >> __init__.py
 popd > /dev/null
 
