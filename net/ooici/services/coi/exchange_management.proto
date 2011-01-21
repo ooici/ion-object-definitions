@@ -2,6 +2,15 @@ package net.ooici.services.coi;
 
 import "net/ooici/core/link/link.proto";
 
+// @brief Exchange Management Protocol Buffer Definitions
+// @author Brian Fox
+//
+// Provides the necessary definitions to allow the Exchange Management
+// system to persist its configuration in the data management system.  
+// The objects contain configuration parameters for ION objects as well
+// AMQP, Solace, and RabbitMQ details behind those ION objects.
+
+
 enum LifeCycleState {
     New=1;
     Active=2;
@@ -12,6 +21,10 @@ enum LifeCycleState {
     Developed=7;
 }
 
+// ION OBJECTS
+// These objects have specific definitions within the
+// ION system and are defined by OOICI.  Implementation
+// is built upon AMQP.
 
 message ExchangeSpace {
     enum _MessageTypeIdentifier {
@@ -56,6 +69,12 @@ message Binding {
 }
 
 
+
+
+// AMQP MAPPING OBJECTS
+//
+//
+
 message AMQPExchangeMapping {
     enum _MessageTypeIdentifier {
       _ID = 1005;
@@ -70,6 +89,9 @@ message AMQPExchangeMapping {
         TRANSIENT = 1;
         PERSISTENT = 2;
     }
+    
+    // SOURCE: amqp-xml-doc0-8.pdf
+    
     optional string exchangename = 1;  // name="exchange" 
     optional ExchangeType type = 2;
     optional bool passive = 3;
@@ -94,6 +116,9 @@ message AMQPQueueMapping {
         TRANSIENT = 1;
         PERSISTENT = 2;
     }
+
+    // SOURCE: amqp-xml-doc0-8.pdf
+
     optional string queuename = 1;   // name="queue" 
 	optional bool passive = 2;
 	optional bool durable = 3;
@@ -107,7 +132,7 @@ message AMQPBrokerCredentials {
       _VERSION = 1;
     }
 
-	// Based on the RabbitMQ 2.2 Java client.
+	// SOURCE: RabbitMQ 2.2 Java client.
 
     optional string brokername = 1;
     optional string host = 2;
@@ -120,6 +145,10 @@ message AMQPBrokerCredentials {
     optional bool sslprotocol = 9;
 }
 
+
+// RABBITMQ MAPPING OBJECTS
+//
+
 message BrokerFederation {
     enum _MessageTypeIdentifier {
       _ID = 1008;
@@ -127,7 +156,15 @@ message BrokerFederation {
     }
     optional string name = 1;
     optional string description = 2;
+
+	// Premature for now
+	// @todo:expand this definition
 }
+
+
+
+// SOLACE ROUTER MAPPING OBJECTS
+//
 
 message HardwareMapping {
     enum _MessageTypeIdentifier {
@@ -136,4 +173,7 @@ message HardwareMapping {
     }
     optional string name = 1;
     optional string description = 2;
+
+	// Premature for now
+	// @todo:expand this definition
 }
