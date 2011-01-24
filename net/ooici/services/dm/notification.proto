@@ -8,19 +8,18 @@ message NotificationMessage{
 		_ID = 2304;
 		_VERSION = 1;
 	}
-	optional string id = 1;
-	optional string data_resource_id = 2;
-	optional string name = 3;
+	optional string data_resource_id = 1;
+	optional string name = 2;
 	enum Status {
 		IN_PROGRESS = 1;
 		CACHED = 2;
 		ERROR = 3;
 		NO_CACHE = 4;
 	}
-	optional Status status = 4;
-	optional string description = 5;
-	optional double datetime = 6;
-	optional string origin = 7;
+	optional Status status = 3;
+	optional string description = 4;
+	optional double datetime = 5;
+	optional string origin = 6;
 	// Not sure what this field is for
-	optional string body = 8;
+	optional string body = 7;
 }
