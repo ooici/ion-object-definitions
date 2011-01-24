@@ -9,7 +9,8 @@ import "net/ooici/core/link/link.proto";
 // system to persist its configuration in the data management system.  
 // The objects contain configuration parameters for ION objects as well
 // AMQP, Solace, and RabbitMQ details behind those ION objects.
-
+//
+// 
 
 enum LifeCycleState {
     New=1;
