@@ -3,7 +3,7 @@ package net.ooici.core.message;
 import "net/ooici/core/link/link.proto";
 
 
-message ConfigureResource{
+message UpdateResource{
     enum _MessageTypeIdentifier {
       _ID = 10;
       _VERSION = 1;
