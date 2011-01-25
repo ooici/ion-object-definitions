@@ -15,7 +15,7 @@ message DatasetEntryMessage{
 	optional string title = 5;
 	optional string data_type = 6;
 	optional string naming_authority = 7;
-	optional string summery = 8;
+	optional string summary = 8;
 	message Person {
 		optional string name = 1;
 		optional string email = 2;
