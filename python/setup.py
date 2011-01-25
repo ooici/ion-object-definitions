@@ -31,7 +31,7 @@ setupdict = {
 try:
     from setuptools import setup, find_packages
     setupdict['packages'] = find_packages()
-    setupdict['install_requires'] = ['protobuf==2.3.0']
+    setupdict['install_requires'] = ['protobuf==2.3.0-p1']
     setupdict['include_package_data'] = True
     setup(**setupdict)
 
