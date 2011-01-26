@@ -19,10 +19,27 @@ for f in $protofiles; do
     fi
 done
 
+# Store a list of all proto packages
+pkglist=""
+pushd java/classes > /dev/null
+protopkgs=`find . -name \*.java | sed 's#^\./\(.*\)\.java$#\1#' | sed 's#/#.#g'`
+for pkg in $protopkgs; do
+    pkglist="$pkglist
+    , \"$pkg\""
+done
+pushd net > /dev/null
+echo "package net;
+
+public class Init {
+   public static final String[] protos = {
+      ${pkglist:7}
+    };
+}" > Init.java
+popd > /dev/null
+popd > /dev/null
 
 echo "Compile .java classes"
 javac -cp protobuf-java-2.3.0.jar `find java/classes/net -name \*.java`
-
 
 echo "Build jar file"
 cd "java/classes"

@@ -9,17 +9,16 @@ message SubscriptionMessage{
 		_VERSION = 1;
 	}
 
-	optional string id = 1;
-	optional string data_resource_id = 2;
-	optional string name = 3;
-	optional string source = 4;
-	optional double datetime = 5;
+	optional string data_resource_id = 1;
+	optional string name = 2;
+	optional string source = 3;
+	optional double datetime = 4;
 	enum DeliveryMode {
 		INSTANT = 1;
 		DIGEST = 2;
 	}
-	optional DeliveryMode delivery_mode = 6;
-	optional double delivery_interval = 7;
+	optional DeliveryMode delivery_mode = 5;
+	optional double delivery_interval = 6;
 	enum DeliveryChannel {
 		WEBUI = 1;
 		DISPATCHER = 2;
@@ -27,6 +26,6 @@ message SubscriptionMessage{
 		RSS = 4;
 		TWITTER = 5;
 	}
-	optional DeliveryChannel delivery_channel = 8;
-	optional string delivery_address = 9;
+	optional DeliveryChannel delivery_channel = 7;
+	optional string delivery_address = 8;
 }

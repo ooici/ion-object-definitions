@@ -8,26 +8,25 @@ message DatasetEntryMessage{
 		_ID = 2301;
 		_VERSION = 1;
 	}
-	optional string id = 1;
-	optional string provider = 2;
-	optional string format = 3;
-	optional string protocol = 4;
-	optional string type = 5;
-	optional string title = 6;
-	optional string data_type = 7;
-	optional string naming_authority = 8;
-	optional string summery = 9;
+	optional string provider = 1;
+	optional string format = 2;
+	optional string protocol = 3;
+	optional string type = 4;
+	optional string title = 5;
+	optional string data_type = 6;
+	optional string naming_authority = 7;
+	optional string summary = 8;
 	message Person {
 		optional string name = 1;
 		optional string email = 2;
 		optional string website = 3;
 		optional string institution = 4;		
 	}
-	optional Person publisher = 10;
-	optional Person creator = 11;
+	optional Person publisher = 9;
+	optional Person creator = 10;
 	// DAP URL
-	optional string open_dap = 12;
+	optional string open_dap = 11;
 	// time_t plus fractional seconds
-	optional double last_updated = 13;
-	optional double date_created = 14;
+	optional double last_updated = 12;
+	optional double date_created = 13;
 }
