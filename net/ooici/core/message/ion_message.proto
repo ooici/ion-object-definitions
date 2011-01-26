@@ -10,7 +10,7 @@ message IonMessage{
       _VERSION = 1;
     }
     optional string name = 1;
-    required string identity = 2;
-    required net.ooici.core.type.GPBType type=3;
+    optional string identity = 2;
+    optional net.ooici.core.type.GPBType type=3;
     optional net.ooici.core.link.CASRef message_object = 4;
 }

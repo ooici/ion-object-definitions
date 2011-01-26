@@ -155,10 +155,10 @@ message ConfigurationMessage{
     }
     
     // The Persistent Archive configuration
-    optional net.ooici.core.message.UpdateResourceRequest persistent_archive = 1; 
+    optional net.ooici.core.message.ResourceConfigurationRequest persistent_archive = 1; 
 
     // The Cache  configuration
-    optional net.ooici.core.message.UpdateResourceRequest cache = 2; 
+    optional net.ooici.core.message.ResourceConfigurationRequest cache = 2; 
 
 }
 
