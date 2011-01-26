@@ -2,7 +2,7 @@ package net.ooici.services.dm;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
-import "net/ooici/core/message/configuration.proto";
+import "net/ooici/core/message/resource_request.proto";
 
 // HostList is a component of a Storage Deployment
 
@@ -155,10 +155,10 @@ message ConfigurationMessage{
     }
     
     // The Persistent Archive configuration
-    optional net.ooici.core.message.UpdateResource persistent_archive = 1; 
+    optional net.ooici.core.message.UpdateResourceRequest persistent_archive = 1; 
 
     // The Cache  configuration
-    optional net.ooici.core.message.UpdateResource cache = 2; 
+    optional net.ooici.core.message.UpdateResourceRequest cache = 2; 
 
 }
 

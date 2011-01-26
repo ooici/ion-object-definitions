@@ -2,14 +2,13 @@ package net.ooici.core.message;
 
 import "net/ooici/core/link/link.proto";
 
-
-message UpdateResource{
+message UpdateResourceRequest{
     enum _MessageTypeIdentifier {
       _ID = 10;
       _VERSION = 1;
     }
     // The identifier for the resource to configure
-    optional net.ooici.core.link.IDRef resource = 1;
+    optional net.ooici.core.link.CASRef resource_reference = 1;
 
     // The desired configuration object
     optional net.ooici.core.link.CASRef configuration = 2;
