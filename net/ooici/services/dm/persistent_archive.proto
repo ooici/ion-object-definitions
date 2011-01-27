@@ -11,7 +11,7 @@ message CassandraHost{
       _ID = 2501;
       _VERSION = 1;
     }
-    required string host=1;
+    optional string host=1;
     optional int32 port=2;
 }
 
@@ -63,9 +63,9 @@ message IrodsZone{
       _ID = 2505;
       _VERSION = 1;
     }
-    required string name=1;
+    optional string name=1;
     repeated string hosts=2;
-    required string version=3;
+    optional string version=3;
     optional net.ooici.core.link.IDRef credentials=4;
 }
 
@@ -81,7 +81,7 @@ message CassandraKeySpace{
       _ID = 2506;
       _VERSION = 1;
     }
-    required string name=1;
+    optional string name=1;
     optional string strategy_class=2;
     optional sint32 replication_factor=3;
     repeated net.ooici.core.link.IDRef column_family=4;
@@ -102,8 +102,8 @@ message ColumnFamily{
       _ID = 2507;
       _VERSION = 1;
     }
-    //required string keyspace=1; // name of the keyspace this CF belongs to
-    required string name=2; // name of the column family
+    //optional string keyspace=1; // name of the keyspace this CF belongs to
+    optional string name=2; // name of the column family
     optional string column_type=3; // One of "Standard" or "Super"
     // 4 None
     optional string comparator_type=5; // Name of comparator used for column sorting
