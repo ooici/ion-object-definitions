@@ -2,6 +2,7 @@ package net.ooici.services.dm;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
+import "net/ooici/core/message/resource_request.proto";
 
 // HostList is a component of a Storage Deployment
 
@@ -141,3 +142,27 @@ message ColumnDef{
 
 
 // ION Cache maps to Irods ?
+
+
+// Persistent Archive Service messages are used to communicate between the
+// management and controller services and the agent which manages the resource
+// and configures the technology.
+
+message ConfigurationMessage{
+    enum _MessageTypeIdentifier {
+      _ID = 2509;
+      _VERSION = 1;
+    }
+    
+    // The Persistent Archive configuration
+    optional net.ooici.core.message.ResourceConfigurationRequest persistent_archive = 1; 
+
+    // The Cache  configuration
+    optional net.ooici.core.message.ResourceConfigurationRequest cache = 2; 
+
+}
+
+
+
+
+

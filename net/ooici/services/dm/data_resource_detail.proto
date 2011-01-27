@@ -1,0 +1,21 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+message DataResourceDetailMessage{
+	enum _MessageTypeIdentifier {
+		_ID = 2302;
+		_VERSION = 1;
+	}
+
+	enum detailType {
+ 		SUMMARY = 1;
+		METADATA = 2;
+		VARIABLE_NAME = 3;
+		VARIABLE_EXTENTS = 4;
+		VISUALIZATIONS = 5;
+	}
+	optional detailType type = 1;
+	optional string body = 2;
+}

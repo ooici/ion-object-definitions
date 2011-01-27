@@ -9,7 +9,8 @@ import "net/ooici/core/link/link.proto";
 // system to persist its configuration in the data management system.  
 // The objects contain configuration parameters for ION objects as well
 // AMQP, Solace, and RabbitMQ details behind those ION objects.
-
+//
+// 
 
 enum LifeCycleState {
     New=1;
@@ -142,7 +143,7 @@ message AMQPBrokerCredentials {
     optional int32 heartbeat = 6;
     optional string username = 7;
     optional string password = 8;
-    optional bool sslprotocol = 9;
+    optional bool sslprotocol = 9; 
 }
 
 

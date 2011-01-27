@@ -1,0 +1,32 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+message DatasetEntryMessage{
+	enum _MessageTypeIdentifier {
+		_ID = 2301;
+		_VERSION = 1;
+	}
+	optional string provider = 1;
+	optional string format = 2;
+	optional string protocol = 3;
+	optional string type = 4;
+	optional string title = 5;
+	optional string data_type = 6;
+	optional string naming_authority = 7;
+	optional string summary = 8;
+	message Person {
+		optional string name = 1;
+		optional string email = 2;
+		optional string website = 3;
+		optional string institution = 4;		
+	}
+	optional Person publisher = 9;
+	optional Person creator = 10;
+	// DAP URL
+	optional string open_dap = 11;
+	// time_t plus fractional seconds
+	optional double last_updated = 12;
+	optional double date_created = 13;
+}

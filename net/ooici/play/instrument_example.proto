@@ -1,0 +1,25 @@
+package net.ooici.play;
+
+
+message InstrumentResource{
+    enum _MessageTypeIdentifier {
+      _ID = 20029;
+      _VERSION = 1;
+    }
+    optional string name = 1;
+    optional string make = 2;
+    optional string model = 3;
+    optional string serial_number = 4;
+}
+
+message InstrumentInfoObject{
+    enum _MessageTypeIdentifier {
+      _ID = 20030;
+      _VERSION = 1;
+    }
+    optional string name = 1;
+    optional string make = 2;
+    optional string model = 3;
+    optional string serial_number = 4;
+}
+
