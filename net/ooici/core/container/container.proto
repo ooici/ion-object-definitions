@@ -9,7 +9,7 @@ message StructureElement {
         _ID = 1;
         _VERSION = 1;
     }
-	required string key = 1;
+	required bytes key = 1;
 	required net.ooici.core.type.GPBType type = 2;
 	required bool isleaf = 3;
     required bytes value = 4;
