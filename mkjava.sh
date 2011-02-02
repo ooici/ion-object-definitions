@@ -43,4 +43,4 @@ javac -cp protobuf-java-2.3.0.jar `find java/classes/net -name \*.java`
 
 echo "Build jar file"
 cd "java/classes"
-jar cvf "../dist/ion_proto_0.3.1.jar" `find net -name \*.class`
+jar cvf "../dist/ion_proto_0.3.2.jar" `find net -name \*.class`

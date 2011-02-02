@@ -22,4 +22,25 @@ message NotificationMessage{
 	optional string origin = 6;
 	// Not sure what this field is for
 	optional string body = 7;
+    // define additional notification messages and link them here
+    optional net.ooici.core.link.CASRef additional_data = 8;
 }
+
+message LogNotificationMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2305;
+        _VERSION = 1;
+    }
+
+    optional string message = 1;
+    optional string levelname = 2;
+    optional int32 levelno = 3;
+    optional string asctime = 4;
+    optional string createdtime = 5;
+    optional string filename = 6;
+    optional string funcName = 7;
+    optional int32 lineno = 8;
+    optional string module = 9;
+    optional string pathname = 10;
+}
+
