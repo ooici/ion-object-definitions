@@ -20,7 +20,7 @@ message Structure {
         _ID = 2;
         _VERSION = 1;
     }
-	optional StructureElement head = 1;
+	repeated StructureElement heads = 1;
 	repeated StructureElement items = 2;
 }
 
