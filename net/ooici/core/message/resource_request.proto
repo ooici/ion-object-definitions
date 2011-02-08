@@ -2,6 +2,16 @@ package net.ooici.core.message;
 
 import "net/ooici/core/link/link.proto";
 
+enum LifeCycleOperation {
+	ACTIVATE=1;
+	DEACTIVATE=2;
+	COMMISSION=3;
+	DECOMMISSION=4;
+	RETIRE=5;
+	DEVELOPE=6;
+    }
+
+
 message ResourceConfigurationRequest{
     enum _MessageTypeIdentifier {
       _ID = 10;
@@ -14,14 +24,7 @@ message ResourceConfigurationRequest{
     // The desired configuration object
     optional net.ooici.core.link.CASRef configuration = 2;
     
-    enum LifeCycleOperation {
-	Activate=1;
-	Deactivate=2;
-	Commission=3;
-	Decommission=4;
-	Retire=5;
-	Develope=6;
-    }
+    
     
     optional LifeCycleOperation life_cycle_operation = 3;
     

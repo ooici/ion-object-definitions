@@ -3,6 +3,17 @@ package net.ooici.services.coi;
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
 
+enum LifeCycleState {
+	NEW=1;
+	ACTIVE=2;
+	INACTIVE=3;
+	COMMISSIONED=4;
+	DECOMMISSIONED=5;
+	RETIRED=6;
+	DEVELOPED=7;
+	UPDATE=8; // A state reserved for an update record.
+    }
+
 
 message ResourceDescription {
     enum _MessageTypeIdentifier {
@@ -21,16 +32,6 @@ message OOIResource {
       _VERSION = 1;
     }
     
-    enum LifeCycleState {
-	New=1;
-	Active=2;
-	Inactive=3;
-	Commissioned=4;
-	Decommissioned=5;
-	Retired=6;
-	Developed=7;
-	Update=8; // A state reserved for an update record.
-    }
     
     // An OOI Resource object has several metadata parameters describing it in
     // a standard from. The actual resource object is contained by reference by
@@ -38,7 +39,7 @@ message OOIResource {
     required string name = 1;
     required string identity = 2;
     required net.ooici.core.type.GPBType type=3;
-    required LifeCycleState lcs = 4 [default = New];
+    required LifeCycleState lcs = 4 [default = NEW];
     required net.ooici.core.link.CASRef resource_object = 5;
     optional string description = 6;
 

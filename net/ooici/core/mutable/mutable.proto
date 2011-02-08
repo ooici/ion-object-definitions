@@ -21,10 +21,6 @@ message MutableNode {
 	repeated Branch branches = 2;
 }
 
-//enum Relationship{
-//	Parent = 1;
-//	MergedFrom = 2;
-//}
 
 
 message ParentRef{
@@ -33,8 +29,8 @@ message ParentRef{
         _VERSION = 1;
     }
 	enum Relationship{
-		Parent = 1;
-		MergedFrom = 2;
+		PARENT = 1;
+		MERGEDFROM = 2;
 	}
 
 	required Relationship relationship = 1;
@@ -47,9 +43,10 @@ message CommitRef {
         _ID = 8;
         _VERSION = 1;
     }
-	required string comment = 1;
-	required double date = 2;
+	optional string comment = 1;
+	optional double date = 2;
 	repeated ParentRef parentrefs = 3;
-	required net.ooici.core.link.CASRef objectroot = 4;
+	optional net.ooici.core.link.CASRef objectroot = 4;
+	optional string root_seed = 5; // only used in the first commit in a repository to make the tree unique!
 }
 
