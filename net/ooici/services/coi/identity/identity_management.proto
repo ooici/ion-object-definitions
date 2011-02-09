@@ -1,15 +1,28 @@
 package net.ooici.services.coi.identity;
 
-enum _MessageTypeIdentifier {
+import "net/ooici/core/link/link.proto";
+
+
+message UserIdentity {
+   enum _MessageTypeIdentifier {
        _ID = 1401;
-       _VERSION = 1;
+       _VERSION = 2;
    }
 
-message IdentityDescription {
 
-	// objects in a protofile are called messages
+   // objects in a protofile are called messages
 
-	optional string subject=1;
-	optional string certificate=2;
-	optional string rsa_private_key=3;
+   optional string subject=1;
+   optional string certificate=2;
+   optional string rsa_private_key=3;
 }
+
+message UserCatalog {
+  enum _MessageTypeIdentifier {
+    _ID = 1402;
+    _VERSION = 1;
+  }
+  repeated UserIdentity user = 1;
+}
+
+
