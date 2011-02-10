@@ -72,19 +72,10 @@ message Queue {
     }
     optional string name = 1;
     optional string description = 2;
-    optional ExchangeName exchangename = 3;  // sha1 to EN above
-    optional AMQPQueueMapping mapping = 4;   // sha1 to AQM below
+    optional string exchangespace = 3;  
+    optional string exchangename = 4;  
+    optional string topic = 5;  
 }
-
-message Binding {
-    enum _MessageTypeIdentifier {
-        _ID = 1005;
-        _VERSION = 1;
-    }
-    optional string name = 1;
-    optional string description = 2;
-}
-
 
 
 
