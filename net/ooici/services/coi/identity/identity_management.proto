@@ -6,7 +6,7 @@ import "net/ooici/core/link/link.proto";
 message UserIdentity {
    enum _MessageTypeIdentifier {
        _ID = 1401;
-       _VERSION = 2;
+       _VERSION = 1;
    }
 
 
