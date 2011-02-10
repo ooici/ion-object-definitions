@@ -1,0 +1,16 @@
+package net.ooici.core.association;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+import "net/ooici/core/message/resource_request.proto";
+
+
+message Association{
+    enum _MessageTypeIdentifier {
+      _ID = 13;
+      _VERSION = 1;
+    }
+    optional net.ooici.core.link.CASRef subject = 1;
+    optional net.ooici.core.link.CASRef predicate = 2;
+    optional net.ooici.core.link.CASRef object = 3;
+}
