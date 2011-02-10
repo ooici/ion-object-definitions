@@ -27,10 +27,21 @@ enum LifeCycleState {
 // ION system and are defined by OOICI.  Implementation
 // is built upon AMQP.
 
+message Broker {
+    enum _MessageTypeIdentifier {
+        _ID = 1001;
+        _VERSION = 1;
+    }
+    optional string name = 1;
+    optional string description = 2;
+    optional AMQPBrokerCredentials brokercredentials = 3;  // sha1 to BC above
+}	
+
+
 message ExchangeSpace {
     enum _MessageTypeIdentifier {
-      _ID = 1001;
-      _VERSION = 1;
+        _ID = 1002;
+        _VERSION = 1;
     }
     optional string name = 1;
     optional string description = 2;
@@ -38,8 +49,8 @@ message ExchangeSpace {
 
 message ExchangeName {
     enum _MessageTypeIdentifier {
-      _ID = 1002;
-      _VERSION = 1;
+        _ID = 1003;
+        _VERSION = 1;
     }
     enum Type {
         PROCESS = 1;
@@ -49,24 +60,29 @@ message ExchangeName {
     }
     optional string name = 1;
     optional string description = 2;
-    optional Type type = 3;
- 	optional ExchangeSpace exchangespace = 4;
-    optional AMQPExchangeMapping mapping = 5;
+    optional Type type = 3;    
+    optional string exchangespace = 4;  // 
+    optional string mapping = 5;  // sha1 to AEM below
 }
 
 message Queue {
     enum _MessageTypeIdentifier {
-      _ID = 1003;
-      _VERSION = 1;
+        _ID = 1004;
+        _VERSION = 1;
     }
-    optional AMQPQueueMapping mapping = 1;
+    optional string name = 1;
+    optional string description = 2;
+    optional ExchangeName exchangename = 3;  // sha1 to EN above
+    optional AMQPQueueMapping mapping = 4;   // sha1 to AQM below
 }
 
 message Binding {
     enum _MessageTypeIdentifier {
-      _ID = 1004;
-      _VERSION = 1;
+        _ID = 1005;
+        _VERSION = 1;
     }
+    optional string name = 1;
+    optional string description = 2;
 }
 
 
@@ -78,7 +94,7 @@ message Binding {
 
 message AMQPExchangeMapping {
     enum _MessageTypeIdentifier {
-      _ID = 1005;
+      _ID = 1006;
       _VERSION = 1;
     }
     enum ExchangeType {
@@ -105,7 +121,7 @@ message AMQPExchangeMapping {
 message AMQPQueueMapping {
 
     enum _MessageTypeIdentifier {
-      _ID = 1006;
+      _ID = 1007;
       _VERSION = 1;
     }
     enum ExchangeType {
@@ -129,7 +145,7 @@ message AMQPQueueMapping {
 
 message AMQPBrokerCredentials {
     enum _MessageTypeIdentifier {
-      _ID = 1007;
+      _ID = 1008;
       _VERSION = 1;
     }
 
@@ -152,7 +168,7 @@ message AMQPBrokerCredentials {
 
 message BrokerFederation {
     enum _MessageTypeIdentifier {
-      _ID = 1008;
+      _ID = 1009;
       _VERSION = 1;
     }
     optional string name = 1;
@@ -169,7 +185,7 @@ message BrokerFederation {
 
 message HardwareMapping {
     enum _MessageTypeIdentifier {
-      _ID = 1009;
+      _ID = 1010;
       _VERSION = 1;
     }
     optional string name = 1;
