@@ -17,12 +17,4 @@ message UserIdentity {
    optional string rsa_private_key=3;
 }
 
-message UserCatalog {
-  enum _MessageTypeIdentifier {
-    _ID = 1402;
-    _VERSION = 1;
-  }
-  repeated UserIdentity user = 1;
-}
-
 
