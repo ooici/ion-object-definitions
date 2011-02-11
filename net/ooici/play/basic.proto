@@ -46,6 +46,16 @@ message IntComposite{
 	optional net.ooici.core.link.CASRef value = 2;
 }
 
+message BytesComposite{
+enum _MessageTypeIdentifier {
+      _ID = 20011;
+      _VERSION = 1;
+    }
+	
+	optional bytes key = 1;
+	optional net.ooici.core.link.CASRef value = 2;
+}
+
 message ObjectDict{
     enum _MessageTypeIdentifier {
       _ID = 20009;
