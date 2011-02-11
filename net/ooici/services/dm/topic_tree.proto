@@ -9,7 +9,7 @@ message TopicTreeMessage{
 		_VERSION = 1;
 	}
 
-    required string key = 1;
+    optional string key = 1;
 	optional string exchange_space_name = 2;
 	optional string topic_tree_name = 3;
 	
