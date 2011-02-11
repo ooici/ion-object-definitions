@@ -48,7 +48,7 @@ message IntComposite{
 
 message BytesComposite{
 enum _MessageTypeIdentifier {
-      _ID = 20011;
+      _ID = 20031;
       _VERSION = 1;
     }
 	
