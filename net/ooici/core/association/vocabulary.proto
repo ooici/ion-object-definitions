@@ -1,0 +1,10 @@
+package net.ooici.core.association;
+
+
+message Terminology{
+    enum _MessageTypeIdentifier {
+      _ID = 14;
+      _VERSION = 1;
+    }
+    optional string word = 1;
+}
