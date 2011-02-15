@@ -4,6 +4,34 @@ import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
 
 
+// These iteger codes are a mess - but is there a canonical value to use?
+enum IonResponse {
+	INTERNAL_ERROR = 500;
+        SUCCESS = 200;
+        INVALID_DESTINATION = 3001;
+        TIMEOUT = 3002;
+        NETWORK_FAILURE = 3003;
+        NETWORK_CORRUPTION = 3004;
+        OUT_OF_MEMORY = 3005;
+        RESOURCE_UNAVAILABLE = 3006;
+        PERMISSION_ERROR = 3007;
+        RECEIVER_ERROR = 3008;
+
+    }
+    
+// These integer codes are a mess - find and map HTTP codes
+enum ApplicationResponse {
+        SUCCESS = 200;
+	NOTFOUND = 404;
+	LOCKED_RESOURCE = 1001;
+        TIMEOUT = 1002;
+        RESOURCE_STATE_DIVERGED = 1003;
+        RESOURCE_NOT_FOUND = 1004;
+        FAILED = 1005;
+}
+    
+    
+
 message IonMsg{
     enum _MessageTypeIdentifier {
       _ID = 11;
@@ -11,6 +39,8 @@ message IonMsg{
     }
     optional string name = 1;
     optional string identity = 2;
-    optional net.ooici.core.type.GPBType type=3;
     optional net.ooici.core.link.CASRef message_object = 4;
+    optional ApplicationResponse application_response = 5;
+    optional IonResponse = 6;
+    optional string exception = 7;
 }
