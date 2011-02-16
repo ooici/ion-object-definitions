@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Compile .proto classes"
+echo "Compile .proto classes to java"
 protofiles=`find net -name \*.proto`
 
 for f in $protofiles; do 

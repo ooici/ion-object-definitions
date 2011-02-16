@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Compile .proto classes to python"
 protofiles=`find net -name \*.proto`
 
 for f in $protofiles; do 
@@ -11,6 +12,7 @@ for f in $protofiles; do
     fi
 done
 
+echo "Add '__init__.py' files to directories"
 dirs=`find python/net -type d`
 for d in $dirs; do
     pushd $d > /dev/null
@@ -23,6 +25,7 @@ for d in $dirs; do
 done
 
 # Store a list of all proto packages
+echo "Store a list of the proto packages"
 pkglist=""
 pushd python/net > /dev/null
 protopkgs=`find . -name \*_pb2.py | sed 's#^\./\(.*_pb2\)\.py$#\1#' | sed 's#/#.#g'`
