@@ -29,6 +29,9 @@ dist
 ivy-report
 output
 MANIFEST.MF
+python/ionproto.egg-info
+python/dist
+python/net
 
 ######################################
 # Transient settings sub-directories #
