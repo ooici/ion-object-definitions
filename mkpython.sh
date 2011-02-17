@@ -38,3 +38,7 @@ echo "protos = [
 ]" >> __init__.py
 popd > /dev/null
 
+#pushd python
+#python setup.py sdist
+#cp dist/* ../dist
+

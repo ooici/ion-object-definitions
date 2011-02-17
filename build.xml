@@ -61,9 +61,22 @@ public class Init {
     	</echo>
     </target>
     
+    <target name="post-dist">
+    	<exec executable="python" dir="python">
+    		<arg value="setup.py"/>
+    		<arg value="sdist" />
+    	</exec>
+    	<copy file="python/dist/${project.name}-${version}.tar.gz" todir="${dist.dir}/lib" />
+    </target>
+    
     <target name="clean-more">
     	<delete dir="${src.dir}" />
-    	<delete dir="python/net" />
+    	<delete includeemptydirs="true">
+    		<fileset dir="python">
+    			<include name="**/*" />
+    			<exclude name="setup.py"/>
+    		</fileset>
+    	</delete>
     </target>
     
 </project>
