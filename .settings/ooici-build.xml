@@ -68,7 +68,7 @@
 	<!-- ================================= 
           target: clean-ooici-cache
          ================================= -->
-	<target name="clean-ooici-cache" description="--> Clean the ivy cache">
+	<target name="clean-ooici-cache" description="--> Clean the ivy cache of the ooici dependencies only">
 		<delete dir="${ivy.cache.dir}/net.ooici" />
 	</target>
 	
