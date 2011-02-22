@@ -1,0 +1,102 @@
+<project name="ion-object-definitions" default="dist" xmlns:ivy="antlib:org.apache.ivy.ant" basedir=".">
+    <!-- import properties -->
+    <property file="build.properties" />
+    <!-- ivy properties & settings -->
+    <property file="${settings.dir}/ivysettings.properties" />
+    <ivy:settings file="${settings.dir}/ivysettings.xml" />
+    <!-- ooici properties -->
+    <property file="${settings.dir}/ooici.properties" />
+    <!-- import the ooici_build.xml -->
+    <import file="${settings.dir}/ooici-build.xml" />
+    
+    <!--
+    	Targets that can be overridden:
+    		- pre-compile:		Called before javac compilation - empty by default, override in build.xml to use
+      		- post-compile:		Called after javac compilation - empty by default, override in build.xml to use
+      		- pre-dist:			Called before all actions in the dist target - empty by default, override in build.xml to use
+      		- post-dist:		Called after all actions in the dist target - empty by default, override in build.xml to use
+      		- clean-more:		Called at the end of 'clean' - empty by default, override in build.xml to use
+    -->
+    
+    <!-- ================================= 
+          target: pre-compile
+         ================================= -->
+    <target name="pre-compile">
+    	<antcall target="protoc-python" />
+    	<antcall target="protoc-java" />
+    	<antcall target="make-init.java" />
+    </target>
+    
+    <!-- ================================= 
+          target: protoc-java
+         ================================= -->
+    <target name="protoc-java">
+    	<mkdir dir="${src.dir}" />
+    	<exec executable="${basedir}/mkjava.sh">
+    		<arg value="${src.dir}" />
+    	</exec>
+    </target>
+    
+    <!-- ================================= 
+          target: protoc-python
+         ================================= -->
+    <target name="protoc-python">
+    	<exec executable="${basedir}/mkpython.sh"/>
+    </target>
+    
+    <!-- ================================= 
+          target: make-init.java
+         ================================= -->
+    <target name="make-init.java">
+    	<property name="classes.dir" value="${src.dir}" />
+    	<property name="net.dir" value="${classes.dir}/net" />
+    	<delete file="${net.dir}/Init.java" />
+    	<path id="classes.contents">
+    		<fileset dir="${classes.dir}">
+    			<include name="**/*.java" />
+    			<exclude name="**/*$*" />
+    		</fileset>
+    	</path>
+    	
+    	<pathconvert property="java.class.list" pathsep="${line.separator}">
+			<path refid="classes.contents" />
+			<chainedmapper>
+				<globmapper from="${basedir}/${classes.dir}/*.java" to="&quot;*&quot;,"/>
+			</chainedmapper>
+    	</pathconvert>
+    	
+    	<echo file="${net.dir}/Init.java" append="true">package net;
+
+public class Init {
+	public static final String[] protos = {
+		${java.class.list}
+	};
+}
+    	</echo>
+    </target>
+    
+    <!-- ================================= 
+          target: post-dist
+         ================================= -->
+    <target name="post-dist">
+    	<exec executable="python" dir="python">
+    		<arg value="setup.py"/>
+    		<arg value="sdist" />
+    	</exec>
+    	<copy file="python/dist/${project.name}-${version}.tar.gz" todir="${dist.dir}/lib" />
+    </target>
+    
+    <!-- ================================= 
+          target: clean-more
+         ================================= -->
+    <target name="clean-more">
+    	<delete dir="${src.dir}" />
+    	<delete includeemptydirs="true">
+    		<fileset dir="python">
+    			<include name="**/*" />
+    			<exclude name="setup.py"/>
+    		</fileset>
+    	</delete>
+    </target>
+    
+</project>

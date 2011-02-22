@@ -7,11 +7,8 @@
 *.pid
 *.komodo*
 _trial*
-docs
 res/config/ionlocal.config
 res/logging/loglevelslocal.cfg
-build
-dist
 lcaarch.egg-info
 .pydevproject
 .project
@@ -19,3 +16,26 @@ lcaarch.egg-info
 *.java
 *.class
 *.py
+
+######################
+# Compilation directories
+######################
+# src dir is a compilation directory in this project...
+src
+lib
+build
+docs
+dist
+ivy-report
+output
+MANIFEST.MF
+python/ionproto.egg-info
+python/dist
+python/net
+
+######################################
+# Transient settings sub-directories #
+######################################
+.settings/ivy-cache
+ivy-report
+.settings/override-repo
