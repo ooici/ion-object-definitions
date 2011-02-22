@@ -50,6 +50,5 @@ message IonMsg{
     optional string identity = 2;
     optional net.ooici.core.link.CASRef message_object = 4;
     optional ResponseCodes response_code = 5;
-    //optional ResponseCodes ion_response_code = 6;
     optional string response_body = 7;
 }
