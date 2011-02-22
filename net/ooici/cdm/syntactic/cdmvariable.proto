@@ -20,7 +20,7 @@ message BoundedArray {
 	repeated Bounds bounds = 1; 
 
 	// Reference to an array from cdmarray.proto
-	required net.ooici.core.link.CASRef ndarray = 2;
+	optional net.ooici.core.link.CASRef ndarray = 2;
 }
 
 // From: http://www.unidata.ucar.edu/software/netcdf-java/CDM/index.html
