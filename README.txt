@@ -121,7 +121,7 @@ Ivy Installation*
 		or in the root ant installation, usually --> /usr/share/ant/lib/
 	Linux/Windows: wherever you have ant installed (check "%ANT_HOME%" if you're not sure)
 
-3. To verify the installation run (from eoi-agents directory):
+3. To verify the installation run (from ion-object-definitions directory):
 ::
 	ant resolve
 
