@@ -5,30 +5,40 @@ import "net/ooici/core/type/type.proto";
 
 
 // These iteger codes are a mess - but is there a canonical value to use?
-enum IonResponse {
+enum ResponseCodes {
+        CONTINUE = 100;
+        
         OK = 200;
-	INTERNAL_ERROR = 500;
+        CREATED = 201;
+        ACCEPTED = 202;
+        NO_CONTENT = 204;
+	
+        BAD_REQUEST = 400;
+        UNAUTHORIZED = 401;
+        FORBIDDEN = 403;
+        NOT_FOUND = 404;
+        METHOD_NOT_ALLOWED = 405;
+        
+        INTERNAL_SERVER_ERROR = 500;
+        NOT_IMPLEMENTED = 501;
+        SERVICE_UNAVAILABLE = 503;
+        
+        
         INVALID_DESTINATION = 3001;
         TIMEOUT = 3002;
         NETWORK_FAILURE = 3003;
         NETWORK_CORRUPTION = 3004;
         OUT_OF_MEMORY = 3005;
-        RESOURCE_UNAVAILABLE = 3006;
         PERMISSION_ERROR = 3007;
         RECEIVER_ERROR = 3008;
+        LOCKED_RESOURCE = 1001;
+        RESOURCE_STATE_DIVERGED = 1003;
 
     }
-    
-// These integer codes are a mess - find and map HTTP codes
-enum ApplicationResponse {
-        SUCCESS = 200;
-	NOTFOUND = 404;
-	LOCKED_RESOURCE = 1001;
-        RESOURCE_STATE_DIVERGED = 1003;
-        RESOURCE_NOT_FOUND = 1004;
-        FAILED = 1005;
-}
-    
+        
+        
+	
+
     
 
 message IonMsg{
@@ -39,7 +49,7 @@ message IonMsg{
     optional string name = 1;
     optional string identity = 2;
     optional net.ooici.core.link.CASRef message_object = 4;
-    optional ApplicationResponse application_response = 5;
-    optional IonResponse ion_response = 6;
-    optional string exception = 7;
+    optional ResponseCodes response_code = 5;
+    //optional ResponseCodes ion_response_code = 6;
+    optional string response_body = 7;
 }
