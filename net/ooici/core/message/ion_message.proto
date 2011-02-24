@@ -4,7 +4,7 @@ import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
 
 
-// These iteger codes are a mess - but is there a canonical value to use?
+// These integer codes are a mess - but is there a canonical value to use?
 enum ResponseCodes {
         CONTINUE = 100;
         
