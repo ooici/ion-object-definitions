@@ -30,7 +30,7 @@
     <!-- ================================= 
           target: protoc-java
          ================================= -->
-    <target name="protoc-java">
+    <target name="protoc-java" description="--> Compiles the .proto files to java source files" >
     	<mkdir dir="${src.dir}" />
     	<exec executable="${basedir}/mkjava.sh">
     		<arg value="${src.dir}" />
@@ -40,7 +40,7 @@
     <!-- ================================= 
           target: protoc-python
          ================================= -->
-    <target name="protoc-python">
+    <target name="protoc-python" description="--> Compiles the .proto files to python source files" >
     	<exec executable="${basedir}/mkpython.sh"/>
     </target>
     
