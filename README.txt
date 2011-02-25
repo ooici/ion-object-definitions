@@ -15,6 +15,10 @@ Introduction
 *
 * =================================================================================
 
+******************************************************************************************
+*NOTE: The project currently requires version 2.3.0 of the Google Protocol Buffer library*
+******************************************************************************************
+
 1. Download Google Protocol Buffers from:
 
 http://code.google.com/apis/protocolbuffers/
