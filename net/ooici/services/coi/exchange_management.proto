@@ -77,7 +77,18 @@ message Queue {
     optional string topic = 5;  
 }
 
-
+message Binding {
+    enum _MessageTypeIdentifier {
+        _ID = 1005;
+        _VERSION = 1;
+    }
+    optional string name = 1;
+    optional string description = 2;
+    optional string exchangespace = 3;  
+    optional string exchangename = 4;
+    optional string queue = 5;  
+    optional string topic = 6;  
+}
 
 // AMQP MAPPING OBJECTS
 //

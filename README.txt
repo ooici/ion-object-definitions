@@ -15,9 +15,13 @@ Introduction
 *
 * =================================================================================
 
-1. Download Google Protocol Buffers from:
+******************************************************************************************
+*NOTE: The project currently requires version 2.3.0 of the Google Protocol Buffer library*
+******************************************************************************************
 
-http://code.google.com/apis/protocolbuffers/
+1. Download Google Protocol Buffers from ooici git hub repository:
+
+git clone git://github.com/ooici/protobuf-2.3.0.git
 
 2. cd into the root directory and run "./configure" to configure the package:
 
