@@ -1,0 +1,19 @@
+package net.ooici.play;
+
+import "net/ooici/core/link/link.proto";
+
+message RotRequest{
+    enum _MessageTypeIdentifier {
+      _ID = 20032;
+      _VERSION = 1;
+    }
+	optional string input_string = 1;
+}
+
+message RotReply {
+   enum _MessageTypeIdentified {
+      _ID = 20033;
+      _VERSION = 1;
+   }
+   optional string output_string = 1;
+}
