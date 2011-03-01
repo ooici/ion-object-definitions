@@ -11,7 +11,7 @@ message RotRequest{
 }
 
 message RotReply {
-   enum _MessageTypeIdentified {
+   enum _MessageTypeIdentifier {
       _ID = 20033;
       _VERSION = 1;
    }

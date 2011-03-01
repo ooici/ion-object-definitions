@@ -39,3 +39,4 @@ python/net
 .settings/ivy-cache
 ivy-report
 .settings/override-repo
+.idea
