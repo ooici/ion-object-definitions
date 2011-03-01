@@ -47,16 +47,19 @@ _ID. Until we have operational requirements for backward compatibility, _VERSION
 3) Compile the new object using 'ant compile'
 4) Use the dev-integration.cfg buildout configuration to use your new object in ioncore-python (See
 the ioncore-python README for more details)
+    bin/buildout -c dev-integration.cfg (working dir: ioncore-python)
 5) Write new service operations and unit tests using the object based on the ion.play.hello_* 
-examples of ioncore-python
+examples of ioncore-python.  Test it with trial.
+    bin/trial ion (working dir: ioncore-python)
 6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
 the objects and place a new package on the server for use by other developers.
-7) Update setup.py in ioncore-python to use the package created by the build bot. 
-http://ooici.net:8010/builders/amoeba-ion-object-definitions/builds/69/steps/shell_1/logs/stdio
-*** I can only find teh package number in this file? Is there a better place? ***
-8) Run bin/buildout to install the new packaged version 
-9) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
-10) Commit ioncore-python and push.
+7) Wait for an email from buildbot notifying you the latest patch version.
+8) Update development.cfg [versions] section in ioncore-python to use the package created by the build bot. 
+9) Sanity check: test the new package against ioncore-python
+    bin/buildout -c development.cfg (working dir: ioncore-python)
+10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
+    bin/trial ion (working dir: ioncore-python)
+11) Commit ioncore-python and push.
 
 *--================================================================================
 *
