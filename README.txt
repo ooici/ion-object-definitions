@@ -54,7 +54,7 @@ examples of ioncore-python.  Test it with trial.
 6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
 the objects and place a new package on the server for use by other developers.
 7) Wait for an email from buildbot notifying you that a new package has
-been built.  Obtain the latest patch version from the email.
+been built.  Locate the patch version from the email url..
 8) Update development.cfg [versions] section in ioncore-python to the
 package version created by the build bot. 
 9) Sanity check: test the new package against ioncore-python
