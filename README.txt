@@ -53,8 +53,10 @@ examples of ioncore-python.  Test it with trial.
     bin/trial ion (working dir: ioncore-python)
 6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
 the objects and place a new package on the server for use by other developers.
-7) Wait for an email from buildbot notifying you the latest patch version.
-8) Update development.cfg [versions] section in ioncore-python to use the package created by the build bot. 
+7) Wait for an email from buildbot notifying you that a new package has
+been built.  Obtain the latest patch version from the email.
+8) Update development.cfg [versions] section in ioncore-python to the
+package version created by the build bot. 
 9) Sanity check: test the new package against ioncore-python
     bin/buildout -c development.cfg (working dir: ioncore-python)
 10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
