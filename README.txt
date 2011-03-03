@@ -42,25 +42,45 @@ https://spreadsheets.google.com/ccc?key=0AqTqkXCx-C2SdFdPLU5wdEFCalVIUk00S2VqS2x
 
 To create a new object for use in a service:
 1) Enter a new line in the correct table to reserve a object ID
+
 2) Create or append a proto file with the new object - use the '_MessageTypeIdentifier' to set the
 _ID. Until we have operational requirements for backward compatibility, _VERSION is ALWAYS 1.
+
 3) Compile the new object using 'ant compile'
+
 4) Use the dev-integration.cfg buildout configuration to use your new object in ioncore-python (See
 the ioncore-python README for more details)
     bin/buildout -c dev-integration.cfg (working dir: ioncore-python)
+    
 5) Write new service operations and unit tests using the object based on the ion.play.hello_* 
 examples of ioncore-python.  Test it with trial.
     bin/trial ion (working dir: ioncore-python)
+    
 6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
 the objects and place a new package on the server for use by other developers.
+
 7) Wait for an email from buildbot notifying you that a new package has
-been built.  Locate the patch version from the email url..
+been built.  Locate the patch version of your commit using the buildbot page: 
+
+http://amoeba.ucsd.edu:2222/
+____________________________________________________________________________________________________
+Packages
+Package	         Download	            Git commit hash	                            Last update
+ionproto-0.3.12	 ionproto-0.3.12-pl26	95d91fc79917ab1c09305d56ed47ae01833f976f	2011-03-02 17:18:15.431851
+____________________________________________________________________________________________________
+
+Copy the package name, version and patch level from the download field an use this value in step 8.
+
+
 8) Update development.cfg [versions] section in ioncore-python to the
 package version created by the build bot. 
+
 9) Sanity check: test the new package against ioncore-python
     bin/buildout -c development.cfg (working dir: ioncore-python)
+    
 10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
     bin/trial ion (working dir: ioncore-python)
+    
 11) Commit ioncore-python and push.
 
 *--================================================================================
