@@ -31,8 +31,6 @@ message AddressLink {
 
 This example definition uses both rules as well as simple field types and null pointer CASRefs.
 
-Developer Workflow:
-===================
 
 (Do once...)
 Ivy Installation*
@@ -52,6 +50,9 @@ Ivy Installation*
 
 **********************************
 **********************************
+
+Developer Workflow:
+===================
 
 Adding or modifying object definitions has downstream consiquences. Each version of ioncore-python 
 and ioncore-java must be tied to a particular version of the object definitions. Otherwise unit 
@@ -134,7 +135,7 @@ PATH=$GOOGLE_PROTO_BUFFERS/src:$PATH
 
 Source
 ======
-Obtain the eoi-agents project by running:
+Obtain the ion-object-definitions project by running:
 ::
 	git clone git@github.com:ooici/ion-object-definitions
 
