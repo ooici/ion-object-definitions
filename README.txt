@@ -6,10 +6,64 @@ ion-object-definitions
 
 Introduction
 ============
-**** Need blurb ****
+ION Object Definitions is a language independent metadescription of the data objects used for
+messages and resources in ION services. Google Protocol Buffers (GPB) provides a complete tool chain
+for object specification which can be compiled in python and Java. We have adopted several
+conventions for our use of these objects in R1. 
 
+* Each defined object - a GPB 'message' must have a '_MessageTypeIdentifier'
+* While GPB does provide 3 possible 'rules' for each message field ION definition use only optional 
+and repeated 
+* We have defined a field type to act as a null pointer, the link.CASRef
 
-* =================================================================================
+Example Message (net.ooici.play.addressbook.proto):
+===================================================
+
+message AddressLink {
+  enum _MessageTypeIdentifier {
+    _ID = 20003;
+    _VERSION = 1;
+  }
+  repeated net.ooici.core.link.CASRef person = 1;
+  optional net.ooici.core.link.CASRef owner = 2;
+  optional string title = 3;
+}
+
+This example definition uses both rules as well as simple field types and null pointer CASRefs.
+
+Developer Workflow:
+===================
+Adding or modifying object definitions has downstream consiquences. Each version of ioncore-python 
+and ioncore-java must be tied to a particular version of the object definitions. Otherwise unit 
+tests will break where objects are undefined or the usage does not match the definition. To organize
+the Type Identifiers we have provided a Google Doc table where the integer values are assigned:
+
+https://spreadsheets.google.com/ccc?key=0AqTqkXCx-C2SdFdPLU5wdEFCalVIUk00S2VqS2xUWVE&hl=en&authkey=CO31mukO
+
+To create a new object for use in a service:
+1) Enter a new line in the correct table to reserve a object ID
+2) Create or append a proto file with the new object - use the '_MessageTypeIdentifier' to set the
+_ID. Until we have operational requirements for backward compatibility, _VERSION is ALWAYS 1.
+3) Compile the new object using 'ant compile'
+4) Use the dev-integration.cfg buildout configuration to use your new object in ioncore-python (See
+the ioncore-python README for more details)
+    bin/buildout -c dev-integration.cfg (working dir: ioncore-python)
+5) Write new service operations and unit tests using the object based on the ion.play.hello_* 
+examples of ioncore-python.  Test it with trial.
+    bin/trial ion (working dir: ioncore-python)
+6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
+the objects and place a new package on the server for use by other developers.
+7) Wait for an email from buildbot notifying you that a new package has
+been built.  Locate the patch version from the email url..
+8) Update development.cfg [versions] section in ioncore-python to the
+package version created by the build bot. 
+9) Sanity check: test the new package against ioncore-python
+    bin/buildout -c development.cfg (working dir: ioncore-python)
+10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
+    bin/trial ion (working dir: ioncore-python)
+11) Commit ioncore-python and push.
+
+*--================================================================================
 *
 * INSTALLING GOOGLE PROTOCOL BUFFER COMPILER - PREREQUISITE
 *
