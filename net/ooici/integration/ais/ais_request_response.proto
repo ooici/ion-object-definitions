@@ -9,7 +9,7 @@ message ApplicationIntegrationServiceRequestMsg{
     }
     
     // The message parameters object
-    optional net.ooici.core.link.CASRef configuration = 1;
+    optional net.ooici.core.link.CASRef message_parameters_reference = 1;
 }
 
 message ApplicationIntegrationServiceResponseMsg{
@@ -19,7 +19,7 @@ message ApplicationIntegrationServiceResponseMsg{
     }
     
     // The message parameters object
-    optional net.ooici.core.link.CASRef configuration = 1;
+    optional net.ooici.core.link.CASRef message_parameters_reference = 1;
     
     optional string result = 2;
 }

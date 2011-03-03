@@ -1,13 +1,10 @@
 package net.ooici.integration.ais.registerUser;
 
-message RegisterUser {
+message UpdateUser {
    enum _MessageTypeIdentifier {
        _ID = 9101;
        _VERSION = 1;
    }
-
-
-   // objects in a protofile are called messages
 
    optional string certificate=1;
    optional string rsa_private_key=2;
@@ -19,9 +16,6 @@ message UpdateUserDispatcherQueue {
        _ID = 9102;
        _VERSION = 1;
    }
-
-
-   // objects in a protofile are called messages
 
    optional string queue_name=1;
 }
