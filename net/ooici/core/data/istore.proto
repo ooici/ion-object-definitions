@@ -11,12 +11,10 @@ message QueryAttributes{
 	message IndexAttribute {
 		optional string attribute_name = 1;
     	optional bytes attribute_value = 2;
+    	optional string predicate_type = 3;
 	}
-	repeated IndexAttribute attrs_eq  = 1;
-	repeated IndexAttribute attrs_gt  = 2;
-	repeated IndexAttribute attrs_lt  = 3;
-	repeated IndexAttribute attrs_gte = 4;
-	repeated IndexAttribute attrs_lte = 5;
+	repeated IndexAttribute attrs = 1;
+
 }
 
 

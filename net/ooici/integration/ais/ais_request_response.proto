@@ -1,0 +1,25 @@
+package net.ooici.integration.ais;
+
+import "net/ooici/core/link/link.proto";
+
+message ApplicationIntegrationServiceRequestMsg{
+    enum _MessageTypeIdentifier {
+      _ID = 9001;
+      _VERSION = 1;
+    }
+    
+    // The message parameters object
+    optional net.ooici.core.link.CASRef message_parameters_reference = 1;
+}
+
+message ApplicationIntegrationServiceResponseMsg{
+    enum _MessageTypeIdentifier {
+      _ID = 9002;
+      _VERSION = 1;
+    }
+    
+    // The message parameters object
+    optional net.ooici.core.link.CASRef message_parameters_reference = 1;
+    
+    optional string result = 2;
+}

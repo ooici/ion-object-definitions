@@ -31,8 +31,29 @@ message AddressLink {
 
 This example definition uses both rules as well as simple field types and null pointer CASRefs.
 
+
+(Do once...)
+Ivy Installation*
+================
+1. Download Apache Ivy (OOICI hosted) from: http://ooici.net/packages/ivy.jar
+
+2. Copy/move the ivy.jar to the "lib" directory of your ant installation:
+        Mac OSX: you can place the .jar in your user ant configuration -->  ~/.ant/lib/
+                or in the root ant installation, usually --> /usr/share/ant/lib/
+        Linux/Windows: wherever you have ant installed (check "%ANT_HOME%" if you're not sure)
+
+3. To verify the installation run (from ion-object-definitions directory):
+::
+        ant resolve
+
+* Full install instructions: http://ant.apache.org/ivy/history/2.2.0-rc1/install.html
+
+**********************************
+**********************************
+
 Developer Workflow:
 ===================
+
 Adding or modifying object definitions has downstream consiquences. Each version of ioncore-python 
 and ioncore-java must be tied to a particular version of the object definitions. Otherwise unit 
 tests will break where objects are undefined or the usage does not match the definition. To organize
@@ -42,21 +63,46 @@ https://spreadsheets.google.com/ccc?key=0AqTqkXCx-C2SdFdPLU5wdEFCalVIUk00S2VqS2x
 
 To create a new object for use in a service:
 1) Enter a new line in the correct table to reserve a object ID
+
 2) Create or append a proto file with the new object - use the '_MessageTypeIdentifier' to set the
 _ID. Until we have operational requirements for backward compatibility, _VERSION is ALWAYS 1.
+
 3) Compile the new object using 'ant compile'
+
 4) Use the dev-integration.cfg buildout configuration to use your new object in ioncore-python (See
 the ioncore-python README for more details)
+    bin/buildout -c dev-integration.cfg (working dir: ioncore-python)
+    
 5) Write new service operations and unit tests using the object based on the ion.play.hello_* 
-examples of ioncore-python
+examples of ioncore-python.  Test it with trial.
+    bin/trial ion (working dir: ioncore-python)
+    
 6) Once the code is complete, push the ion-object-definitions to github. The buildbot will compile 
 the objects and place a new package on the server for use by other developers.
-7) Update setup.py in ioncore-python to use the package created by the build bot. 
-http://ooici.net:8010/builders/amoeba-ion-object-definitions/builds/69/steps/shell_1/logs/stdio
-*** I can only find teh package number in this file? Is there a better place? ***
-8) Run bin/buildout to install the new packaged version 
-9) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
-10) Commit ioncore-python and push.
+
+7) Wait for an email from buildbot notifying you that a new package has
+been built.  Locate the patch version of your commit using the buildbot page: 
+
+http://amoeba.ucsd.edu:2222/
+____________________________________________________________________________________________________
+Packages
+Package	         Download	            Git commit hash	                            Last update
+ionproto-0.3.12	 ionproto-0.3.12-pl26	95d91fc79917ab1c09305d56ed47ae01833f976f	2011-03-02 17:18:15.431851
+____________________________________________________________________________________________________
+
+Copy the package name, version and patch level from the download field an use this value in step 8.
+
+
+8) Update development.cfg [versions] section in ioncore-python to the
+package version created by the build bot. 
+
+9) Sanity check: test the new package against ioncore-python
+    bin/buildout -c development.cfg (working dir: ioncore-python)
+    
+10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
+    bin/trial ion (working dir: ioncore-python)
+    
+11) Commit ioncore-python and push.
 
 *--================================================================================
 *
@@ -89,7 +135,7 @@ PATH=$GOOGLE_PROTO_BUFFERS/src:$PATH
 
 Source
 ======
-Obtain the eoi-agents project by running:
+Obtain the ion-object-definitions project by running:
 ::
 	git clone git@github.com:ooici/ion-object-definitions
 
@@ -162,20 +208,3 @@ IDE Setup
 there's a lib directory!
 
 
-**********************************
-**********************************
-
-Ivy Installation*
-================
-1. Download Apache Ivy (OOICI hosted) from: http://ooici.net/packages/ivy.jar
-
-2. Copy/move the ivy.jar to the "lib" directory of your ant installation:
-	Mac OSX: you can place the .jar in your user ant configuration -->  ~/.ant/lib/
-		or in the root ant installation, usually --> /usr/share/ant/lib/
-	Linux/Windows: wherever you have ant installed (check "%ANT_HOME%" if you're not sure)
-
-3. To verify the installation run (from ion-object-definitions directory):
-::
-	ant resolve
-
-* Full install instructions: http://ant.apache.org/ivy/history/2.2.0-rc1/install.html

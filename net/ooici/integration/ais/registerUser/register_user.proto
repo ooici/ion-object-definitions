@@ -1,0 +1,21 @@
+package net.ooici.integration.ais.registerUser;
+
+message UpdateUser {
+   enum _MessageTypeIdentifier {
+       _ID = 9101;
+       _VERSION = 1;
+   }
+
+   optional string certificate=1;
+   optional string rsa_private_key=2;
+}
+
+
+message UpdateUserDispatcherQueue {
+   enum _MessageTypeIdentifier {
+       _ID = 9102;
+       _VERSION = 1;
+   }
+
+   optional string queue_name=1;
+}
