@@ -1,0 +1,10 @@
+
+message Temporal {
+   enum _MessageTypeIdentifier {
+       _ID = 9022;
+       _VERSION = 1;
+   }
+   
+   optional double begin_time = 1;
+   optional double end_time = 1;
+}
