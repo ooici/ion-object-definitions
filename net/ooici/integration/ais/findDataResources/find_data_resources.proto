@@ -1,7 +1,28 @@
 package net.ooici.integration.ais.findDataResources;
 
-import "net/ooici/integration/ais/spatial.proto";
-import "net/ooici/integration/ais/temporal.proto";
+//import "net/ooici/integration/ais/findDataResources/spatial.proto";
+//import "net/ooici/integration/ais/findDataResources/temporal.proto";
+
+message Spatial {
+   enum _MessageTypeIdentifier {
+       _ID = 9021;
+       _VERSION = 1;
+   }
+   
+   optional double lat = 1;
+   optional double lon = 2;
+   optional double depth = 3;
+}
+
+message Temporal {
+   enum _MessageTypeIdentifier {
+       _ID = 9022;
+       _VERSION = 1;
+   }
+   
+   optional double begin_time = 1;
+   optional double end_time = 2;
+}
 
 message FindDataResourcesMsg {
    enum _MessageTypeIdentifier {
