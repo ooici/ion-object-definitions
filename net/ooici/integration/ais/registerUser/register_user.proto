@@ -1,6 +1,6 @@
 package net.ooici.integration.ais.registerUser;
 
-message UpdateUser {
+message RegisterUser {
    enum _MessageTypeIdentifier {
        _ID = 9101;
        _VERSION = 1;
@@ -10,12 +10,29 @@ message UpdateUser {
    optional string rsa_private_key=2;
 }
 
-
-message UpdateUserDispatcherQueue {
+message UpdateUserEmail {
    enum _MessageTypeIdentifier {
        _ID = 9102;
        _VERSION = 1;
    }
 
+   optional string email_address=1;
+}
+
+message UpdateUserDispatcherQueue {
+   enum _MessageTypeIdentifier {
+       _ID = 9103;
+       _VERSION = 1;
+   }
+
    optional string queue_name=1;
+}
+
+message OoiId {
+   enum _MessageTypeIdentifier {
+       _ID = 9104;
+       _VERSION = 1;
+   }
+
+   optional string ooi_id=1;
 }

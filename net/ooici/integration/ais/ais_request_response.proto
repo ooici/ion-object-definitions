@@ -19,7 +19,18 @@ message ApplicationIntegrationServiceResponseMsg{
     }
     
     // The message parameters object
-    optional net.ooici.core.link.CASRef message_parameters_reference = 1;
+    repeated net.ooici.core.link.CASRef message_parameters_reference = 1;
     
     optional string result = 2;
+}
+
+message ApplicationIntegrationServiceError{
+    enum _MessageTypeIdentifier {
+      _ID = 9003;
+      _VERSION = 1;
+    }
+    
+    optional string error_num = 1;
+    
+    optional string error_str = 2;
 }
