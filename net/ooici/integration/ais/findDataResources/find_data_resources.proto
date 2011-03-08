@@ -9,9 +9,12 @@ message Spatial {
        _VERSION = 1;
    }
    
-   optional double lat = 1;
-   optional double lon = 2;
-   optional double depth = 3;
+   optional double minLatitude = 1;
+   optional double maxLatitude = 2;
+   optional double minLongitude = 3;
+   optional double maxLongitude = 4;
+   optional double minAltitude = 5;
+   optional double maxAltitude = 6;
 }
 
 message Temporal {
@@ -20,8 +23,8 @@ message Temporal {
        _VERSION = 1;
    }
    
-   optional double begin_time = 1;
-   optional double end_time = 2;
+   optional double minTime = 1;
+   optional double maxTime = 2;
 }
 
 message FindDataResourcesMsg {
@@ -30,6 +33,6 @@ message FindDataResourcesMsg {
        _VERSION = 1;	
    }
 
-   required Spatial  spatial  = 1;
-   required Temporal temporal = 2;
+   optional Spatial  spatial  = 1;
+   optional Temporal temporal = 2;
 }
