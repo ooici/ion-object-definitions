@@ -78,9 +78,11 @@ message SubscriberMsg {
 	optional net.ooici.core.link.CASRef exchange_space_id = 1;
 	optional net.ooici.core.link.CASRef exchange_point_id = 2;
 	optional net.ooici.core.link.CASRef topic_id = 3;
+
+	optional string subscriber_name = 4;
 	
 	// They can specify an existing queue to reuse
-	optional string queue_name = 4;
+	optional string queue_name = 5;
 }
 // 0-to-N-length array-of-ids message type, mostly for query returns
 message IDListMsg {
