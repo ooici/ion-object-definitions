@@ -31,8 +31,29 @@ message AddressLink {
 
 This example definition uses both rules as well as simple field types and null pointer CASRefs.
 
+
+(Do once...)
+Ivy Installation*
+================
+1. Download Apache Ivy (OOICI hosted) from: http://ooici.net/packages/ivy.jar
+
+2. Copy/move the ivy.jar to the "lib" directory of your ant installation:
+        Mac OSX: you can place the .jar in your user ant configuration -->  ~/.ant/lib/
+                or in the root ant installation, usually --> /usr/share/ant/lib/
+        Linux/Windows: wherever you have ant installed (check "%ANT_HOME%" if you're not sure)
+
+3. To verify the installation run (from ion-object-definitions directory):
+::
+        ant resolve
+
+* Full install instructions: http://ant.apache.org/ivy/history/2.2.0-rc1/install.html
+
+**********************************
+**********************************
+
 Developer Workflow:
 ===================
+
 Adding or modifying object definitions has downstream consiquences. Each version of ioncore-python 
 and ioncore-java must be tied to a particular version of the object definitions. Otherwise unit 
 tests will break where objects are undefined or the usage does not match the definition. To organize
@@ -114,7 +135,7 @@ PATH=$GOOGLE_PROTO_BUFFERS/src:$PATH
 
 Source
 ======
-Obtain the eoi-agents project by running:
+Obtain the ion-object-definitions project by running:
 ::
 	git clone git@github.com:ooici/ion-object-definitions
 
@@ -187,20 +208,3 @@ IDE Setup
 there's a lib directory!
 
 
-**********************************
-**********************************
-
-Ivy Installation*
-================
-1. Download Apache Ivy (OOICI hosted) from: http://ooici.net/packages/ivy.jar
-
-2. Copy/move the ivy.jar to the "lib" directory of your ant installation:
-	Mac OSX: you can place the .jar in your user ant configuration -->  ~/.ant/lib/
-		or in the root ant installation, usually --> /usr/share/ant/lib/
-	Linux/Windows: wherever you have ant installed (check "%ANT_HOME%" if you're not sure)
-
-3. To verify the installation run (from ion-object-definitions directory):
-::
-	ant resolve
-
-* Full install instructions: http://ant.apache.org/ivy/history/2.2.0-rc1/install.html

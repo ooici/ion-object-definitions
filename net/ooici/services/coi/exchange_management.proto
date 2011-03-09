@@ -74,7 +74,7 @@ message Queue {
     optional string description = 2;
     optional string exchangespace = 3;  
     optional string exchangename = 4;  
-    optional string topic = 5;  
+    // optional string topic = 5;  
 }
 
 message Binding {

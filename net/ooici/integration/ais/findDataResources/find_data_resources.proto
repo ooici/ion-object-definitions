@@ -1,0 +1,38 @@
+package net.ooici.integration.ais.findDataResources;
+
+//import "net/ooici/integration/ais/findDataResources/spatial.proto";
+//import "net/ooici/integration/ais/findDataResources/temporal.proto";
+
+message Spatial {
+   enum _MessageTypeIdentifier {
+       _ID = 9021;
+       _VERSION = 1;
+   }
+   
+   optional double minLatitude = 1;
+   optional double maxLatitude = 2;
+   optional double minLongitude = 3;
+   optional double maxLongitude = 4;
+   optional double minAltitude = 5;
+   optional double maxAltitude = 6;
+}
+
+message Temporal {
+   enum _MessageTypeIdentifier {
+       _ID = 9022;
+       _VERSION = 1;
+   }
+   
+   optional double minTime = 1;
+   optional double maxTime = 2;
+}
+
+message FindDataResourcesMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9031;
+       _VERSION = 1;	
+   }
+
+   optional Spatial  spatial  = 1;
+   optional Temporal temporal = 2;
+}
