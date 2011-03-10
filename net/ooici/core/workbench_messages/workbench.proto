@@ -1,0 +1,160 @@
+package net.ooici.core.workbench_messages;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+
+//=============================================
+// The message sent in a workbench push request (Roles pusher, pushee)
+message PushMsg{
+     enum _MessageTypeIdentifier {
+      _ID = 41;
+      _VERSION = 1;
+    }
+    // Push multiple repositories at one time
+    repeated RepositoryState repositories = 1;
+}
+
+
+message RepositoryState{
+     enum _MessageTypeIdentifier {
+      _ID = 42;
+      _VERSION = 1;
+    }
+    // Send the current state of the repository so the receiving end can request what it needs
+    optional net.ooici.core.link.CASRef repo_head = 1;
+    repeated bytes commit_keys = 2;
+    repeated bytes blob_keys = 3;
+
+}
+//=============================================
+
+
+//=============================================
+// The response message sent by op_push from the pushee to op_fetch_content of the pusher to request particular commits and blobs
+message PushContentRequestMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 43;
+      _VERSION = 1;
+    }
+    // Push multiple repositories at one time
+    repeated HashedContentKeys repositories = 1;
+}
+
+message HashedContentKeys{
+     enum _MessageTypeIdentifier {
+      _ID = 44;
+      _VERSION = 1;
+    }
+    // Push multiple repositories at one time
+    repeated bytes commit_keys = 1;
+    repeated bytes blob_keys = 2;
+}
+//=============================================
+
+
+//=============================================
+// The response message sent by the pusher from op_fetch_content to the pushee in op_push with the requested commits and blobs
+message RequestedPushContentMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 45;
+      _VERSION = 1;
+    }
+    // Push multiple repositories at one time
+    repeated net.ooici.core.link.CASRef commits = 1;
+    repeated net.ooici.core.link.CASRef blobs = 2;
+}
+//=============================================
+
+// The final response is just an ack! in the push conversation
+
+
+
+//=============================================
+// The message sent in a workbench pull request (Rolls: Puller, Pullee)
+message PullMessaage{
+     enum _MessageTypeIdentifier {
+      _ID = 46;
+      _VERSION = 1;
+    }
+    // The repository being requested and the commits that the puller currently has if any
+    optional string repository_key = 1;
+    repeated bytes commit_keys = 2;
+    optional bool get_head_blobs = 3;
+
+}
+//=============================================
+
+
+//=============================================
+// The response message sent by op_pull which contains any new commits and the current head object.
+message PullResponseMsg{
+     enum _MessageTypeIdentifier {
+      _ID = 47;
+      _VERSION = 1;
+    }
+    // The repository being requested and the commits that the puller currently has if any
+    optional net.ooici.core.link.CASRef repo_head = 1;
+    repeated net.ooici.core.link.CASRef commits = 2;
+    repeated net.ooici.core.link.CASRef blobs = 3;
+    // The fields are empty if there is nothing to update
+}
+//=============================================
+
+
+
+//=============================================
+// The message sent in during checkout to request non-local content
+message RequestCommitBlobsMsg{
+     enum _MessageTypeIdentifier {
+      _ID = 48;
+      _VERSION = 1;
+    }
+    // The repository being requested and the commits that the puller currently has if any
+    optional net.ooici.core.link.CASRef commit = 1;
+}
+//=============================================
+
+//=============================================
+// The message sent in response to a request for the blobs of a commit (Rolls: Puller, Pullee)
+message CommitBlobsResponseMsg{
+     enum _MessageTypeIdentifier {
+      _ID = 49;
+      _VERSION = 1;
+    }
+    // Links to the blobs in that commit (SHA, Type and IsLeaf!)
+    repeated BlobReference blob_refs = 1;
+}
+
+// Same content as a link - but don't use a link!
+message BlobReference {
+    enum _MessageTypeIdentifier {
+        _ID = 50;
+        _VERSION = 1;
+    }
+	required bytes key = 1;
+	required net.ooici.core.type.GPBType type = 2;
+	required bool isleaf = 3;
+    }
+
+//=============================================
+
+//=============================================
+// Blobs Request
+message BlobsRequestMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 51;
+      _VERSION = 1;
+    }
+    repeated bytes blob_keys = 1;
+}
+
+//=============================================
+// Blobs Message
+message BlobsMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 52;
+      _VERSION = 1;
+    }
+    repeated net.ooici.core.link.CASRef blobs = 1;
+}
