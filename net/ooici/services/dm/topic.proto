@@ -1,0 +1,17 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+message TopicMessage{
+    enum _MessageTypeIdentifier {
+        _ID = 2307;
+        _VERSION = 1;
+    }
+
+    // Refer to the pubsub diagram for more:
+    // https://docs5.google.com/drawings/edit?id=1zDENr2iJjUHiASWzeB9GqRoqoYRiFAyI2nV78go9BOU&hl=en&authkey=CMC587sM
+    optional string topic_name = 1;
+    optional string routing_key = 2;
+    repeated net.ooici.core.link.CASRef publishers = 3;
+}

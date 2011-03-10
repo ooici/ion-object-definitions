@@ -1,0 +1,205 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+// Message types for ion.services.dm.distribution.pubsub
+
+// For query-by-regex method calls
+message RegexQueryMsg {
+	enum _MessageTypeIdentifier {
+		_ID = 2306;
+		_VERSION = 1;	
+	}
+	
+	optional string regex = 1;
+	
+	// Optional parameters, by reference
+	optional net.ooici.core.link.CASRef exchange_space_id = 2;
+	optional net.ooici.core.link.CASRef exchange_point_id = 3;
+}
+
+message TopicMsg {
+   enum _MessageTypeIdentifier {
+		_ID = 2307;
+    	_VERSION = 1;
+	}
+
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional string topic_name = 3;
+}
+
+message QueueMsg {
+    enum _MessageTypeIdentifier {
+		_ID = 2308;
+    	_VERSION = 1;
+	}
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+	
+	optional string queue_name = 4;
+}
+
+message ExchangePointMsg {
+	enum _MessageTypeIdentifier {
+		_ID = 2309;
+ 		_VERSION = 1;
+	}
+
+	optional string exchange_point_name = 1;
+
+	optional net.ooici.core.link.CASRef exchange_space_id = 2;
+}	
+
+message PublisherMsg {
+	enum _MessageTypeIdentifier {
+		_ID = 2310;
+		_VERSION = 1;
+	}
+	
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+	
+	// Publishers' name
+	optional string publisher_name = 4;
+	// Slot for login tokens
+	optional string credentials = 5;
+}
+
+message SubscriberMsg {
+	enum _MessageTypeIdentifier {
+		_ID = 2311;
+		_VERSION = 1;
+	}
+
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+
+	optional string subscriber_name = 4;
+	
+	// They can specify an existing queue to reuse
+	optional string queue_name = 5;
+}
+// 0-to-N-length array-of-ids message type, mostly for query returns
+message IDListMsg {
+	enum _MessageTypeIdentifier {
+		_ID = 2312;
+		_VERSION = 1;	
+	}
+
+	repeated net.ooici.core.link.CASRef id_list = 1;
+}	
+	
+message ExchangeSpaceMsg {
+   enum _MessageTypeIdentifier {
+		_ID = 2313;
+    	_VERSION = 1;
+	}
+
+	optional string exchange_space_name = 1;
+}
+
+message BindingMsg {
+   enum _MessageTypeIdentifier {
+		_ID = 2314;
+    	_VERSION = 1;
+	}
+
+	optional string queue_name = 1;
+	optional string binding = 2;
+}
+
+// Resource object versions of the above
+message ExchangeSpaceRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2315;
+		_VERSION = 1;
+	}
+	
+	optional string exchange_space_name = 1;
+	optional net.ooici.core.link.CASRef exchange_space_id = 2;
+}
+
+message ExchangePointRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2316;
+		_VERSION = 1;
+	}
+
+	optional string exchange_space_name = 1;
+	optional net.ooici.core.link.CASRef exchange_space_id = 2;
+
+	optional string exchange_point_name = 3;
+	optional net.ooici.core.link.CASRef exchange_point_id = 4;	
+}
+
+message TopicRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2317;
+		_VERSION = 1;
+	}
+	optional string exchange_space_name = 1;
+	optional net.ooici.core.link.CASRef exchange_space_id = 2;
+
+	optional string exchange_point_name = 3;
+	optional net.ooici.core.link.CASRef exchange_point_id = 4;	
+	
+	optional string topic_name = 5;
+	optional net.ooici.core.link.CASRef topic_id = 6;	
+}
+
+message PublisherRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2318;
+		_VERSION = 1;
+	}
+	
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+
+	// Publishers' name
+	optional string publisher_name = 4;
+	// Slot for login tokens
+	optional string credentials = 5;
+}
+
+message SubscriberRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2319;
+		_VERSION = 1;
+	}
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+	
+	// They can specify an existing queue to reuse
+	optional string queue_name = 4;
+}
+
+message BindingRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2320;
+		_VERSION = 1;
+	}
+	optional string queue_name = 1;
+	optional string binding = 2;
+	optional net.ooici.core.link.CASRef queue_id = 3;	
+}
+
+message QueueRes {
+	enum _MessageTypeIdentifier {
+		_ID = 2321;
+		_VERSION = 1;
+	}
+	optional net.ooici.core.link.CASRef exchange_space_id = 1;
+	optional net.ooici.core.link.CASRef exchange_point_id = 2;
+	optional net.ooici.core.link.CASRef topic_id = 3;
+	optional net.ooici.core.link.CASRef subscriber_id = 4;
+	
+	optional string queue_name = 5;	
+}

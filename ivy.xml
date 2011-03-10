@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info module="ion-proto" organisation="net.ooici" revision="0.3.13"/>
+    <configurations>
+        <conf name="compile"/>
+    </configurations>
+    <dependencies>
+        <!-- Public dependencies -->
+        <dependency org="com.google.protobuf" name="protobuf-java" rev="2.3.0"/>
+        <!-- JUnit -->
+        <dependency org="junit" name="junit" rev="4.8.2" conf="*->*,!sources,!javadoc"/>
+        
+    </dependencies>
+</ivy-module>
