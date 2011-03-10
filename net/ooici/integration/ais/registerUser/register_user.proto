@@ -1,6 +1,6 @@
 package net.ooici.integration.ais.registerUser;
 
-message RegisterUser {
+message RegisterIonUser {
    enum _MessageTypeIdentifier {
        _ID = 9101;
        _VERSION = 1;
