@@ -9,7 +9,8 @@ message ArrayStructure{
         _ID = 10025;
         _VERSION = 1;
     }
-
+    // The ArrayStructure provides an abstraction - a single object which contains
+    // many bounded arrays of primitive values.
 
     repeated net.ooici.core.link.CASRef bounded_array
     }
@@ -87,7 +88,7 @@ message Variable {
 	repeated net.ooici.core.link.CASRef shape = 5;
 
 	// Content is a reference the data in a variable
-	// it may be a Bounded Array, a Structure or a Sequence
+	// it may be a Array Structure, a Structure or a Sequence
 	optional net.ooici.core.link.CASRef content = 6;
 
 	// Reference to the typedef if this is an enum
