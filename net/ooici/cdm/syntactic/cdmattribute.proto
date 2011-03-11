@@ -12,8 +12,8 @@ message Attribute {
 	optional string source_name = 2;
 
 	// The datatype of the attribute
-	required net.ooici.cdm.syntactic.DataType data_type = 3;
+	optional net.ooici.cdm.syntactic.DataType data_type = 3;
 	
 	// An ndarray of values
-	required net.ooici.core.link.CASRef array = 4;
+	optional net.ooici.core.link.CASRef array = 4;
 }
