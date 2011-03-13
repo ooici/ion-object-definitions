@@ -27,7 +27,7 @@ message Temporal {
    optional double maxTime = 2;
 }
 
-message FindDataResourcesMsg {
+message FindDataResourcesReqMsg {
    enum _MessageTypeIdentifier {
        _ID = 9031;
        _VERSION = 1;	
@@ -35,4 +35,13 @@ message FindDataResourcesMsg {
 
    optional Spatial  spatial  = 1;
    optional Temporal temporal = 2;
+}
+
+message FindDataResourcesRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9032;
+       _VERSION = 1;	
+   }
+
+   //repeated <put payload here>
 }

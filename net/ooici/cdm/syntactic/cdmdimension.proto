@@ -7,8 +7,8 @@ message Dimension {
         _ID = 10018;
         _VERSION = 1;
     }
-	required string name = 1;
+	optional string name = 1;
 	optional string source_name = 2;
-	required uint64 length = 3;
+	optional uint64 length = 3;
 	optional bool variable_length = 4;
 }
