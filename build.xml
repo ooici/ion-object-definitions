@@ -30,9 +30,9 @@
     <!-- ================================= 
           target: protoc-java
          ================================= -->
-    <target name="protoc-java" description="--> Compiles the .proto files to java source files" >
+    <target name="protoc-java" description="--> Compiles the .proto files to java source files">
     	<mkdir dir="${src.dir}" />
-    	<exec executable="${basedir}/mkjava.sh">
+    	<exec executable="${basedir}/mkjava.sh" failonerror="true">
     		<arg value="${src.dir}" />
     	</exec>
     </target>
@@ -41,7 +41,7 @@
           target: protoc-python
          ================================= -->
     <target name="protoc-python" description="--> Compiles the .proto files to python source files" >
-    	<exec executable="${basedir}/mkpython.sh"/>
+    	<exec executable="${basedir}/mkpython.sh" failonerror="true"/>
     </target>
     
     <!-- ================================= 
