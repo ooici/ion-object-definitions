@@ -12,3 +12,15 @@ message SupplementMessage{
     optional string variable_name = 2;
     optional net.ooici.core.link.CASRef bounded_array = 3;
 }
+
+message BeginIngestMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2002;
+        _VERSION = 1;
+    }
+    optional string ds_ingest_topic = 1;
+    optional string ready_routing_key = 2;
+    optional long ingest_service_timeout = 3;
+}
+
+// "EndIngestMessage" is an IonMsg because this already contains response codes
