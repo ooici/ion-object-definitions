@@ -15,6 +15,7 @@ message Spatial {
    optional double maxLongitude = 4;
    optional double minAltitude = 5;
    optional double maxAltitude = 6;
+   optional string identity = 7;
 }
 
 message Temporal {
