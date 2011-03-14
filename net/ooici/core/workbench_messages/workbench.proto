@@ -6,7 +6,7 @@ import "net/ooici/core/type/type.proto";
 
 //=============================================
 // The message sent in a workbench push request (Roles pusher, pushee)
-message PushMsg{
+message PushMessage{
      enum _MessageTypeIdentifier {
       _ID = 41;
       _VERSION = 1;
@@ -72,7 +72,7 @@ message RequestedPushContentMessage{
 
 //=============================================
 // The message sent in a workbench pull request (Rolls: Puller, Pullee)
-message PullMessaage{
+message PullMessage{
      enum _MessageTypeIdentifier {
       _ID = 46;
       _VERSION = 1;
@@ -80,7 +80,7 @@ message PullMessaage{
     // The repository being requested and the commits that the puller currently has if any
     optional string repository_key = 1;
     repeated bytes commit_keys = 2;
-    optional bool get_head_blobs = 3;
+    optional bool get_head_content = 3;
 
 }
 //=============================================
@@ -88,7 +88,7 @@ message PullMessaage{
 
 //=============================================
 // The response message sent by op_pull which contains any new commits and the current head object.
-message PullResponseMsg{
+message PullResponseMessage{
      enum _MessageTypeIdentifier {
       _ID = 47;
       _VERSION = 1;
@@ -105,7 +105,7 @@ message PullResponseMsg{
 
 //=============================================
 // The message sent in during checkout to request non-local content
-message RequestCommitBlobsMsg{
+message RequestCommitBlobsMessage{
      enum _MessageTypeIdentifier {
       _ID = 48;
       _VERSION = 1;
@@ -117,7 +117,7 @@ message RequestCommitBlobsMsg{
 
 //=============================================
 // The message sent in response to a request for the blobs of a commit (Rolls: Puller, Pullee)
-message CommitBlobsResponseMsg{
+message CommitBlobsResponseMessage{
      enum _MessageTypeIdentifier {
       _ID = 49;
       _VERSION = 1;
