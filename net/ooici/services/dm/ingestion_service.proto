@@ -20,7 +20,7 @@ message BeginIngestMessage {
     }
     optional string ds_ingest_topic = 1;
     optional string ready_routing_key = 2;
-    optional long ingest_service_timeout = 3;
+    optional double ingest_service_timeout = 3;
 }
 
 // "EndIngestMessage" is an IonMsg because this already contains response codes
