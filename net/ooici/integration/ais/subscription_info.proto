@@ -2,7 +2,7 @@ package net.ooici.integration.ais;
 
 import "net/ooici/core/link/link.proto";
 
-message SubscriptionInfo{
+message SubscriptionInfoReqMsg {
     enum _MessageTypeIdentifier {
       _ID = 9201;
       _VERSION = 1;
