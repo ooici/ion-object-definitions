@@ -94,7 +94,10 @@ Copy the package name, version and patch level from the download field an use th
 
 
 8) Update development.cfg [versions] section in ioncore-python to the
-package version created by the build bot. 
+package version created by the build bot, which should then look something like this (note the equals sign):
+
+[versions]
+ionproto=0.3.13-pl24
 
 9) Sanity check: test the new package against ioncore-python
     bin/buildout -c development.cfg (working dir: ioncore-python)
