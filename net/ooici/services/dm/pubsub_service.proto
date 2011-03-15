@@ -198,7 +198,6 @@ message QueueRes {
 	optional net.ooici.core.link.CASRef exchange_space_id = 1;
 	optional net.ooici.core.link.CASRef exchange_point_id = 2;
 	optional net.ooici.core.link.CASRef topic_id = 3;
-	optional net.ooici.core.link.CASRef subscriber_id = 4;
-	
-	optional string queue_name = 5;	
+
+	optional string queue_name = 4;
 }
