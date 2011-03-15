@@ -149,7 +149,6 @@ message TopicRes {
 	optional net.ooici.core.link.CASRef exchange_point_id = 4;	
 	
 	optional string topic_name = 5;
-	optional net.ooici.core.link.CASRef topic_id = 6;	
 }
 
 message PublisherRes {
