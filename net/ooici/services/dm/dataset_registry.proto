@@ -3,6 +3,11 @@ package net.ooici.services.dm;
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
 
+
+// ---------------------------------------------
+// (Currently unused and being preserved for
+//  future appropriation)
+// ---------------------------------------------
 message DatasetEntryMessage{
 	enum _MessageTypeIdentifier {
 		_ID = 2301;
