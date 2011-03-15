@@ -8,8 +8,8 @@ message EnumTypedef { //
         _VERSION = 1;
     }
 	message EnumPair {
-		required uint32 key = 1;
-		required string value = 2;
+		optional uint32 key = 1;
+		optional string value = 2;
 	}
 	repeated EnumPair pairs = 5;
 }
@@ -26,7 +26,7 @@ message Group {
         _ID = 10020;
         _VERSION = 1;
     }
-    required string name = 1;
+    optional string name = 1;
     optional string source_name = 2;
     repeated net.ooici.core.link.CASRef groups = 3;
     repeated net.ooici.core.link.CASRef dimensions = 4;              
