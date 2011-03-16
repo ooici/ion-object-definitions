@@ -95,8 +95,8 @@ message PullResponseMessage{
     }
     // The repository being requested and the commits that the puller currently has if any
     optional bytes repo_head_element = 1;
-    repeated net.ooici.core.link.CASRef commits = 2;
-    repeated net.ooici.core.link.CASRef blobs = 3;
+    repeated bytes commit_elements = 2;
+    repeated bytes blob_elements = 3;
     // The fields are empty if there is nothing to update
 }
 //=============================================
