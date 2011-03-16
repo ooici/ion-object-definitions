@@ -1,41 +1,21 @@
 package net.ooici.integration.ais.findDataResources;
 
-//import "net/ooici/integration/ais/findDataResources/spatial.proto";
-//import "net/ooici/integration/ais/findDataResources/temporal.proto";
-
-message Spatial {
-   enum _MessageTypeIdentifier {
-       _ID = 9021;
-       _VERSION = 1;
-   }
-   
-   optional double minLatitude = 1;
-   optional double maxLatitude = 2;
-   optional double minLongitude = 3;
-   optional double maxLongitude = 4;
-   optional double minAltitude = 5;
-   optional double maxAltitude = 6;
-   optional string identity = 7;
-}
-
-message Temporal {
-   enum _MessageTypeIdentifier {
-       _ID = 9022;
-       _VERSION = 1;
-   }
-   
-   optional double minTime = 1;
-   optional double maxTime = 2;
-}
-
 message FindDataResourcesReqMsg {
    enum _MessageTypeIdentifier {
        _ID = 9031;
        _VERSION = 1;	
    }
-
-   optional Spatial  spatial  = 1;
-   optional Temporal temporal = 2;
+   
+   optional string user_ooi_id = 1;
+   optional double minLatitude = 2;
+   optional double maxLatitude = 3;
+   optional double minLongitude = 4;
+   optional double maxLongitude = 5;
+   optional double minDepth = 6;
+   optional double maxDepth = 7;
+   optional double minTime = 8;
+   optional double maxTime = 9;
+   optional string identity = 10;
 }
 
 message FindDataResourcesRspMsg {
@@ -44,5 +24,5 @@ message FindDataResourcesRspMsg {
        _VERSION = 1;	
    }
 
-   //repeated <put payload here>
+   repeated string data_resource_id = 1;
 }

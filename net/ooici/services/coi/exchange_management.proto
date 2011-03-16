@@ -86,8 +86,9 @@ message Binding {
     optional string description = 2;
     optional string exchangespace = 3;  
     optional string exchangename = 4;
-    optional string queue = 5;  
+    optional string queuename = 5;  
     optional string topic = 6;  
+    // not building correctly?  bump
 }
 
 // AMQP MAPPING OBJECTS

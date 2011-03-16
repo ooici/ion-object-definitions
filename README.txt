@@ -7,7 +7,7 @@ ion-object-definitions
 Introduction
 ============
 ION Object Definitions is a language independent metadescription of the data objects used for
-messages and resources in ION services. Google Protocol Buffers (GPB) provides a complete tool chain
+messages and resources in ION services. Google Protocol Buffers (GPB) provide a complete tool chain
 for object specification which can be compiled in python and Java. We have adopted several
 conventions for our use of these objects in R1. 
 
@@ -54,7 +54,7 @@ Ivy Installation*
 Developer Workflow:
 ===================
 
-Adding or modifying object definitions has downstream consiquences. Each version of ioncore-python 
+Adding or modifying object definitions has downstream consequences. Each version of ioncore-python 
 and ioncore-java must be tied to a particular version of the object definitions. Otherwise unit 
 tests will break where objects are undefined or the usage does not match the definition. To organize
 the Type Identifiers we have provided a Google Doc table where the integer values are assigned:
@@ -94,7 +94,10 @@ Copy the package name, version and patch level from the download field an use th
 
 
 8) Update development.cfg [versions] section in ioncore-python to the
-package version created by the build bot. 
+package version created by the build bot, which should then look something like this (note the equals sign):
+
+[versions]
+ionproto=0.3.13-pl24
 
 9) Sanity check: test the new package against ioncore-python
     bin/buildout -c development.cfg (working dir: ioncore-python)
@@ -202,7 +205,7 @@ Default target: dist
 IDE Setup
 =========
 1. Run: ant resolve
-2. Make a "existing source" (or similar) project in your IDE of choice and select the src directory of the project.
+2. Make an "existing source" (or similar) project in your IDE of choice and select the src directory of the project.
 3. Put all of the jar files in the "lib" directory on the project classpath in your IDE.
 ** Note - when you "ant clean" the lib directory is wiped out.  If you discover your project not compiling, make sure
 there's a lib directory!
