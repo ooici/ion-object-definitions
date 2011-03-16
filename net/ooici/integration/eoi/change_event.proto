@@ -1,0 +1,16 @@
+package net.ooici.integration.eoi;
+
+message ChangeEventMessage{
+    enum _MessageTypeIdentifier {
+      _ID = 7001;
+      _VERSION = 1;
+    }
+    
+    enum ChangeType {
+    	UPDATE = 1;
+    }
+    
+    // The message parameters object
+    optional string data_source_id = 1;
+    optional string dataset_id = 2;
+}
