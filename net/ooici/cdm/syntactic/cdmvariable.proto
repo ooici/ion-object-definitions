@@ -12,7 +12,7 @@ message ArrayStructure{
     // The ArrayStructure provides an abstraction - a single object which contains
     // many bounded arrays of primitive values.
 
-    repeated net.ooici.core.link.CASRef bounded_array
+    repeated net.ooici.core.link.CASRef bounded_arrays = 1;
     }
 
 message BoundedArray {
