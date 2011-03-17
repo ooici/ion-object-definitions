@@ -45,6 +45,7 @@ message EoiDataContextMessage {
     optional string base_url = 11;
     optional string dataset_url = 12;
     optional string ncml_mask = 13;
+    optional uint64 max_ingest_millis = 14;
 }
 
 
@@ -72,4 +73,5 @@ message DataSourceMessage {
     optional string base_url = 9;
     optional string dataset_url = 10;
     optional string ncml_mask = 11;
+    optional uint64 max_ingest_millis = 12;
 }
