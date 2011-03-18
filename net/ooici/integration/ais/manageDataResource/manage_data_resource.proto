@@ -7,17 +7,10 @@ message DataResourceCreateUpdateRequest {
     }
     
     optional string data_resource_id       = 1;
-    optional string provider               = 2;
-    optional string format                 = 3;
+    optional string name                   = 2;
+    optional string url                    = 3;
     optional string protocol               = 4;
-    optional string type                   = 5;
-    optional string title                  = 6;
-    optional string data_format            = 7;
-    optional string data_type              = 8;
-    optional string naming_authority       = 9;
-    optional string summary                = 10;
-    optional string creator_user_id        = 11;
-    optional string publisher_id           = 12;
+    optional int32  update_frequency_sec   = 5;
 
 }
 
