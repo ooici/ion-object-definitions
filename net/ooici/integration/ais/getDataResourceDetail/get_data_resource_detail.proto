@@ -1,0 +1,19 @@
+package net.ooici.integration.ais.getDataResourceDetail;
+
+message GetDataResourceDetailReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9033;
+       _VERSION = 1;	
+   }
+   
+   repeated string data_resource_id = 1;
+
+}
+
+message FindDataResourcesRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9034;
+       _VERSION = 1;	
+   }
+
+}
