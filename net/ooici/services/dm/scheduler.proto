@@ -1,0 +1,47 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+import "net/ooici/core/message/resource_request.proto";
+
+// HostList is a component of a Storage Deployment
+
+message AddTaskRequest {
+    enum _MessageTypeIdentifier {
+      _ID = 2601;
+      _VERSION = 1;
+    }
+
+    // target is destination address
+    // interval is fractional seconds between messages
+    // payload is string
+
+    optional string target    = 1;
+    optional double interval  = 2;
+    optional string payload   = 3;
+}
+
+message AddTaskResponse {
+    enum _MessageTypeIdentifier {
+      _ID = 2602;
+      _VERSION = 1;
+    }
+
+    // the string guid
+    // interval is fractional seconds between messages
+    // payload is string
+
+    optional string task_id = 1;
+}
+
+
+message RmTaskRequest {
+    enum _MessageTypeIdentifier {
+      _ID = 2603;
+      _VERSION = 1;
+    }
+
+    // task id is GUID
+    optional string task_id = 1;
+
+}
