@@ -4,7 +4,6 @@ import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
 import "net/ooici/core/message/resource_request.proto";
 
-// HostList is a component of a Storage Deployment
 
 message AddTaskRequest {
     enum _MessageTypeIdentifier {
@@ -43,5 +42,16 @@ message RmTaskRequest {
 
     // task id is GUID
     optional string task_id = 1;
+
+}
+
+message RmTaskResponse {
+    enum _MessageTypeIdentifier {
+      _ID = 2604;
+      _VERSION = 1;
+    }
+
+    // reply is usually 'OK' but whatever
+    optional string value = 1;
 
 }
