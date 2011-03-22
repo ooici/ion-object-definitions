@@ -11,5 +11,5 @@ message FindDatasetMessage {
 	}
     
     optional bool only_mine = 1 ;
-    optional net.ooici.services.coi.LifeCycleState by_life_cycle_State = 2 [default = ACTIVE];
+    optional net.ooici.services.coi.LifeCycleState by_life_cycle_state = 2;
     }

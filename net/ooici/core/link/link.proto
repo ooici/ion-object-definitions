@@ -17,7 +17,7 @@ message IDRef {
         _ID = 4;
         _VERSION = 1;
     }
-	required string key = 1;
+	optional string key = 1;
 	//required net.ooici.core.type.GPBType type = 2;
 	optional string branch = 3;
 	optional bytes commit = 4;
