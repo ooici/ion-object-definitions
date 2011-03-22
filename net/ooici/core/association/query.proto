@@ -5,15 +5,15 @@ import "net/ooici/core/type/type.proto";
 import "net/ooici/core/message/resource_request.proto";
 
 
-message QueryAssociationsTo{
-    enum _MessageTypeIdentifier {
-      _ID = 15;
-      _VERSION = 1;
-    }
-    optional net.ooici.core.link.CASRef subject = 1;
-    optional net.ooici.core.link.CASRef predicate = 2;
-    optional net.ooici.core.link.CASRef object = 3;
-}
+//message QueryAssociationsTo{
+//    enum _MessageTypeIdentifier {
+//      _ID = 15;
+//      _VERSION = 1;
+//    }
+//    optional net.ooici.core.link.CASRef subject = 1;
+//    optional net.ooici.core.link.CASRef predicate = 2;
+//    optional net.ooici.core.link.CASRef object = 3;
+//}
 
 message SubjectPredicatePair{
 	enum _MessageTypeIdentifier {

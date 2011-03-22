@@ -1,0 +1,43 @@
+package net.ooici.integration.ais.manageDataResource;
+
+message DataResourceCreateUpdateRequest {
+    enum _MessageTypeIdentifier {
+        _ID = 9211;
+        _VERSION = 1;
+    }
+    
+    optional string data_resource_id       = 1;
+    optional string name                   = 2;
+    optional string url                    = 3;
+    optional string protocol               = 4;
+    optional int32  update_frequency_sec   = 5;
+
+}
+
+message DataResourceCreateUpdateResponse {
+    enum _MessageTypeIdentifier {
+        _ID = 9212;
+        _VERSION = 1;
+    }
+
+    optional string data_resource_id  = 1;
+}
+
+
+message DataResourceDeleteRequest {
+    enum _MessageTypeIdentifier {
+        _ID = 9213;
+        _VERSION = 1;
+    }
+
+    optional string data_resource_id  = 1;
+}
+
+message DataResourceDeleteResponse {
+    enum _MessageTypeIdentifier {
+        _ID = 9214;
+        _VERSION = 1;
+    }
+
+    optional bool success  = 1;
+}

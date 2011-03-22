@@ -3,6 +3,18 @@ package net.ooici.cdm.syntactic;
 import "net/ooici/core/link/link.proto";
 import "net/ooici/cdm/syntactic/cdmdatatype.proto";
 
+
+message ArrayStructure{
+    enum _MessageTypeIdentifier {
+        _ID = 10025;
+        _VERSION = 1;
+    }
+    // The ArrayStructure provides an abstraction - a single object which contains
+    // many bounded arrays of primitive values.
+
+    repeated net.ooici.core.link.CASRef bounded_arrays = 1;
+    }
+
 message BoundedArray {
     enum _MessageTypeIdentifier {
         _ID = 10021;
@@ -76,8 +88,8 @@ message Variable {
 	repeated net.ooici.core.link.CASRef shape = 5;
 
 	// Content is a reference the data in a variable
-	// it may be a Bounded Array, a Structure or a Sequence
-	repeated net.ooici.core.link.CASRef content = 6;
+	// it may be a Array Structure, a Structure or a Sequence
+	optional net.ooici.core.link.CASRef content = 6;
 
 	// Reference to the typedef if this is an enum
 	optional net.ooici.core.link.CASRef enum_typedef = 7;
