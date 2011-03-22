@@ -16,7 +16,8 @@ message UpdateUserEmail {
        _VERSION = 1;
    }
 
-   optional string email_address=1;
+   optional string user_ooi_id=1;
+   optional string email_address=2;
 }
 
 message UpdateUserDispatcherQueue {
@@ -25,7 +26,8 @@ message UpdateUserDispatcherQueue {
        _VERSION = 1;
    }
 
-   optional string queue_name=1;
+   optional string user_ooi_id=1;
+   optional string queue_name=2;
 }
 
 message OoiId {
