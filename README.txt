@@ -94,7 +94,11 @@ Copy the package name, version and patch level from the download field an use th
 
 
 8) Update development.cfg [versions] section in ioncore-python to the
-package version created by the build bot. 
+package version created by the build bot.  We are doing this because we
+want to tie a version of software (ioncore-python) with a particular version
+of protocol buffer defintions (ionproto) so that we can run an older
+release of software with the correct protocol buffer definitionsi in the
+future.
 
 9) Sanity check: test the new package against ioncore-python
     bin/buildout -c development.cfg (working dir: ioncore-python)
@@ -102,7 +106,7 @@ package version created by the build bot.
 10) Rerun bin/trial ion to make sure that the packaged version of ion-objects is correct.
     bin/trial ion (working dir: ioncore-python)
     
-11) Commit ioncore-python and push.
+11) You need to commit ioncore-python (your change in development.cfg) and push.
 
 *--================================================================================
 *
