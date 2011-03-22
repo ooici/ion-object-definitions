@@ -21,7 +21,7 @@ message ApplicationIntegrationServiceResponseMsg{
     // The message parameters object
     repeated net.ooici.core.link.CASRef message_parameters_reference = 1;
     
-    optional string result = 2;
+    optional int32 result = 2;
 }
 
 message ApplicationIntegrationServiceError{
