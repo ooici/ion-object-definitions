@@ -11,22 +11,21 @@ message AisDataResourceSummaryMsg {
    optional string title            = 3; 
    optional string institution      = 4;
    optional string source           = 5; 
-
-   //optional string references = 5; 
-   //optional string summary = 6; 
-   //optional string comment = 7; 
-   //optional string ion_time_coverage_start = 8; 
-   //optional string ion_time_coverage_end = 9; 
-   //optional double ion_geospatial_lat_min = 10; 
-   //optional double ion_geospatial_lat_max = 11; 
-   //optional double ion_geospatial_lon_min = 12; 
-   //optional double ion_geospatial_lon_max = 13; 
-   //optional double ion_geospatial_vertical_min = 14; 
-   //optional double ion_geospatial_vertical_max = 15; 
-   //optional string ion_geospatial_vertical_positive = 16; 
-   //optional string units = 17; 
-   //optional string standard_name = 18; 
-   //optional string long_name = 19;
+   optional string references = 6; 
+   optional string summary = 7; 
+   optional string comment = 8; 
+   optional string ion_time_coverage_start = 9; 
+   optional string ion_time_coverage_end = 10; 
+   optional double ion_geospatial_lat_min = 11; 
+   optional double ion_geospatial_lat_max = 12; 
+   optional double ion_geospatial_lon_min = 13; 
+   optional double ion_geospatial_lon_max = 14; 
+   optional double ion_geospatial_vertical_min = 15; 
+   optional double ion_geospatial_vertical_max = 16; 
+   optional string ion_geospatial_vertical_positive = 17; 
+   optional string units = 18; 
+   optional string standard_name = 19; 
+   optional string long_name = 20;
 
    
 }
