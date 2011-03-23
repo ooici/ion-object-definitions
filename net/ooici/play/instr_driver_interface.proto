@@ -1,0 +1,65 @@
+package net.ooici.play;
+
+//
+// A preliminary GPB representation of instrument-related data structures.
+// - https://confluence.oceanobservatories.org/display/CIDev/Instrument+Driver+Interface
+// 
+
+message Command {
+    enum _MessageTypeIdentifier {
+      _ID = 20034;
+      _VERSION = 1;
+    }
+    optional string command = 1;
+    repeated ChannelParameterPair args = 2;
+}
+
+message ChannelParameterPair {
+    enum _MessageTypeIdentifier {
+      _ID = 20035;
+      _VERSION = 1;
+    }
+    optional string channel = 1;
+    optional string parameter = 2;
+}
+
+message SuccessFail {
+    enum _MessageTypeIdentifier {
+      _ID = 20036;
+      _VERSION = 1;
+    }
+    
+    optional Result result = 1;
+    
+    message Item {
+      enum Type { STR = 1; PAIR = 2; PAIR_AND_VALUE = 3; }
+      optional Type type = 1;
+      
+      // One of the following will be filled in.
+      optional string str = 2;                            // "ExampleID123"
+      optional StringPair pair = 3;                       // (lat, lon)
+      optional StringPairAndResult pair_and_result = 4;   // ('chan1','param1'):'OK'
+    }
+    repeated Item item = 2;
+}
+
+enum Result {
+  OK = 0;
+  ERROR = 1;
+}
+
+// internal
+message StringPair {
+    optional string first = 1;
+    optional string second = 2;
+}
+
+// internal
+message StringPairAndResult {
+    optional StringPair pair = 1;
+    optional Result result = 2;
+}
+
+
+
+
