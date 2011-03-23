@@ -11,10 +11,12 @@ messages and resources in ION services. Google Protocol Buffers (GPB) provide a 
 for object specification which can be compiled in python and Java. We have adopted several
 conventions for our use of these objects in R1. 
 
-* Each defined object - a GPB 'message' must have a '_MessageTypeIdentifier'
+* Each defined object - a GPB 'message' must have a '_MessageTypeIdentifier' enum which uniquely
+identifies that object type
 * While GPB does provide 3 possible 'rules' for each message field ION definition use only optional 
-and repeated 
-* We have defined a field type to act as a null pointer, the link.CASRef
+and repeated. We do not use required. It is up to the service to check the fields that are set.
+* We have defined a message type to act as a void pointer to other ion objects, the link.CASRef can
+be used as a the type of a field for this purpose.
 
 Example Message (net.ooici.play.addressbook.proto):
 ===================================================
@@ -100,6 +102,7 @@ of protocol buffer defintions (ionproto) so that we can run an older
 release of software with the correct protocol buffer definitions in the
 future.
 
+Example excerpt from development.cfg:
 [versions]
 ionproto=0.3.13-pl24
 
