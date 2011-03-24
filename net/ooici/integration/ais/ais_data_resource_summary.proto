@@ -22,10 +22,14 @@ message AisDataResourceSummaryMsg {
    optional double ion_geospatial_lon_max = 14; 
    optional double ion_geospatial_vertical_min = 15; 
    optional double ion_geospatial_vertical_max = 16; 
-   optional string ion_geospatial_vertical_positive = 17; 
-   optional string units = 18; 
-   optional string standard_name = 19; 
-   optional string long_name = 20;
+   optional string ion_geospatial_vertical_positive = 17;
+   message AisDataVariable {
+      optional string units = 1; 
+      optional string standard_name = 2; 
+      optional string long_name = 3;
+      repeated string attribute = 4;
+   }
+   repeated AisDataVariable variable = 18;
 
    
 }
