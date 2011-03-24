@@ -1,0 +1,23 @@
+package net.ooici.integration.ais.manageSubscription;
+
+
+message SubscriptionCreateRequest {
+    enum _MessageTypeIdentifier {
+        _ID = 9221;
+        _VERSION = 1;
+    }
+    
+    optional string resource_id = 1;
+    optional string user_id = 2;
+
+}
+
+message SubscriptionCreateResponse {
+    enum _MessageTypeIdentifier {
+        _ID = 9222;
+        _VERSION = 1;
+    }
+
+    optional bool success = 1;
+}
+
