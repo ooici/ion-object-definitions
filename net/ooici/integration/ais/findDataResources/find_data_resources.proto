@@ -8,16 +8,17 @@ message FindDataResourcesReqMsg {
        _VERSION = 1;	
    }
    
-   optional string user_ooi_id = 1;
-   optional double minLatitude = 2;
-   optional double maxLatitude = 3;
+   optional string user_ooi_id  = 1;
+   optional double minLatitude  = 2;
+   optional double maxLatitude  = 3;
    optional double minLongitude = 4;
    optional double maxLongitude = 5;
-   optional double minDepth = 6;
-   optional double maxDepth = 7;
-   optional double minTime = 8;
-   optional double maxTime = 9;
-   optional string identity = 10;
+   optional double minVertical  = 6;
+   optional double maxVertical  = 7;
+   optional string posVertical  = 8;
+   optional double minTime      = 9;
+   optional double maxTime      = 10;
+   optional string identity     = 11;
 }
 
 message FindDataResourcesRspMsg {
