@@ -46,6 +46,10 @@ message EoiDataContextMessage {
     optional string dataset_url = 12;
     optional string ncml_mask = 13;
     optional uint64 max_ingest_millis = 14;
+    
+    // Additional fields
+    optional string xp_name = 15;
+    optional string ingest_topic = 16;
 }
 
 
