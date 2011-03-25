@@ -41,7 +41,7 @@ message QueryResult{
       _ID = 22;
       _VERSION = 1;
     }
-    repeated net.ooici.core.link.CASRef idref = 1;
+    repeated net.ooici.core.link.CASRef idrefs = 1;
 }
 
 message PredicateObjectPair{
