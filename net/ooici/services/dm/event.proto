@@ -1,0 +1,67 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+message EventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2322;
+		_VERSION = 1;
+	}
+	optional string data_resource_id = 1;
+	optional string name = 2;
+	enum Status {
+		IN_PROGRESS = 1;
+		CACHED = 2;
+		ERROR = 3;
+		NO_CACHE = 4;
+	}
+	optional Status status = 3;
+	optional string description = 4;
+	optional double datetime = 5;
+	optional string origin = 6;
+	// Not sure what this field is for
+	optional string body = 7;
+    // define additional notification messages and link them here
+    optional net.ooici.core.link.CASRef additional_data = 8;
+}
+
+message ResourceLifecycleEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2323;
+		_VERSION = 1;
+	}
+    enum State {
+        NEW = 1;
+        READY = 2;
+        ACTIVE = 3;
+        TERMINATED = 4;
+        ERROR = 5;
+    }
+	optional State state = 1;
+}
+
+message TriggerEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2324;
+		_VERSION = 1;
+	}
+
+    optional string dataset_id = 1;
+    optional string datasource_id = 2;
+}
+
+message ResourceModificationEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2325;
+		_VERSION = 1;
+	}
+}
+
+message LoggingEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2326;
+		_VERSION = 1;
+	}
+}
+
