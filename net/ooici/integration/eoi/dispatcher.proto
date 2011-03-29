@@ -1,0 +1,24 @@
+package net.ooici.integration.eoi;
+
+message DispatcherResource {
+    enum _MessageTypeIdentifier {
+      _ID = 7002;
+      _VERSION = 1;
+    }
+
+    // The message parameters object
+    optional string dispatcher_id = 1;
+    optional string dispatcher_name = 2;
+    optional string dispatcher_queue = 3;
+}
+
+message DispatcherWorkflowResource {
+    enum _MessageTypeIdentifier {
+      _ID = 7003;
+      _VERSION = 1;
+    }
+
+    optional string dataset_id = 1;
+    optional string workflow_path = 2;
+}
+
