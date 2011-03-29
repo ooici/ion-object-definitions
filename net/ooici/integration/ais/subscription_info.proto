@@ -12,3 +12,12 @@ message SubscriptionInfoReqMsg {
     optional string user_ooi_id = 1;
     optional string queue_id = 2;
 }
+
+message SubscriptionInfoRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9202;
+      _VERSION = 1;
+    }
+    
+    optional bool success = 1;
+}

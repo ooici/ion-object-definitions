@@ -2,28 +2,18 @@ package net.ooici.core.association;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
-import "net/ooici/core/message/resource_request.proto";
+import "net/ooici/services/coi/resource_framework.proto";
 
 
-//message QueryAssociationsTo{
-//    enum _MessageTypeIdentifier {
-//      _ID = 15;
-//      _VERSION = 1;
-//    }
-//    optional net.ooici.core.link.CASRef subject = 1;
-//    optional net.ooici.core.link.CASRef predicate = 2;
-//    optional net.ooici.core.link.CASRef object = 3;
-//}
-
-message SubjectPredicatePair{
-	enum _MessageTypeIdentifier {
-      _ID = 23;
+message PredicateObjectQuery{
+    enum _MessageTypeIdentifier {
+      _ID = 15;
       _VERSION = 1;
     }
 
-	optional net.ooici.core.link.CASRef subject = 1;
-    optional net.ooici.core.link.CASRef predicate = 2;
+    repeated PredicateObjectPair pairs = 3;
 }
+
 
 message SubjectPredicateQuery{
     enum _MessageTypeIdentifier {
@@ -41,8 +31,20 @@ message QueryResult{
       _ID = 22;
       _VERSION = 1;
     }
-    repeated net.ooici.core.link.CASRef idref = 1;
+    repeated net.ooici.core.link.CASRef idrefs = 1;
 }
+
+
+message SubjectPredicatePair{
+	enum _MessageTypeIdentifier {
+      _ID = 23;
+      _VERSION = 1;
+    }
+
+	optional net.ooici.core.link.CASRef subject = 1;
+    optional net.ooici.core.link.CASRef predicate = 2;
+}
+
 
 message PredicateObjectPair{
 	enum _MessageTypeIdentifier {
@@ -54,11 +56,23 @@ message PredicateObjectPair{
 	optional net.ooici.core.link.CASRef object = 2;
 }
 
-message PredicateObjectQuery{
-    enum _MessageTypeIdentifier {
-      _ID = 15;
+
+message PredicateReference{
+	enum _MessageTypeIdentifier {
+      _ID = 25;
       _VERSION = 1;
     }
-    
-    repeated PredicateObjectPair pairs = 3;
+    // Predicates are not mutable instance objects.
+	optional string key = 1;
 }
+
+message LifeCycleStateObject{
+    enum _MessageTypeIdentifier {
+      _ID = 26;
+      _VERSION = 1;
+    }
+    optional net.ooici.services.coi.LifeCycleState lcs = 1 [default = NEW];
+}
+
+
+

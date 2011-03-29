@@ -20,9 +20,11 @@ message ResourceDescription {
       _ID = 1101;
       _VERSION = 1;
     }
-	required net.ooici.core.type.GPBType type=1;
-	required string name=2;
+	optional net.ooici.core.type.GPBType object_type=1;
+	optional string name=2;
 	optional string description=3;
+    optional net.ooici.core.link.CASRef resource_type = 4;
+
 }
 
 
@@ -36,11 +38,25 @@ message OOIResource {
     // An OOI Resource object has several metadata parameters describing it in
     // a standard from. The actual resource object is contained by reference by
     // the resource field of type link.
-    required string name = 1;
-    required string identity = 2;
-    required net.ooici.core.type.GPBType type=3;
-    required LifeCycleState lcs = 4 [default = NEW];
-    required net.ooici.core.link.CASRef resource_object = 5;
+    optional string name = 1;
+    optional string identity = 2;
+    optional net.ooici.core.type.GPBType object_type=3;
+    optional LifeCycleState lcs = 4 [default = NEW];
+    optional net.ooici.core.link.CASRef resource_object = 5;
     optional string description = 6;
+    optional net.ooici.core.link.CASRef resource_type=7;
+
+}
+
+
+message ResourceType {
+    enum _MessageTypeIdentifier {
+          _ID = 1103;
+          _VERSION = 1;
+        }
+
+    optional int32 object_identifier=1;
+    optional int32 object_version=2;
+    optional string meta_description = 3;
 
 }
