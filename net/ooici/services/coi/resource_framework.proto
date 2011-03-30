@@ -20,9 +20,11 @@ message ResourceDescription {
       _ID = 1101;
       _VERSION = 1;
     }
-	optional net.ooici.core.type.GPBType type=1;
+	optional net.ooici.core.type.GPBType object_type=1;
 	optional string name=2;
 	optional string description=3;
+    optional net.ooici.core.link.CASRef resource_type = 4;
+
 }
 
 
@@ -38,10 +40,11 @@ message OOIResource {
     // the resource field of type link.
     optional string name = 1;
     optional string identity = 2;
-    optional net.ooici.core.type.GPBType type=3;
+    optional net.ooici.core.type.GPBType object_type=3;
     optional LifeCycleState lcs = 4 [default = NEW];
     optional net.ooici.core.link.CASRef resource_object = 5;
     optional string description = 6;
+    optional net.ooici.core.link.CASRef resource_type=7;
 
 }
 

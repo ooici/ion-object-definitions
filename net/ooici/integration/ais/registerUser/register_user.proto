@@ -1,6 +1,6 @@
 package net.ooici.integration.ais.registerUser;
 
-message RegisterIonUser {
+message RegisterIonUserRequest {
    enum _MessageTypeIdentifier {
        _ID = 9101;
        _VERSION = 1;
@@ -30,11 +30,13 @@ message UpdateUserDispatcherQueue {
    optional string queue_name=2;
 }
 
-message OoiId {
+message RegisterIonUserReponse {
    enum _MessageTypeIdentifier {
        _ID = 9104;
        _VERSION = 1;
    }
 
    optional string ooi_id=1;
+   optional bool user_is_admin=2;
+   optional bool user_already_registered=3;
 }
