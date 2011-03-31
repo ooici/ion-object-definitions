@@ -1,5 +1,8 @@
 package net.ooici.integration.ais.getDataResourceDetail;
 
+import "net/ooici/integration/ais/ais_data_variable.proto";
+import "net/ooici/integration/ais/ais_data_resource_metadata.proto";
+
 message GetDataResourceDetailReqMsg {
    enum _MessageTypeIdentifier {
        _ID = 9033;
@@ -17,15 +20,7 @@ message GetDataResourceDetailRspMsg {
    }
 
    optional string data_resource_id = 1; 
-
-   message AisDataVariable {
-      optional string units = 1; 
-      optional string standard_name = 2; 
-      optional string long_name     = 3;
-      repeated string other_attributes = 4;
-   }
-   repeated AisDataVariable variable = 2;
-
-   // Add meta metadata
+   repeated net.ooici.integration.ais.aisDataVariable.AisDataVariableType variable = 2;
+   optional net.ooici.integration.ais.aisDataResourceMetadata.AisDatasourceMetadataType source = 3;
 
 }
