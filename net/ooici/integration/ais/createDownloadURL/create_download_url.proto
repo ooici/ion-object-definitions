@@ -6,6 +6,7 @@ message CreateDownloadURLReqMsg {
        _VERSION = 1;	
    }
 
+   optional string user_ooi_id  = 1;
 }
 
 message CreateDownloadURLRspMsg {
