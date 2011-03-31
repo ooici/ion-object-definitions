@@ -18,8 +18,8 @@ message ScalarDataPoint{
       _ID = 20019;
       _VERSION = 1;
     }
-	required net.ooici.core.link.CASRef location =1;
-	required double val = 2;
+	optional net.ooici.core.link.CASRef location =1;
+	optional double val = 2;
 }
 
 message VectorData{
@@ -27,9 +27,9 @@ message VectorData{
       _ID = 20020;
       _VERSION = 1;
     }
-	required double xi = 1;
-	required double xj = 2;
-	required double xk = 3;
+	optional double xi = 1;
+	optional double xj = 2;
+	optional double xk = 3;
 }
 
 message VectorDataPoint{
@@ -37,8 +37,8 @@ message VectorDataPoint{
       _ID = 20021;
       _VERSION = 1;
     }
-	required net.ooici.core.link.CASRef location = 1;
-	required VectorData vector = 2;
+	optional net.ooici.core.link.CASRef location = 1;
+	optional VectorData vector = 2;
 }
 
 message CTDSensor{
@@ -46,7 +46,7 @@ message CTDSensor{
       _ID = 20022;
       _VERSION = 1;
     }
-	required string id = 1;
+	optional string id = 1;
 	optional string name = 2;
 	repeated ScalarDataPoint temperature = 3;
 	repeated ScalarDataPoint salinity = 4;	
@@ -58,7 +58,7 @@ message ADCPSensor{
       _ID = 20023;
       _VERSION = 1;
     }
-	required string id = 1;
+	optional string id = 1;
 	optional string name = 2;
 	repeated ScalarDataPoint temperature = 3;
 	repeated ScalarDataPoint salinity = 4;	
@@ -75,9 +75,9 @@ message Instrument{
       _ID = 20024;
       _VERSION = 1;
     }
-	required string id = 1;
+	optional string id = 1;
 	optional string name = 2;
-	required InstrumentType type = 3;
+	optional InstrumentType type = 3;
 	repeated net.ooici.core.link.CASRef sensors = 4;
 }
 
@@ -87,8 +87,8 @@ message Mooring{
       _ID = 20025;
       _VERSION = 1;
     }
-	required string id = 1;
+	optional string id = 1;
 	optional string name = 2;
-	required Location location = 3;
+	optional Location location = 3;
 	repeated Instrument instruments = 4;
 }
