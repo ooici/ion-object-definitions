@@ -1,0 +1,14 @@
+package net.ooici.integration.ais.aisDataVariable;
+ 
+message AisDataVariableType {
+   enum _MessageTypeIdentifier {
+       _ID = 9023;
+       _VERSION = 1;	
+   }
+
+   optional string units         = 1; 
+   optional string standard_name = 2; 
+   optional string long_name     = 3;
+   repeated string other_attributes = 4;
+  
+}
