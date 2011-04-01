@@ -17,8 +17,8 @@ message FindDataResourcesReqMsg {
    optional double minVertical  = 6;
    optional double maxVertical  = 7;
    optional string posVertical  = 8;
-   optional double minTime      = 9;
-   optional double maxTime      = 10;
+   optional string minTime      = 9;
+   optional string maxTime      = 10;
    optional string identity     = 11;
 }
 
