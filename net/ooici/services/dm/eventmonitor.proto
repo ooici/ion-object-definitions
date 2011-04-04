@@ -1,0 +1,70 @@
+package net.ooici.services.dm;
+
+import "net/ooici/core/link/link.proto";
+import "net/ooici/core/type/type.proto";
+
+message EventMonitorSubscribeMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2335;
+		_VERSION = 1;
+	}
+
+    optional string session_id = 1;
+    //optional string subscriber_type = 2;
+    optional int32 event_id = 2;
+    optional string origin = 3;
+}
+
+message EventMonitorSubscribeResponse {
+	enum _MessageTypeIdentifier {
+		_ID = 2336;
+		_VERSION = 1;
+	}
+
+    optional string session_id = 1;
+    optional string subscription_id = 2;
+}
+
+message EventMonitorUnsubscribeMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2337;
+		_VERSION = 1;
+	}
+
+    optional string session_id = 1;
+    optional string subscription_id = 2;        // if not specified, unsubscribes all for this session_id
+}
+
+message EventMonitorGetDataMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2338;
+		_VERSION = 1;
+	}
+
+    optional string session_id = 1;
+    optional string timestamp = 2;      // give all messages since this timestamp
+    repeated string subscriber_id = 3;  // normally not specified, but will only get back messages from the indicated subscription(s)
+}
+
+message EventMonitorDataMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2339;
+		_VERSION = 1;
+	}
+
+    optional string session_id = 1;
+    repeated EventMonitorSubData data = 2;
+}
+
+message EventMonitorSubData {
+	enum _MessageTypeIdentifier {
+		_ID = 2340;
+		_VERSION = 1;
+	}
+
+    optional string subscription_id = 1;
+    optional string subscription_desc = 2;
+    repeated net.ooici.core.link.CASRef events = 3;
+}
+
+
