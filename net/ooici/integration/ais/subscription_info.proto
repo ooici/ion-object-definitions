@@ -10,7 +10,8 @@ message SubscriptionInfoReqMsg {
     
     // The message parameters object
     optional string user_ooi_id = 1;
-    optional string queue_id = 2;
+    optional string exchange_point = 2;
+    optional string routing_key = 3;
 }
 
 message SubscriptionInfoRspMsg {
