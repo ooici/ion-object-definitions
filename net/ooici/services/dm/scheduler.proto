@@ -60,3 +60,26 @@ message RmTaskResponse {
     optional string value = 1;
 
 }
+
+
+
+message QueryTaskRequest {
+    enum _MessageTypeIdentifier {
+      _ID = 2605;
+      _VERSION = 1;
+    }
+
+    optional string task_regex = 1;
+
+}
+
+message QueryTaskResponse {
+    enum _MessageTypeIdentifier {
+      _ID = 2606;
+      _VERSION = 1;
+    }
+
+    // can be an empty list
+    repeated string task_ids = 1;
+
+}
