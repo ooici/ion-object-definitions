@@ -1,7 +1,7 @@
 package net.ooici.integration.ais.findDataResources;
 
 import "net/ooici/core/link/link.proto";
-import "net/ooici/integration/ais/ais_data_resource_metadata.proto";
+import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
 
 message FindDataResourcesReqMsg {
    enum _MessageTypeIdentifier {
@@ -28,5 +28,5 @@ message FindDataResourcesRspMsg {
        _VERSION = 1;	
    }
 
-   repeated net.ooici.integration.ais.aisDataResourceMetadata.AisDatasetMetadataType dataResourceSummary = 1;
+   repeated net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dataResourceSummary = 1;
 }

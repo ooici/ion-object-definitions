@@ -1,4 +1,4 @@
-package net.ooici.integration.ais.aisDataVariable;
+package net.ooici.integration.ais.common.aisDataVariable;
  
 message AisDataVariableType {
    enum _MessageTypeIdentifier {

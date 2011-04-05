@@ -1,4 +1,4 @@
-package net.ooici.integration.ais.aisDataResourceMetadata;
+package net.ooici.integration.ais.common.aisDataResourceMetadata;
 
 import "net/ooici/services/sa/data_source.proto";
 

@@ -1,7 +1,7 @@
 package net.ooici.integration.ais.getDataResourceDetail;
 
-import "net/ooici/integration/ais/ais_data_variable.proto";
-import "net/ooici/integration/ais/ais_data_resource_metadata.proto";
+import "net/ooici/integration/ais/common/ais_data_variable.proto";
+import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
 
 message GetDataResourceDetailReqMsg {
    enum _MessageTypeIdentifier {
@@ -20,7 +20,7 @@ message GetDataResourceDetailRspMsg {
    }
 
    optional string data_resource_id = 1; 
-   repeated net.ooici.integration.ais.aisDataVariable.AisDataVariableType variable = 2;
-   optional net.ooici.integration.ais.aisDataResourceMetadata.AisDatasourceMetadataType source = 3;
+   repeated net.ooici.integration.ais.common.aisDataVariable.AisDataVariableType variable = 2;
+   optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasourceMetadataType source = 3;
 
 }
