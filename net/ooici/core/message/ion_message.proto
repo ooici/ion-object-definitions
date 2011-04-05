@@ -52,3 +52,11 @@ message IonMsg{
     optional ResponseCodes response_code = 5;
     optional string response_body = 7;
 }
+
+message BoolMsg{
+    enum _MessageTypeIdentifier {
+      _ID = 30;
+      _VERSION = 1;
+    }
+    optional bool result = 1;
+}

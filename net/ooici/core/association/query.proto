@@ -75,4 +75,16 @@ message LifeCycleStateObject{
 }
 
 
+message AssociationQueryMsg{
+    enum _MessageTypeIdentifier {
+      _ID = 27;
+      _VERSION = 1;
+    }
+
+    optional net.ooici.core.link.CASRef subject = 1;
+    optional net.ooici.core.link.CASRef predicate = 2;
+    optional net.ooici.core.link.CASRef object = 3;
+}
+
+
 
