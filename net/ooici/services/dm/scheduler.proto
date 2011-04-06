@@ -11,13 +11,18 @@ message AddTaskRequest {
       _VERSION = 1;
     }
 
-    // target is destination address
-    // interval is fractional seconds between messages
+    // desired_origin is where the event notification will originate from
+    //   this is not required to be sent... one will be generated if not
+    // interval is seconds between messages
     // payload is string
 
-    optional string target    = 1;
-    optional double interval  = 2;
-    optional string payload   = 3;
+    optional string desired_origin    = 1;
+    optional uint64 interval_seconds  = 2;
+    optional string payload           = 3;
+
+    //these are actually optional: epoch times for start/end
+    optional uint64 time_start_unix   = 4;
+    optional uint64 time_end_unix     = 5;
 }
 
 message AddTaskResponse {
@@ -27,10 +32,10 @@ message AddTaskResponse {
     }
 
     // the string guid
-    // interval is fractional seconds between messages
-    // payload is string
+    // the origin  is where the event notifications will come from
 
     optional string task_id = 1;
+    optional string origin  = 2;
 }
 
 
@@ -53,5 +58,28 @@ message RmTaskResponse {
 
     // reply is usually 'OK' but whatever
     optional string value = 1;
+
+}
+
+
+
+message QueryTaskRequest {
+    enum _MessageTypeIdentifier {
+      _ID = 2605;
+      _VERSION = 1;
+    }
+
+    optional string task_regex = 1;
+
+}
+
+message QueryTaskResponse {
+    enum _MessageTypeIdentifier {
+      _ID = 2606;
+      _VERSION = 1;
+    }
+
+    // can be an empty list
+    repeated string task_ids = 1;
 
 }
