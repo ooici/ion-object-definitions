@@ -18,7 +18,7 @@ setup(
     version = '0.3.15',
     description = 'OOI LCA protocol buffers auto-generated code',
     url = 'http://www.oceanobservatories.org/spaces/display/CIDev/LCAARCH+Development+Project',
-    download_url = 'http://ooici.net/releases',
+    download_url = 'http://ooici.net/packages',
     license = 'Apache 2.0',
     author = 'David Stuebe',
     author_email = 'dstuebe@asasciences.com',
@@ -27,7 +27,7 @@ setup(
         'protocol_buffers'
                ],
     dependency_links = [
-        'http://ooici.net/releases'
+        'http://ooici.net/packages'
                        ],
     packages = find_packages() + ['net'],
     install_requires = [
