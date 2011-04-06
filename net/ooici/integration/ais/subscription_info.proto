@@ -47,3 +47,26 @@ message SubscriptionCreateRspMsg {
     
     optional bool success = 1;
 }
+
+
+message SubscriptionModifyReqMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9205;
+      _VERSION = 1;
+    }
+    
+    // The message parameters object
+    optional string dispatcher_id  = 1;
+    optional string script_path    = 2;
+    optional string resource_id    = 3;
+
+}
+
+message SubscriptionModifyRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9206;
+      _VERSION = 1;
+    }
+    
+    optional bool success = 1;
+}
