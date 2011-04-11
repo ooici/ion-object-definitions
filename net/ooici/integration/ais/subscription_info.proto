@@ -36,7 +36,7 @@ message SubscriptionCreateReqMsg {
     optional string dispatcher_id  = 1;
     optional string script_path    = 2;
     optional string resource_id    = 3;
-
+    //this is the data resource id
 }
 
 message SubscriptionCreateRspMsg {
@@ -49,7 +49,7 @@ message SubscriptionCreateRspMsg {
 }
 
 
-message SubscriptionModifyReqMsg {
+message SubscriptionDeleteReqMsg {
     enum _MessageTypeIdentifier {
       _ID = 9205;
       _VERSION = 1;
@@ -62,7 +62,7 @@ message SubscriptionModifyReqMsg {
 
 }
 
-message SubscriptionModifyRspMsg {
+message SubscriptionDeleteRspMsg {
     enum _MessageTypeIdentifier {
       _ID = 9206;
       _VERSION = 1;
