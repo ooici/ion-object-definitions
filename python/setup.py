@@ -15,10 +15,10 @@ except ImportError:
 
 setup(
     name = 'ionproto',
-    version = '0.3.13',
+    version = '0.3.16',
     description = 'OOI LCA protocol buffers auto-generated code',
     url = 'http://www.oceanobservatories.org/spaces/display/CIDev/LCAARCH+Development+Project',
-    download_url = 'http://ooici.net/packages',
+    download_url = 'http://ooici.net/releases',
     license = 'Apache 2.0',
     author = 'David Stuebe',
     author_email = 'dstuebe@asasciences.com',
@@ -27,7 +27,7 @@ setup(
         'protocol_buffers'
                ],
     dependency_links = [
-        'http://ooici.net/packages'
+        'http://ooici.net/releases'
                        ],
     packages = find_packages() + ['net'],
     install_requires = [

@@ -1,0 +1,67 @@
+package net.ooici.integration.ais.manageResources;
+
+message GetResourceTypesResponse {
+   enum _MessageTypeIdentifier {
+       _ID = 9120;
+       _VERSION = 1;
+   }
+
+   repeated string resource_types_list = 1;
+}
+
+message GetResourcesOfTypeRequest {
+   enum _MessageTypeIdentifier {
+       _ID = 9121;
+       _VERSION = 1;
+   }
+
+   optional string resource_type = 1;
+}
+
+message Resource {
+   enum _MessageTypeIdentifier {
+       _ID = 9122;
+       _VERSION = 1;
+   }
+
+   repeated string attribute = 1;
+}
+
+message GetResourcesOfTypeResponse {
+   enum _MessageTypeIdentifier {
+       _ID = 9123;
+       _VERSION = 1;
+   }
+
+   repeated string column_names = 1;
+   repeated net.ooici.integration.ais.manageResources.Resource resources = 2;
+}
+
+message GetResourceRequest {
+   enum _MessageTypeIdentifier {
+       _ID = 9124;
+       _VERSION = 1;
+   }
+
+   optional string ooi_id = 1;
+}
+
+message NameValuePair {
+   enum _MessageTypeIdentifier {
+       _ID = 9125;
+       _VERSION = 1;
+   }
+
+   optional string name = 1;
+   optional string value = 2;
+}
+
+message GetResourceResponse {
+   enum _MessageTypeIdentifier {
+       _ID = 9126;
+       _VERSION = 1;
+   }
+
+   repeated net.ooici.integration.ais.manageResources.NameValuePair resource = 1;
+}
+
