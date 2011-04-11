@@ -39,4 +39,5 @@ message RegisterIonUserReponse {
    optional string ooi_id=1;
    optional bool user_is_admin=2;
    optional bool user_already_registered=3;
+   optional bool user_has_dispatcher_queue=4;
 }
