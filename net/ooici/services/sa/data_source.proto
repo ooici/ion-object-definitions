@@ -36,12 +36,11 @@ message EoiDataContextMessage {
     optional string end_time = 3;
     repeated string property = 4;
     repeated string station_id = 5;
-    
     optional RequestType request_type = 6;
-    optional double top = 7;
-    optional double bottom = 8;
-    optional double left = 9;
-    optional double right = 10;
+    optional double request_bounds_north = 7;
+    optional double request_bounds_south = 8;
+    optional double request_bounds_west = 9;
+    optional double request_bounds_east = 10;
     optional string base_url = 11;
     optional string dataset_url = 12;
     optional string ncml_mask = 13;
@@ -50,6 +49,9 @@ message EoiDataContextMessage {
     // Additional fields
     optional string xp_name = 15;
     optional string ingest_topic = 16;
+    
+    // ION properties
+    optional string ion_title = 17;//this get's applied as the "title" of the dataset
 }
 
 
@@ -59,31 +61,24 @@ message DataSourceMessage {
         _VERSION = 1;
     }
     
-    // Contains information required by the EOI Dataset Agent
-    // to properly obtain data from an external source
-    // 
-    // For more information see:
-    // https://spreadsheets.google.com/ccc?key=tql6nRd7fM6gSxY0KnBMzrA&authkey=CLWPmZAJ&hl=en#gid=0
-    
     optional SourceType source_type = 1;
     repeated string property = 2;
     repeated string station_id = 3;
-    
     optional RequestType request_type = 4;
-    optional double top = 5;
-    optional double bottom = 6;
-    optional double left = 7;
-    optional double right = 8;
+    optional double request_bounds_north = 5;
+    optional double request_bounds_south = 6;
+    optional double request_bounds_west = 7;
+    optional double request_bounds_east = 8;
     optional string base_url = 9;
     optional string dataset_url = 10;
     optional string ncml_mask = 11;
     optional uint64 max_ingest_millis = 12;
-
-    //'start_time' and 'end_time' are expected to be in the
-    // ISO8601 Date Format (yyyy-MM-dd'T'HH:mm:ss'Z')
-    optional string start_time = 13;
-    optional string end_time = 14;
-    optional string institution_id     = 15;
+    optional string ion_title = 13;
+    optional string ion_institution_id = 14;
+    optional uint64 update_interval_seconds = 15;
+    
+    // milliseconds from unix epoch (01-01-1970 00:00:00)
+    optional uint64 update_start_datetime_millis = 16;
 }
 
 message DataSourceResource {
@@ -92,30 +87,23 @@ message DataSourceResource {
         _VERSION = 1;
     }
     
-    // Contains information required by the EOI Dataset Agent
-    // to properly obtain data from an external source
-    // 
-    // For more information see:
-    // https://spreadsheets.google.com/ccc?key=tql6nRd7fM6gSxY0KnBMzrA&authkey=CLWPmZAJ&hl=en#gid=0
+	optional SourceType source_type = 1;    
+    repeated string property = 2;
+    repeated string station_id = 3;
+    optional RequestType request_type = 4;
+    optional double request_bounds_north = 5;
+    optional double request_bounds_south = 6;
+    optional double request_bounds_west = 7;
+    optional double request_bounds_east = 8;
+    optional string base_url = 9;
+    optional string dataset_url = 10;
+    optional string ncml_mask = 11;
+    optional uint64 max_ingest_millis = 12;
+    optional string ion_title = 13;
+    optional string ion_institution_id = 14;
+    optional uint64 update_interval_seconds = 15;
     
-    optional SourceType source_type    = 1;
-    repeated string property           = 2;
-    repeated string station_id         = 3;
-    
-    optional RequestType request_type  = 4;
-    optional double top                = 5;
-    optional double bottom             = 6;
-    optional double left               = 7;
-    optional double right              = 8;
-    optional string base_url           = 9;
-    optional string dataset_url        = 10;
-    optional string ncml_mask          = 11;
-    optional uint64 max_ingest_millis  = 12;
- 
-    //'start_time' and 'end_time' are expected to be in the
-    // ISO8601 Date Format (yyyy-MM-dd'T'HH:mm:ss'Z')
-    optional string start_time         = 13;
-    optional string end_time           = 14;
-    optional string institution_id     = 15;
+    // milliseconds from unix epoch (01-01-1970 00:00:00)
+    optional uint64 update_start_datetime_millis = 16;
 }
 
