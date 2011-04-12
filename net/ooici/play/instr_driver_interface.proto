@@ -12,6 +12,7 @@ message Command {
     }
     optional string command = 1;
     repeated ChannelParameterPair args = 2;
+    optional string publish_stream = 3;
 }
 
 message ChannelParameterPair {
