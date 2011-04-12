@@ -1,21 +1,6 @@
 package net.ooici.integration.ais.manageDataResource;
 
-enum SourceType {
-        SOS       = 1;
-        USGS      = 2;
-        AOML      = 3;
-        NETCDF_S  = 4;
-        NETCDF_C  = 5;
-    }
-
-enum RequestType {
-        NONE = 1;
-        XBT  = 2;
-        CTD  = 3;
-        DAP  = 4;
-        FTP  = 5;
-    }
-
+import "net/ooici/services/sa/data_source.proto";
 
 message DataResourceCreateRequest {
     enum _MessageTypeIdentifier {
@@ -23,25 +8,24 @@ message DataResourceCreateRequest {
         _VERSION = 1;
     }
     
-    optional SourceType source_type       = 1;
-
-    // ISO8601 Date Format (yyyy-MM-dd'T'HH:mm:ss'Z'
-    optional string start_time            = 2;
-    optional string end_time              = 3;
-    optional uint64 update_interval_msec  = 4;
-    repeated string property              = 5;
-    repeated string station_id            = 6;
-
-    optional RequestType request_type     = 7;
-    optional double top                   = 8;
-    optional double bottom                = 9;
-    optional double left                  = 10;
-    optional double right                 = 11;
-    optional string base_url              = 12;
-    optional string dataset_url           = 13;
-    optional string ncml_mask             = 14;
-    optional string institution_id        = 15;
-
+    optional string user_id = 1;    
+    optional net.ooici.services.sa.SourceType source_type = 2;
+    repeated string property = 3;
+    repeated string station_id = 4;
+    optional net.ooici.services.sa.RequestType request_type = 5;
+    optional double request_bounds_north = 6;
+    optional double request_bounds_south = 7;
+    optional double request_bounds_west = 8;
+    optional double request_bounds_east = 9;
+    optional string base_url = 10;
+    optional string dataset_url = 11;
+    optional string ncml_mask = 12;
+    optional uint64 max_ingest_millis = 13;
+    optional string ion_title = 14;
+    optional string ion_institution_id = 15;
+    optional uint64 update_interval_seconds = 16;
+    // milliseconds from unix epoch (01-01-1970 00:00:00)
+    optional uint64 update_start_datetime_millis = 17;
 }
 
 message DataResourceCreateResponse {
@@ -83,7 +67,7 @@ message DataResourceUpdateRequest {
 
     optional string user_id               = 1;
     optional uint64 update_interval_msec  = 2;
-    optional string institution_id        = 3; 
+    optional string institution_id        = 3;
 }
 
 message DataResourceUpdateResponse {
@@ -101,9 +85,14 @@ message DataResourceCreateSimpleRequest {
         _VERSION = 1;
     }
     
-    optional string user_id               = 1;
-    optional uint64 update_interval_msec  = 2;
-    optional string institution_id        = 3;
-
+    optional string user_id = 1;
+    optional string dataset_url = 2;
+    optional string ncml_mask = 3;
+    optional uint64 max_ingest_millis = 4;
+    optional string ion_title = 5;
+    optional string ion_institution_id = 6;
+    optional uint64 update_interval_seconds = 7;
+    // milliseconds from unix epoch (01-01-1970 00:00:00)
+    optional uint64 update_start_datetime_millis = 8;
 }
 
