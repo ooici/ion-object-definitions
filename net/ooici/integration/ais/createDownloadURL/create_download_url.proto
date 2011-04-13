@@ -7,6 +7,8 @@ message CreateDownloadURLReqMsg {
    }
 
    optional string user_ooi_id  = 1;
+   optional string data_resource_id = 2;
+
 }
 
 message CreateDownloadURLRspMsg {
