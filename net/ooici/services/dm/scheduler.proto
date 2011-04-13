@@ -20,9 +20,6 @@ message AddTaskRequest {
     optional uint64 interval_seconds  = 2;
     optional string payload           = 3;
 
-    //these are actually optional: epoch times for start/end
-    optional uint64 time_start_unix   = 4;
-    optional uint64 time_end_unix     = 5;
 }
 
 message AddTaskResponse {
