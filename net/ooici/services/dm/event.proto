@@ -56,6 +56,8 @@ message ResourceModificationEventMessage {
 		_ID = 2325;
 		_VERSION = 1;
 	}
+	
+	optional net.ooici.core.link.CASRef resource = 1;
 }
 
 message LoggingEventMessage {
@@ -63,5 +65,23 @@ message LoggingEventMessage {
 		_ID = 2326;
 		_VERSION = 1;
 	}
+}
+
+message NewSubscriptionEventMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2327;
+        _VERSION = 1;
+    }
+    
+    optional net.ooici.core.link.CASRef dispatcher_workflow = 1;
+}
+
+message DelSubscriptionEventMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2328;
+        _VERSION = 1;
+    }
+    
+    optional net.ooici.core.link.CASRef dispatcher_workflow = 1;
 }
 
