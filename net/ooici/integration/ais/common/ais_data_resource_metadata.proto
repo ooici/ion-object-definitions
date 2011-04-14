@@ -26,6 +26,7 @@ message AisDatasetMetadataType {
    optional double ion_geospatial_vertical_min      = 16; 
    optional double ion_geospatial_vertical_max      = 17; 
    optional string ion_geospatial_vertical_positive = 18;
+   optional string download_url = 19;
    
 }
 
