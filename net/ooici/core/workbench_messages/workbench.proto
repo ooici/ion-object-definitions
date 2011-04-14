@@ -114,18 +114,19 @@ message PullResponseMessage{
 
 
 
-////=============================================
-//// The message sent in during checkout to request non-local content
-//message RequestCommitBlobsMessage{
-//     enum _MessageTypeIdentifier {
-//      _ID = 48;
-//      _VERSION = 1;
-//    }
-//    // The repository being requested and the commits that the puller currently has if any
-//    optional net.ooici.core.link.CASRef commit = 1;
-//}
-////=============================================
-//
+//=============================================
+// The message sent in during checkout to request non-local content
+message RequestCommitBlobsMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 48;
+      _VERSION = 1;
+    }
+    // The repository being requested and the commits that the puller currently has if any
+    optional bytes commit_root_object = 1;
+    repeated net.ooici.core.type.GPBType excluded_types = 2;
+}
+//=============================================
+
 ////=============================================
 //// The message sent in response to a request for the blobs of a commit (Rolls: Puller, Pullee)
 //message CommitBlobsResponseMessage{
@@ -136,7 +137,7 @@ message PullResponseMessage{
 //    // Links to the blobs in that commit (SHA, Type and IsLeaf!)
 //    repeated BlobReference blob_refs = 1;
 //}
-//
+
 //// Same content as a link - but don't use a link!
 //message BlobReference {
 //    enum _MessageTypeIdentifier {
@@ -147,8 +148,8 @@ message PullResponseMessage{
 //	required net.ooici.core.type.GPBType type = 2;
 //	required bool isleaf = 3;
 //    }
-//
-////=============================================
+
+//=============================================
 
 //=============================================
 // Blobs Request
