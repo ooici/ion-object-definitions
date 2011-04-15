@@ -10,8 +10,21 @@ message SubscriptionInfoReqMsg {
     
     // The message parameters object
     optional string user_ooi_id = 1;
-    optional string exchange_point = 2;
-    optional string routing_key = 3;
+    optional string data_set_id = 2;
+    enum SubscriptionType {
+         EMAIL = 0;
+         DISPATCHER = 1;
+         EMAILANDDISPATCHER = 2;
+     }
+     optional SubscriptionType subscription_type = 3 [default = EMAIL];
+     enum AlertsFilter {
+          UPDATES = 0;
+          METADATACHENGE = 1;
+          DATASOURCEOFFLINE = 2;
+     }
+     optional AlertsFilter email_alerts_filter = 4;
+     optional AlertsFilter dispatcher_alerts_filter = 5;
+     optional string dispatcher_script_path = 6;
 }
 
 message SubscriptionInfoRspMsg {
