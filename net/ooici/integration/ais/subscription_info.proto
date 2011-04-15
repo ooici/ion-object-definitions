@@ -10,7 +10,7 @@ message SubscriptionInfoReqMsg {
     
     // The message parameters object
     optional string user_ooi_id = 1;
-    optional string data_set_id = 2;
+    optional string data_src_id = 2;
     enum SubscriptionType {
          EMAIL = 0;
          DISPATCHER = 1;
