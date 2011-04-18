@@ -46,7 +46,7 @@ message DataResourceDeleteRequest {
         _VERSION = 1;
     }
 
-    optional string data_resource_id  = 1;
+    repeated string data_source_resource_id  = 1;
 }
 
 message DataResourceDeleteResponse {
@@ -55,7 +55,7 @@ message DataResourceDeleteResponse {
         _VERSION = 1;
     }
 
-    optional bool success  = 1;
+    repeated string successfully_deleted_id  = 1;
 }
 
 
@@ -65,9 +65,10 @@ message DataResourceUpdateRequest {
         _VERSION = 1;
     }
 
-    optional string user_id               = 1;
-    optional uint64 update_interval_msec  = 2;
-    optional string institution_id        = 3;
+    optional string user_id                  = 1;
+    optional string data_source_resource_id  = 2;
+    optional uint64 update_interval_seconds  = 3;
+    optional string ion_institution_id       = 4;
 }
 
 message DataResourceUpdateResponse {
