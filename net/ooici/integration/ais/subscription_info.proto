@@ -102,5 +102,5 @@ message SubscriptionInfoListRspMsg {
       _VERSION = 1;
     }
 
-    repeated SubscriptionInfoReqMsg subscription = 1;
+    repeated net.ooici.integration.ais.SubscriptionInfoReqMsg subscription = 1;
 }
