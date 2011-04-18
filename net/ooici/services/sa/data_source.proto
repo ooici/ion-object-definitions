@@ -74,11 +74,12 @@ message DataSourceMessage {
     optional string ncml_mask = 11;
     optional uint64 max_ingest_millis = 12;
     optional string ion_title = 13;
-    optional string ion_institution_id = 14;
-    optional uint64 update_interval_seconds = 15;
+    optional string ion_description = 14;
+    optional string ion_institution_id = 15;
+    optional uint64 update_interval_seconds = 16;
     
     // milliseconds from unix epoch (01-01-1970 00:00:00)
-    optional uint64 update_start_datetime_millis = 16;
+    optional uint64 update_start_datetime_millis = 17;
 }
 
 message DataSourceResource {
