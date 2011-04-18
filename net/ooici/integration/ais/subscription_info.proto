@@ -27,6 +27,7 @@ message SubscriptionInfoReqMsg {
      optional string dispatcher_script_path = 6;
 }
 
+
 message SubscriptionInfoRspMsg {
     enum _MessageTypeIdentifier {
       _ID = 9202;
@@ -82,4 +83,24 @@ message SubscriptionDeleteRspMsg {
     }
     
     optional bool success = 1;
+}
+
+
+message SubscriptionInfoListReqMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9207;
+      _VERSION = 1;
+    }
+
+    optional string user_ooi_id = 1;
+
+}
+
+message SubscriptionInfoListRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9208;
+      _VERSION = 1;
+    }
+
+    repeated net.ooici.integration.ais.SubscriptionInfoReqMsg subscription = 1;
 }
