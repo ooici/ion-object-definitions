@@ -1,6 +1,6 @@
-package net.ooici.integration.ais.common.aisNameValuePair;
+package net.ooici.integration.ais.common.aisNameValuePairType;
 
-message NameValuePair {
+message NameValuePairType {
    enum _MessageTypeIdentifier {
        _ID = 9125;
        _VERSION = 1;

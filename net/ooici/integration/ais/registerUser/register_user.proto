@@ -20,7 +20,7 @@ message UpdateUserProfileRequest {
 
    optional string user_ooi_id=1;
    optional string email_address=2;
-   repeated net.ooici.integration.ais.common.aisNameValuePair.NameValuePair profile=3;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=3;
 }
 
 message RegisterIonUserReponse {
@@ -53,5 +53,5 @@ message GetUserProfileResponse {
    }
 
    optional string email_address=1;
-   repeated net.ooici.integration.ais.common.aisNameValuePair.NameValuePair profile=2;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=2;
 }

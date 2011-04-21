@@ -54,6 +54,6 @@ message GetResourceResponse {
        _VERSION = 1;
    }
 
-   repeated net.ooici.integration.ais.common.aisNameValuePair.NameValuePair resource = 1;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType resource = 1;
 }
 
