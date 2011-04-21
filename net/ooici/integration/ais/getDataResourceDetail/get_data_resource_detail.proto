@@ -19,8 +19,9 @@ message GetDataResourceDetailRspMsg {
        _VERSION = 1;	
    }
 
-   optional string data_resource_id = 1; 
-   repeated net.ooici.integration.ais.common.aisDataVariable.AisDataVariableType variable = 2;
+   optional string data_resource_id = 1;
+   optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dataResourceSummary = 2;
    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasourceMetadataType source = 3;
+   repeated net.ooici.integration.ais.common.aisDataVariable.AisDataVariableType variable = 4;
 
 }
