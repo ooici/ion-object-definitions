@@ -96,3 +96,24 @@ message DataEventMessage {
     optional string data_block = 3;
 }
 
+message DatasourceUnavailableEventMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2330;
+        _VERSION = 1;
+    }
+    optional string datasource_id = 1;
+    optional string explanation = 2;
+}
+
+message DatasetSupplementAddedEventMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 2331;
+        _VERSION = 1;
+    }
+
+    optional string datasource_id = 1;
+    optional string dataset_id = 2;
+    optional string title = 3;
+    optional string url = 4;
+}
+
