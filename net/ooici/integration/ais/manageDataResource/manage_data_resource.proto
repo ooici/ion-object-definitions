@@ -71,6 +71,7 @@ message DataResourceUpdateRequest {
     optional uint64 update_interval_seconds  = 3;
     optional string ion_description          = 4;
     optional string ion_institution_id       = 5;
+    optional uint64 max_ingest_millis        = 6;
 }
 
 message DataResourceUpdateResponse {
@@ -80,23 +81,5 @@ message DataResourceUpdateResponse {
     }
 
     optional bool success  = 1;
-}
-
-message DataResourceCreateSimpleRequest {
-    enum _MessageTypeIdentifier {
-        _ID = 9217;
-        _VERSION = 1;
-    }
-    
-    optional string user_id = 1;
-    optional string dataset_url = 2;
-    optional string ncml_mask = 3;
-    optional uint64 max_ingest_millis = 4;
-    optional string ion_title = 5;
-    optional string ion_description = 6;
-    optional string ion_institution_id = 7;
-    optional uint64 update_interval_seconds = 8;
-    // milliseconds from unix epoch (01-01-1970 00:00:00)
-    optional uint64 update_start_datetime_millis = 9;
 }
 
