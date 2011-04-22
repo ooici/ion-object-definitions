@@ -92,6 +92,7 @@ message PullMessage{
     optional string repository_key = 1;
     repeated bytes commit_keys = 2;
     optional bool get_head_content = 3;
+    repeated net.ooici.core.type.GPBType excluded_types = 4;
 
 }
 //=============================================
