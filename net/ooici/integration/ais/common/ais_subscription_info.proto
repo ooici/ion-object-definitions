@@ -1,0 +1,28 @@
+package net.ooici.integration.ais.common.aisSubscriptionInfo;
+
+import "net/ooici/core/link/link.proto";
+
+message SubscriptionInfoType {
+    enum _MessageTypeIdentifier {
+      _ID = 9201;
+      _VERSION = 1;
+    }
+    
+    // The message parameters object
+    optional string user_ooi_id = 1;
+    optional string data_src_id = 2;
+    enum SubscriptionType {
+         EMAIL = 0;
+         DISPATCHER = 1;
+         EMAILANDDISPATCHER = 2;
+     }
+     optional SubscriptionType subscription_type = 3 [default = EMAIL];
+     enum AlertsFilter {
+          UPDATES = 0;
+          DATASOURCEOFFLINE = 1;
+          UPDATESANDDATASOURCEOFFLINE = 2;
+     }
+     optional AlertsFilter email_alerts_filter = 4;
+     optional AlertsFilter dispatcher_alerts_filter = 5;
+     optional string dispatcher_script_path = 6;
+}

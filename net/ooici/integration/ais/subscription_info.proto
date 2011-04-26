@@ -1,31 +1,8 @@
 package net.ooici.integration.ais;
 
 import "net/ooici/core/link/link.proto";
+import "net/ooici/integration/ais/common/ais_subscription_info.proto";
 
-message SubscriptionInfoReqMsg {
-    enum _MessageTypeIdentifier {
-      _ID = 9201;
-      _VERSION = 1;
-    }
-    
-    // The message parameters object
-    optional string user_ooi_id = 1;
-    optional string data_src_id = 2;
-    enum SubscriptionType {
-         EMAIL = 0;
-         DISPATCHER = 1;
-         EMAILANDDISPATCHER = 2;
-     }
-     optional SubscriptionType subscription_type = 3 [default = EMAIL];
-     enum AlertsFilter {
-          UPDATES = 0;
-          METADATACHENGE = 1;
-          DATASOURCEOFFLINE = 2;
-     }
-     optional AlertsFilter email_alerts_filter = 4;
-     optional AlertsFilter dispatcher_alerts_filter = 5;
-     optional string dispatcher_script_path = 6;
-}
 
 
 message SubscriptionInfoRspMsg {
@@ -37,20 +14,13 @@ message SubscriptionInfoRspMsg {
     optional bool success = 1;
 }
 
-
-
-
 message SubscriptionCreateReqMsg {
     enum _MessageTypeIdentifier {
       _ID = 9203;
       _VERSION = 1;
     }
     
-    // The message parameters object
-    optional string dispatcher_id  = 1;
-    optional string script_path    = 2;
-    optional string resource_id    = 3;
-    //this is the data resource id
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
 }
 
 message SubscriptionCreateRspMsg {
@@ -62,18 +32,13 @@ message SubscriptionCreateRspMsg {
     optional bool success = 1;
 }
 
-
 message SubscriptionDeleteReqMsg {
     enum _MessageTypeIdentifier {
       _ID = 9205;
       _VERSION = 1;
     }
     
-    // The message parameters object
-    optional string dispatcher_id  = 1;
-    optional string script_path    = 2;
-    optional string resource_id    = 3;
-
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
 }
 
 message SubscriptionDeleteRspMsg {
@@ -93,7 +58,6 @@ message SubscriptionInfoListReqMsg {
     }
 
     optional string user_ooi_id = 1;
-
 }
 
 message SubscriptionInfoListRspMsg {
@@ -102,5 +66,5 @@ message SubscriptionInfoListRspMsg {
       _VERSION = 1;
     }
 
-    repeated net.ooici.integration.ais.SubscriptionInfoReqMsg subscription = 1;
+    repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
 }
