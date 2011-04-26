@@ -14,12 +14,13 @@ message AddTaskRequest {
     // desired_origin is where the event notification will originate from
     //   this is not required to be sent... one will be generated if not
     // interval is seconds between messages
-    // payload is string
+    // payload is ref to some GPB
 
-    optional string desired_origin    = 1;
-    optional uint64 interval_seconds  = 2;
-    optional string payload           = 3;
-
+    optional string desired_origin              = 1;
+    optional uint64 interval_seconds            = 2;
+    optional sint64 start_time                  = 3;        // format:UNIX epoch, in ms, can be unset, will use current time
+    optional sint64 end_time                    = 4;        // format:UNIX epoch, in ms, can be unset
+    optional net.ooici.core.link.CASRef payload = 5;
 }
 
 message AddTaskResponse {
@@ -80,3 +81,16 @@ message QueryTaskResponse {
     repeated string task_ids = 1;
 
 }
+
+message SchedulerPerformIngestionUpdateMessage {
+    // Payload message for TriggerEventMessage, #1001
+    // see https://confluence.oceanobservatories.org/display/syseng/Scheduler+Events
+	enum _MessageTypeIdentifier {
+		_ID = 2607;
+		_VERSION = 1;
+	}
+
+    optional string dataset_id = 1;
+    optional string datasource_id = 2;
+}
+

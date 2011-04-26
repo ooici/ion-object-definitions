@@ -47,8 +47,11 @@ message TriggerEventMessage {
 		_VERSION = 1;
 	}
 
-    optional string dataset_id = 1;
-    optional string datasource_id = 2;
+    // task_id in the scheduler service
+    optional string task_id = 1;
+
+    // specific to each Triggered Event - define it wherever, link it here
+    optional net.ooici.core.link.CASRef payload = 2;
 }
 
 message ResourceModificationEventMessage {
