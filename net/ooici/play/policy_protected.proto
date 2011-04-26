@@ -1,0 +1,81 @@
+package net.ooici.play;
+
+// Copied from the google example!
+// Changed rules - never use required!
+
+message ProtectedResource {
+   enum _MessageTypeIdentifier {
+      _ID = 20037;
+      _VERSION = 1;
+   }
+   optional string name = 2;
+   optional string description = 3;
+}
+
+message FindProtectedResourcesReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20038;
+       _VERSION = 1;	
+   }
+   optional string resource_id = 1;
+}
+
+message FindProtectedResourcesRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20039;
+       _VERSION = 1;	
+   }
+   repeated ProtectedResource resources = 1;
+}
+
+message CreateProtectedResourceReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20040;
+       _VERSION = 1;	
+   }
+   optional string name = 2;
+   optional string description = 3;
+}
+
+message CreateProtectedResourceRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20041;
+       _VERSION = 1;	
+   }
+   optional string status = 1;
+   optional string resource_id = 2;
+}
+
+message UpdateProtectedResourceReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20042;
+       _VERSION = 1;	
+   }
+   optional string resource_id = 1;
+   optional string name = 2;
+   optional string description = 3;
+}
+
+message UpdateProtectedResourceRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20043;
+       _VERSION = 1;	
+   }
+   optional string status = 1;
+}
+
+message DeleteProtectedResourceReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20044;
+       _VERSION = 1;	
+   }
+   repeated string resource_ids = 1;
+}
+
+message DeleteProtectedResourceRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 20045;
+       _VERSION = 1;	
+   }
+   optional string status = 1;
+}
