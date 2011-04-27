@@ -22,8 +22,10 @@ message EventMessage {
 	optional string origin = 6;
 	// Not sure what this field is for
 	optional string body = 7;
+    // should this be here?
+    optional string user_id = 8;
     // define additional notification messages and link them here
-    optional net.ooici.core.link.CASRef additional_data = 8;
+    optional net.ooici.core.link.CASRef additional_data = 9;
 }
 
 message ResourceLifecycleEventMessage {

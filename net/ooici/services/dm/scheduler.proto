@@ -20,7 +20,8 @@ message AddTaskRequest {
     optional uint64 interval_seconds            = 2;
     optional sint64 start_time                  = 3;        // format:UNIX epoch, in ms, can be unset, will use current time
     optional sint64 end_time                    = 4;        // format:UNIX epoch, in ms, can be unset
-    optional net.ooici.core.link.CASRef payload = 5;
+    optional string user_id                     = 5;
+    optional net.ooici.core.link.CASRef payload = 6;
 }
 
 message AddTaskResponse {
