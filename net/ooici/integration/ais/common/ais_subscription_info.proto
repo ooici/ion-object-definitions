@@ -1,6 +1,7 @@
 package net.ooici.integration.ais.common.aisSubscriptionInfo;
 
 import "net/ooici/core/link/link.proto";
+import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
 
 message SubscriptionInfoType {
     enum _MessageTypeIdentifier {
@@ -25,4 +26,13 @@ message SubscriptionInfoType {
      optional AlertsFilter email_alerts_filter = 4;
      optional AlertsFilter dispatcher_alerts_filter = 5;
      optional string dispatcher_script_path = 6;
+}
+
+message SubscriptionListResults {
+    enum _MessageTypeIdentifier {
+      _ID = 92018;
+      _VERSION = 1;
+    }
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
+    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType datasetMetadata = 2;
 }
