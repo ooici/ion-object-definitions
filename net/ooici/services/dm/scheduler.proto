@@ -16,12 +16,16 @@ message AddTaskRequest {
     // interval is seconds between messages
     // payload is ref to some GPB
 
-    optional string desired_origin              = 1;
-    optional uint64 interval_seconds            = 2;
-    optional sint64 start_time                  = 3;        // format:UNIX epoch, in ms, can be unset, will use current time
-    optional sint64 end_time                    = 4;        // format:UNIX epoch, in ms, can be unset
-    optional string user_id                     = 5;
-    optional net.ooici.core.link.CASRef payload = 6;
+    optional string task_id                     = 1;        // By default this should not be set, you want to let the scheduler
+                                                            // service set it. This however gives you the option to set it explicitly.
+                                                            // If you try to add another task that the scheduler already knows about,
+                                                            // it will warn and drop it.
+    optional string desired_origin              = 2;
+    optional uint64 interval_seconds            = 3;
+    optional sint64 start_time                  = 4;        // format:UNIX epoch, in ms, can be unset, will use current time
+    optional sint64 end_time                    = 5;        // format:UNIX epoch, in ms, can be unset
+    optional string user_id                     = 6;
+    optional net.ooici.core.link.CASRef payload = 7;
 }
 
 message AddTaskResponse {
@@ -35,6 +39,7 @@ message AddTaskResponse {
 
     optional string task_id = 1;
     optional string origin  = 2;
+    optional bool duplicate = 3;    // If this is True, indicates the task already existed in the scheduler.
 }
 
 
