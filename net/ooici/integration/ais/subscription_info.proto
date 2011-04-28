@@ -2,6 +2,7 @@ package net.ooici.integration.ais;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/integration/ais/common/ais_subscription_info.proto";
+import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
 
 
 
@@ -21,6 +22,7 @@ message SubscriptionCreateReqMsg {
     }
     
     optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
+    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType datasetMetadata = 2;
 }
 
 message SubscriptionCreateRspMsg {
@@ -68,3 +70,22 @@ message SubscriptionInfoListRspMsg {
 
     repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
 }
+
+message SubscriptionUpdateReqMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9209;
+      _VERSION = 1;
+    }
+    
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
+}
+
+message SubscriptionUpdateRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9210;
+      _VERSION = 1;
+    }
+    
+    optional bool success = 1;
+}
+
