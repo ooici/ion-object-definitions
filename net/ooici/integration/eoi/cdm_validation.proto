@@ -1,0 +1,33 @@
+package net.ooici.integration.eoi;
+
+message cdm_validation_request {
+    enum _MessageTypeIdentifier {
+      _ID = 7101;
+      _VERSION = 1;
+    }
+
+    optional string data_url = 1;
+}
+
+message cdm_validation_response {
+    enum _MessageTypeIdentifier {
+      _ID = 7102;
+      _VERSION = 1;
+    }
+    
+    enum ResponseType {
+        NONE = 1;
+        PASS = 2;
+        CDM_FAILURE = 3;
+        CF_FAILURE = 4;
+        CDM_AND_CF_FAILURE = 5;
+    }
+    
+    
+    // The message parameters object
+    optional ResponseType response_type  = 1;
+    optional string output = 2;
+    optional uint32 error_count = 3;
+    optional uint32 warning_count = 4;
+    optional uint32 info_count = 5;
+}
