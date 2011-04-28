@@ -83,3 +83,11 @@ message DataResourceUpdateResponse {
     optional bool success  = 1;
 }
 
+message DataResourceScheduledTask {
+    enum _MessageTypeIdentifier {
+        _ID = 9217;
+        _VERSION = 1;
+    }
+
+    optional string task_id = 1;
+}
