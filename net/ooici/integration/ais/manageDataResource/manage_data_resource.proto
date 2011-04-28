@@ -86,9 +86,19 @@ message DataResourceUpdateResponse {
     optional bool success  = 1;
 }
 
+
+message DataResourceScheduledTask {
+    enum _MessageTypeIdentifier {
+        _ID = 9217;
+        _VERSION = 1;
+    }
+
+    optional string task_id = 1;
+}
+
 message SubscriptionFindReqMsg {
     enum _MessageTypeIdentifier {
-      _ID = 9217;
+      _ID = 9218;
       _VERSION = 1;
     }
 
@@ -99,7 +109,7 @@ message SubscriptionFindReqMsg {
         
 message SubscriptionFindRspMsg {
     enum _MessageTypeIdentifier {
-      _ID = 9218;
+      _ID = 9219;
       _VERSION = 1;
     }
 
@@ -109,7 +119,7 @@ message SubscriptionFindRspMsg {
 
 message SubscriptionFindRspPayloadType {
     enum _MessageTypeIdentifier {
-      _ID = 9219;
+      _ID = 9220;
       _VERSION = 1;
     }
 
@@ -118,6 +128,5 @@ message SubscriptionFindRspPayloadType {
     optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dSetMetadata = 3;
     optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasourceMetadataType dSourceMetadata = 4;
 }
-
 
 
