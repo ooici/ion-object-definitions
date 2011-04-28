@@ -68,3 +68,22 @@ message SubscriptionInfoListRspMsg {
 
     repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
 }
+
+message SubscriptionUpdateReqMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9209;
+      _VERSION = 1;
+    }
+    
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
+}
+
+message SubscriptionUpdateRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9210;
+      _VERSION = 1;
+    }
+    
+    optional bool success = 1;
+}
+
