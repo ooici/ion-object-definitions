@@ -20,14 +20,16 @@ message cdm_validation_response {
         PASS = 2;
         CDM_FAILURE = 3;
         CF_FAILURE = 4;
-        CDM_AND_CF_FAILURE = 5;
+        ERROR = 5;
     }
     
     
     // The message parameters object
     optional ResponseType response_type  = 1;
-    optional string output = 2;
-    optional uint32 error_count = 3;
-    optional uint32 warning_count = 4;
-    optional uint32 info_count = 5;
+    optional string cf_output = 2;
+    optional string cdm_output = 3;
+    optional uint32 cf_error_count = 4;
+    optional uint32 cf_warning_count = 5;
+    optional uint32 cf_info_count = 6;
+    optional string err_msg = 7;
 }
