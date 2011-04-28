@@ -68,7 +68,7 @@ message SubscriptionInfoListRspMsg {
       _VERSION = 1;
     }
 
-    repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
+    repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionListResults subscriptionListResults = 1;
 }
 
 message SubscriptionUpdateReqMsg {
