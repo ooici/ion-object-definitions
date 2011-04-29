@@ -34,7 +34,7 @@ message RepositoryState{
 // The response message sent by op_push from the pushee to op_fetch_content of the pusher to request particular commits and blobs
 //message PushContentRequestMessage{
 //     enum _MessageTypeIdentifier {
-//      _ID = 43;
+//      _ID = ;
 //      _VERSION = 1;
 //    }
 //    // Push multiple repositories at one time
@@ -43,7 +43,7 @@ message RepositoryState{
 //
 //message HashedContentKeys{
 //     enum _MessageTypeIdentifier {
-//      _ID = 44;
+//      _ID = ;
 //      _VERSION = 1;
 //    }
 //    // Push multiple repositories at one time
@@ -54,24 +54,24 @@ message RepositoryState{
 
 //=============================================
 // The response message sent by the pusher from op_fetch_content to the pushee in op_push with the requested commits and blobs
-message RequestedPushContentMessage{
-     enum _MessageTypeIdentifier {
-      _ID = 45;
-      _VERSION = 1;
-    }
-    // Push multiple repositories at one time
-    repeated PushContentElements repositories = 1;
-}
-
-
-message PushContentElements{
-     enum _MessageTypeIdentifier {
-      _ID = 53;
-      _VERSION = 1;
-    }
-    // Push multiple repositories at one time
-    repeated net.ooici.core.link.CASRef blob_elements = 1;
-}
+//message RequestedPushContentMessage{
+//     enum _MessageTypeIdentifier {
+//      _ID = ;
+//      _VERSION = 1;
+//    }
+//    // Push multiple repositories at one time
+//    repeated PushContentElements repositories = 1;
+//}
+//
+//
+//message PushContentElements{
+//     enum _MessageTypeIdentifier {
+//      _ID = ;
+//      _VERSION = 1;
+//    }
+//    // Push multiple repositories at one time
+//    repeated net.ooici.core.link.CASRef blob_elements = 1;
+//}
 
 
 
