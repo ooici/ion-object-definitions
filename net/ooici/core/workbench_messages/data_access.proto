@@ -1,0 +1,50 @@
+package net.ooici.integration.eoi;
+
+import "net/ooici/core/link/link.proto";
+
+message DataRequestMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 7004;
+        _VERSION = 1;
+    }
+
+    // This is a particular state of a variable object which is stored in the data store - pass by reference
+    optional bytes variable_ref = 1;
+    // This is a real bounded array object which you create - not in the data store so you can't pass by reference
+    optional net.ooici.core.link.CASRef request_bounds = 2;
+
+	// Generally, if you set a CASREF and put it in a message, python processes will choke if the referenced thing is not included
+	}
+
+message DataReplyMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 7005;
+        _VERSION = 1;
+    }
+
+    // Here I want to pass you back the actual content - so build a data structure using CASREFS
+    repeated net.ooici.core.link.CASRef bounded_arrays = 1;
+}
+
+message GetResourceRequestMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 7006;
+        _VERSION = 1;
+    }
+
+    // An IDRef of the desired resource: can specify branch and commit
+    optional net.ooici.core.link.CASRef resource_id = 1;
+
+    // The GPBType(s) that are excluded from the returned resource
+    repeated net.ooici.core.link.CASRef excluded_object_types = 2;
+}
+
+message ResourceReplyMessage {
+    enum _MessageTypeIdentifier {
+        _ID = 7007;
+        _VERSION = 1;
+    }
+
+    // A resource object containing the requested resource
+    optional net.ooici.core.link.CASRef resource_object = 1;
+}
