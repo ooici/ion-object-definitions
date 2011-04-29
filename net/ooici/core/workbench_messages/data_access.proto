@@ -26,25 +26,28 @@ message DataReplyMessage {
     repeated net.ooici.core.link.CASRef bounded_arrays = 1;
 }
 
-message GetResourceRequestMessage {
+message GetObjectRequestMessage {
     enum _MessageTypeIdentifier {
         _ID = 55;
         _VERSION = 1;
     }
 
-    // An IDRef of the desired resource: can specify branch and commit
-    optional net.ooici.core.link.CASRef resource_id = 1;
+    // An IDRef of the desired object: can specify branch and commit
+    optional net.ooici.core.link.CASRef object_id = 1;
 
-    // The GPBType(s) that are excluded from the returned resource
+    // The GPBType(s) that are excluded from the returned object
     repeated net.ooici.core.link.CASRef excluded_object_types = 2;
 }
 
-message ResourceReplyMessage {
+message GetObjectReplyMessage {
     enum _MessageTypeIdentifier {
         _ID = 56;
         _VERSION = 1;
     }
 
-    // A resource object containing the requested resource
-    optional net.ooici.core.link.CASRef resource_object = 1;
+    // An object containing the requested object
+    optional net.ooici.core.link.CASRef retrieved_object = 1;
+
+    // The GPBType(s) that are excluded from the returned object
+    repeated net.ooici.core.link.CASRef excluded_object_types = 2;
 }
