@@ -3,6 +3,8 @@ package net.ooici.integration.ais;
 import "net/ooici/core/link/link.proto";
 import "net/ooici/integration/ais/common/ais_subscription_info.proto";
 import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
+import "net/ooici/integration/ais/common/ais_data_bounds.proto";
+
 
 
 
@@ -87,5 +89,37 @@ message SubscriptionUpdateRspMsg {
     }
     
     optional bool success = 1;
+}
+
+message SubscriptionFindReqMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9218;
+      _VERSION = 1;
+    }
+
+    optional string user_ooi_id = 1;
+    optional net.ooici.integration.ais.common.aisDataBounds.AisDataBoundsType dataBounds = 2;
+
+}
+        
+message SubscriptionFindRspMsg {
+    enum _MessageTypeIdentifier {
+      _ID = 9219;
+      _VERSION = 1;
+    }
+
+    repeated SubscriptionFindRspPayloadType data = 1;
+}
+
+message SubscriptionFindRspPayloadType {
+    enum _MessageTypeIdentifier {
+      _ID = 9220;
+      _VERSION = 1;
+    }
+
+    optional string data_resource_id = 1;
+    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 2;
+    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dSetMetadata = 3;
+    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasourceMetadataType dSourceMetadata = 4;
 }
 
