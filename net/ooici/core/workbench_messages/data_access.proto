@@ -1,10 +1,10 @@
-package net.ooici.integration.eoi;
+package net.ooici.core.workbench_messages;
 
 import "net/ooici/core/link/link.proto";
 
 message DataRequestMessage {
     enum _MessageTypeIdentifier {
-        _ID = 7004;
+        _ID = 53;
         _VERSION = 1;
     }
 
@@ -14,11 +14,11 @@ message DataRequestMessage {
     optional net.ooici.core.link.CASRef request_bounds = 2;
 
 	// Generally, if you set a CASREF and put it in a message, python processes will choke if the referenced thing is not included
-	}
+}
 
 message DataReplyMessage {
     enum _MessageTypeIdentifier {
-        _ID = 7005;
+        _ID = 54;
         _VERSION = 1;
     }
 
@@ -28,7 +28,7 @@ message DataReplyMessage {
 
 message GetResourceRequestMessage {
     enum _MessageTypeIdentifier {
-        _ID = 7006;
+        _ID = 55;
         _VERSION = 1;
     }
 
@@ -41,7 +41,7 @@ message GetResourceRequestMessage {
 
 message ResourceReplyMessage {
     enum _MessageTypeIdentifier {
-        _ID = 7007;
+        _ID = 56;
         _VERSION = 1;
     }
 
