@@ -30,7 +30,7 @@ message SubscriptionInfoType {
 
 message SubscriptionListResults {
     enum _MessageTypeIdentifier {
-      _ID = 92018;
+      _ID = 9221;
       _VERSION = 1;
     }
     optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
