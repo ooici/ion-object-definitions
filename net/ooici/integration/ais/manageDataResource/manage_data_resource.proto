@@ -27,6 +27,8 @@ message DataResourceCreateRequest {
     optional uint64 update_interval_seconds = 17;
     // milliseconds from unix epoch (01-01-1970 00:00:00)
     optional uint64 update_start_datetime_millis = 18;
+    optional bool   is_public = 19;
+
 }
 
 message DataResourceCreateResponse {
@@ -72,6 +74,7 @@ message DataResourceUpdateRequest {
     optional string ion_description          = 4;
     optional string ion_institution_id       = 5;
     optional uint64 max_ingest_millis        = 6;
+    optional bool   is_public                = 7;
 }
 
 message DataResourceUpdateResponse {
