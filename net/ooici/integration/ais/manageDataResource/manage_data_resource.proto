@@ -1,6 +1,7 @@
 package net.ooici.integration.ais.manageDataResource;
 
 import "net/ooici/services/sa/data_source.proto";
+import "net/ooici/integration/ais/common/ais_subscription_info.proto";
 
 message DataResourceCreateRequest {
     enum _MessageTypeIdentifier {
@@ -86,6 +87,7 @@ message DataResourceUpdateResponse {
     optional bool success  = 1;
 }
 
+
 message DataResourceScheduledTask {
     enum _MessageTypeIdentifier {
         _ID = 9217;
@@ -94,3 +96,5 @@ message DataResourceScheduledTask {
 
     optional string task_id = 1;
 }
+
+

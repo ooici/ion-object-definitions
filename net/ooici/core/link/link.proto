@@ -21,4 +21,10 @@ message IDRef {
 	//required net.ooici.core.type.GPBType type = 2;
 	optional string branch = 3;
 	optional bytes commit = 4;
+
+    optional uint32 carrot_parent = 5;  // git semantics: <sha>^2 gets you the 2nd parent of the sha, as in a merge commit.
+                                        // see http://book.git-scm.com/4_git_treeishes.html
+    optional uint32 tilde_spec = 6;     // git semantics: <sha>~2 gets you the parent of the parent of the sha specified.
+                                        // similar to specifing <sha>^^.  Also see the above link.  Do not specify this and
+                                        // carrot parent at the same time.
 }
