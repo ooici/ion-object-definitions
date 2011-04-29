@@ -2,8 +2,6 @@ package net.ooici.integration.ais.manageDataResource;
 
 import "net/ooici/services/sa/data_source.proto";
 import "net/ooici/integration/ais/common/ais_subscription_info.proto";
-import "net/ooici/integration/ais/common/ais_data_bounds.proto";
-import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
 
 message DataResourceCreateRequest {
     enum _MessageTypeIdentifier {
@@ -94,39 +92,6 @@ message DataResourceScheduledTask {
     }
 
     optional string task_id = 1;
-}
-
-message SubscriptionFindReqMsg {
-    enum _MessageTypeIdentifier {
-      _ID = 9218;
-      _VERSION = 1;
-    }
-
-    optional string user_ooi_id = 1;
-    optional net.ooici.integration.ais.common.aisDataBounds.AisDataBoundsType dataBounds = 2;
-
-}
-        
-message SubscriptionFindRspMsg {
-    enum _MessageTypeIdentifier {
-      _ID = 9219;
-      _VERSION = 1;
-    }
-
-    repeated SubscriptionFindRspPayloadType data = 1;
-    //repeated net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 1;
-}
-
-message SubscriptionFindRspPayloadType {
-    enum _MessageTypeIdentifier {
-      _ID = 9220;
-      _VERSION = 1;
-    }
-
-    optional string data_resource_id = 1;
-    optional net.ooici.integration.ais.common.aisSubscriptionInfo.SubscriptionInfoType subscriptionInfo = 2;
-    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dSetMetadata = 3;
-    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasourceMetadataType dSourceMetadata = 4;
 }
 
 
