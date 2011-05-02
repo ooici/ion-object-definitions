@@ -1,0 +1,30 @@
+package net.ooici.integration.ais;
+
+import "net/ooici/core/link/link.proto";
+
+message Instrument {
+    enum _MessageTypeIdentifier {
+      _ID = 4301;
+      _VERSION = 1;
+    }
+
+    optional string name = 1;
+    optional string description = 2;
+    optional string manufacturer = 3;
+    optional string model = 4;
+    optional string serial_num = 5;
+    optional string fw_version = 6;
+}
+
+message InstrumentAgent {
+    enum _MessageTypeIdentifier {
+      _ID = 4302;
+      _VERSION = 1;
+    }
+
+    optional string name = 1;
+    optional string version = 2;
+    optional string description = 3;
+    optional string class_name = 4;
+    optional string module = 5;
+}
