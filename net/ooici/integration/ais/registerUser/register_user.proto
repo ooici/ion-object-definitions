@@ -53,5 +53,6 @@ message GetUserProfileResponse {
    }
 
    optional string email_address=1;
-   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=2;
+   optional string authenticating_organization=2;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=3;
 }
