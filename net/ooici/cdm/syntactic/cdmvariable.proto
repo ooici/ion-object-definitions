@@ -15,20 +15,21 @@ message ArrayStructure{
     repeated net.ooici.core.link.CASRef bounded_arrays = 1;
     }
 
+// The values are store in a list of bounded arrays
+// The bounds are part of this composite node.
+// The array is stored by reference.
+// Bounded array defines the bounds of an ndarray	
+message Bounds {
+    optional sint64 origin = 1;
+    optional uint64 size = 2;
+}
+
 message BoundedArray {
     enum _MessageTypeIdentifier {
         _ID = 10021;
         _VERSION = 1;
     }
-	// The values are store in a list of bounded arrays
-	// The bounds are part of this composite node.
-	// The array is stored by reference.
-	// Bounded array defines the bounds of an ndarray	
-	message Bounds {
-		optional sint64 origin = 1;
-		optional uint64 size = 2;
-	}
-	
+
 	repeated Bounds bounds = 1; 
 
 	// Reference to an array from cdmarray.proto
