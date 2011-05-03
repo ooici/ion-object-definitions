@@ -41,3 +41,21 @@ message IngestionReadyMessage {
 }
 
 // "EndIngestMessage" is an IonMsg because this already contains response codes
+
+message DataAcquisitionComplete{
+    enum _MessageTypeIdentifier {
+        _ID = 2005;
+        _VERSION = 1;
+    }
+
+    enum StatusCode{
+        OK = 0;
+        EXTERNAL_SERVER_UNAVAILABLE = 1;
+        EXTERNAL_SERVER_ERROR = 2;
+        NO_NEW_DATA = 3;
+        AGENT_ERROR = 4;
+    }
+
+    optional StatusCode status = 1;
+    optional string status_body = 2;
+}
