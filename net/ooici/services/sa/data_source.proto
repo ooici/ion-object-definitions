@@ -30,10 +30,10 @@ message EoiDataContextMessage {
     // https://spreadsheets.google.com/ccc?key=tql6nRd7fM6gSxY0KnBMzrA&authkey=CLWPmZAJ&hl=en#gid=0
     
     optional SourceType source_type = 1;
-    //'start_time' and 'end_time' are expected to be in the
-    // ISO8601 Date Format (yyyy-MM-dd'T'HH:mm:ss.sss'Z')
-    optional string start_time = 2;
-    optional string end_time = 3;
+    //'start_datetime_millis' and 'end_datetime_millis' are expected to be in
+    // milliseconds from unix epoch (01-01-1970 00:00:00)
+    optional sint64 start_datetime_millis = 2;
+    optional sint64 end_datetime_millis = 3;
     repeated string property = 4;
     repeated string station_id = 5;
     optional RequestType request_type = 6;
