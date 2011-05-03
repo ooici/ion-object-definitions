@@ -42,7 +42,7 @@ message IngestionReadyMessage {
 
 // "EndIngestMessage" is an IonMsg because this already contains response codes
 
-message DataAcquisitionComplete{
+message DataAcquisitionCompleteMessage{
     enum _MessageTypeIdentifier {
         _ID = 2005;
         _VERSION = 1;
