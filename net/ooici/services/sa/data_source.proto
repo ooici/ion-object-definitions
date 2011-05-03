@@ -1,5 +1,7 @@
 package net.ooici.services.sa;
 
+import "net/ooici/core/link/link.proto";
+
 
 enum SourceType {
         SOS = 1;
@@ -16,6 +18,16 @@ enum RequestType {
         DAP  = 4;
         FTP  = 5;
     }   
+
+message ThreddsAuthentication{
+    enum _MessageTypeIdentifier {
+        _ID = 4504;
+        _VERSION = 1;
+    }
+    optional string name =1;
+    optional string password = 2;
+}
+
 
 message EoiDataContextMessage {
     enum _MessageTypeIdentifier {
@@ -52,6 +64,10 @@ message EoiDataContextMessage {
     
     // ION properties
     optional string ion_title = 17;//this get's applied as the "title" of the dataset
+
+    // Link to the authentication object - for now we only have TDS authentication
+    optional net.ooici.core.link.CASRef authentication = 18;
+
 }
 
 
@@ -80,6 +96,9 @@ message DataSourceMessage {
     
     // milliseconds from unix epoch (01-01-1970 00:00:00)
     optional sint64 update_start_datetime_millis = 17;
+
+    // Link to the authentication object - for now we only have TDS authentication
+    optional net.ooici.core.link.CASRef authentication = 18;
 }
 
 message DataSourceResource {
@@ -107,5 +126,9 @@ message DataSourceResource {
     
     // milliseconds from unix epoch (01-01-1970 00:00:00)
     optional sint64 update_start_datetime_millis = 17;
+
+    // Link to the authentication object - for now we only have TDS authentication
+    optional net.ooici.core.link.CASRef authentication = 18;
+
 }
 
