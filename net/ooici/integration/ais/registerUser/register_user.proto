@@ -52,7 +52,9 @@ message GetUserProfileResponse {
        _VERSION = 1;
    }
 
-   optional string email_address=1;
-   optional string authenticating_organization=2;
-   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=3;
+   optional string name=1;
+   optional string institution=2;
+   optional string email_address=3;
+   optional string authenticating_organization=4;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType profile=5;
 }

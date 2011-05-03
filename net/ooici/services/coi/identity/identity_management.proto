@@ -24,10 +24,12 @@ message UserIdentity {
    optional string subject=1;
    optional string certificate=2;
    optional string rsa_private_key=3;
-   optional string email=4;
-   optional string authenticating_organization=5;
-   repeated net.ooici.services.coi.identity.NameValuePairType profile=6;
-   optional string life_cycle_state=7;
+   optional string name=4;
+   optional string institution=5;
+   optional string email=6;
+   optional string authenticating_organization=7;
+   repeated net.ooici.services.coi.identity.NameValuePairType profile=8;
+   optional string life_cycle_state=9;
 }
 
 message UserOoiId {
