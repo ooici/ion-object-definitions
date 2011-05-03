@@ -23,8 +23,8 @@ message DataResourceCreateRequest {
     optional string ncml_mask = 12;
     optional uint64 max_ingest_millis = 13;
     optional string ion_title = 14;
-    optional string ion_description = 15;
-    optional string ion_institution_id = 16;
+    optional string ion_institution_id = 15
+    optional string ion_description = 16;
     optional uint64 update_interval_seconds = 17;
     // milliseconds from unix epoch (01-01-1970 00:00:00)
     optional uint64 update_start_datetime_millis = 18;
@@ -72,12 +72,11 @@ message DataResourceUpdateRequest {
     optional string user_id                      = 1;
     optional string data_source_resource_id      = 2;
     optional uint64 update_interval_seconds      = 3;
-    optional string ion_description              = 4;
-    optional string ion_institution_id           = 5;
+    optional string ion_title                    = 4;
+    optional string ion_description              = 5;
     optional uint64 max_ingest_millis            = 6;
     optional bool   is_public                    = 7;
     optional uint64 update_start_datetime_millis = 8;
-    optional string ion_title                    = 9;
 }
 
 message DataResourceUpdateResponse {

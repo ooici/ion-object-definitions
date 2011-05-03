@@ -130,5 +130,8 @@ message DataSourceResource {
     // Link to the authentication object - for now we only have TDS authentication
     optional net.ooici.core.link.CASRef authentication = 18;
 
+    // when datasource was registered
+    optional uint64 registration_datetime_millis = 19;
+
 }
 
