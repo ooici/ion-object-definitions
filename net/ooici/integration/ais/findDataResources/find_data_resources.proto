@@ -22,11 +22,31 @@ message FindDataResourcesReqMsg {
    optional string identity     = 11;
 }
 
+message DataResourceSummary {
+   enum _MessageTypeIdentifier {
+       _ID = 9037;
+       _VERSION = 1;	
+   }
+
+   optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType datasetMetadata = 1;
+   optional bool notificationSet = 2;
+}
+
 message FindDataResourcesRspMsg {
    enum _MessageTypeIdentifier {
        _ID = 9032;
        _VERSION = 1;	
    }
 
-   repeated net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dataResourceSummary = 1;
+   repeated DataResourceSummary dataResourceSummary = 1;
+}
+
+message FindDataResourcesByOwnerRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9038;
+       _VERSION = 1;	
+   }
+
+   repeated net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetByOwnerMetadataType datasetByOwnerMetadata = 1;
+
 }
