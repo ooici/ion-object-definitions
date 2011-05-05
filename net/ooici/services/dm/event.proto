@@ -90,16 +90,16 @@ message DelSubscriptionEventMessage {
     optional net.ooici.core.link.CASRef dispatcher_workflow = 1;
 }
 
-message DataEventMessage {
-	enum _MessageTypeIdentifier {
-		_ID = 2329;
-		_VERSION = 1;
-	}
-
-    optional string dataset_id = 1;
-    optional string datasource_id = 2;
-    optional string data_block = 3;
-}
+//message DataEventMessage {
+//	enum _MessageTypeIdentifier {
+//		_ID = 2329;
+//		_VERSION = 1;
+//	}
+//
+//    optional string dataset_id = 1;
+//    optional string datasource_id = 2;
+//    optional string data_block = 3;
+//}
 
 message DatasourceUnavailableEventMessage {
     enum _MessageTypeIdentifier {
@@ -107,7 +107,10 @@ message DatasourceUnavailableEventMessage {
         _VERSION = 1;
     }
     optional string datasource_id = 1;
-    optional string explanation = 2;
+    optional string dataset_id = 2;
+    optional string title = 3;
+    optional string url = 4;
+    optional string error_explanation = 5;
 }
 
 message DatasetSupplementAddedEventMessage {
@@ -120,5 +123,13 @@ message DatasetSupplementAddedEventMessage {
     optional string dataset_id = 2;
     optional string title = 3;
     optional string url = 4;
+
+    // Provide the start and endtime of the update
+    optional string start_datetime_millis = 5;
+    optional string end_datetime_millis = 6;
+
+    // The number of timesteps in the update
+    optional sint32 number_of_timesteps = 7; 
+
 }
 
