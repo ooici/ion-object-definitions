@@ -9,6 +9,7 @@ enum LifeCycleOperation {
 	DECOMMISSION=4;
 	RETIRE=5;
 	DEVELOPE=6;
+	PUBLISH=7;
     }
 
 
