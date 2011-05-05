@@ -14,16 +14,37 @@ message DataRequestMessage {
 
     // This is the index bounds requested for the structure_array_ref.
     repeated net.ooici.cdm.syntactic.Bounds request_bounds = 2;
+
+    // This is the routing key that data messages should be sent to.
+    optional string data_routing_key = 3;
 }
 
 message DataReplyMessage {
+    // this is the RPC reply of DataRequestMessage.
     enum _MessageTypeIdentifier {
         _ID = 54;
         _VERSION = 1;
     }
 
     // Here I want to pass you back the actual content - so build a data structure using CASREFS
+    // @TODO: bounded_arrays makes it sound repeated, needs rename
+    // if no data, what actually gets passed back here?
     optional net.ooici.core.link.CASRef bounded_arrays = 1;
+}
+
+message DataChunkMessage {
+    // this is an actual chunk of data, sent in one or many parts, as a result of DataRequestMessage.
+    // one or more should be sent before responding via DataReplyMessage.
+    enum _MessageTypeIdentifier {
+        _ID = 57;
+        _VERSION = 1;
+    }
+
+    optional int32 seq_number = 1;      // Number of the data sequence this is.
+    optional int32 seq_max    = 2;      // Maximum number of data messages in this data sequence.
+
+    repeated net.ooici.core.link.CASRef bounded_arrays = 3; // actual data in this message.  May be more than one.
+                                                            // should point to #10021, BoundedArray message type.
 }
 
 message GetObjectRequestMessage {

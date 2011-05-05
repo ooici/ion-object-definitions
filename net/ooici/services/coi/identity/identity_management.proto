@@ -29,7 +29,6 @@ message UserIdentity {
    optional string email=6;
    optional string authenticating_organization=7;
    repeated net.ooici.services.coi.identity.NameValuePairType profile=8;
-   optional string life_cycle_state=9;
 }
 
 message UserOoiId {

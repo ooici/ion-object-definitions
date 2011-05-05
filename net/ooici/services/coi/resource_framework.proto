@@ -12,6 +12,7 @@ enum LifeCycleState {
 	RETIRED=6;
 	DEVELOPED=7;
 	UPDATE=8; // A state reserved for an update record.
+        PUBLISHED=9;
     }
 
 
