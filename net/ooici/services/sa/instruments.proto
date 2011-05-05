@@ -27,4 +27,5 @@ message InstrumentAgent {
     optional string description = 3;
     optional string class_name = 4;
     optional string module = 5;
+    optional string process_id = 6;
 }
