@@ -55,6 +55,12 @@ message AisDatasourceMetadataType {
    optional string start_time = 13;
    optional string end_time   = 14;
    optional string institution_id = 15;
+   optional string ion_title = 16;
+   optional string ion_description = 17;
+   optional string ion_name = 18;
+   optional string ion_email = 19;
+   optional string ion_institution = 20;
+   
 
 }
 
