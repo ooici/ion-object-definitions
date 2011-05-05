@@ -55,5 +55,26 @@ message AisDatasourceMetadataType {
    optional string start_time = 13;
    optional string end_time   = 14;
    optional string institution_id = 15;
+   optional string ion_title = 16;
+   optional string ion_description = 17;
+   optional string ion_name = 18;
+   optional string ion_email = 19;
+   optional string ion_institution = 20;
+   
 
+}
+
+message AisDatasetByOwnerMetadataType {
+   enum _MessageTypeIdentifier {
+       _ID = 9025;
+       _VERSION = 1;	
+   }
+
+   optional string data_resource_id         = 1; 
+   optional string title                    = 2;
+   optional uint64 date_registered          = 3;
+   optional string ion_title                = 4;
+   optional string activation_state         = 5;
+   optional uint64 update_interface_seconds = 6;
+   
 }
