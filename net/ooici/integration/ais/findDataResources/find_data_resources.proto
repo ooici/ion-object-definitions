@@ -29,7 +29,8 @@ message DataResourceSummary {
    }
 
    optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType datasetMetadata = 1;
-   optional bool notificationSet = 2;
+   optional uint64 date_registered = 2;
+   optional bool notificationSet = 3;
 }
 
 message FindDataResourcesRspMsg {
