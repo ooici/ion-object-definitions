@@ -90,16 +90,16 @@ message DelSubscriptionEventMessage {
     optional net.ooici.core.link.CASRef dispatcher_workflow = 1;
 }
 
-//message DataEventMessage {
-//	enum _MessageTypeIdentifier {
-//		_ID = 2329;
-//		_VERSION = 1;
-//	}
-//
-//    optional string dataset_id = 1;
-//    optional string datasource_id = 2;
-//    optional string data_block = 3;
-//}
+message DataEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2329;
+		_VERSION = 1;
+	}
+
+    optional string dataset_id = 1;
+    optional string datasource_id = 2;
+    optional string data_block = 3;
+}
 
 message DatasourceUnavailableEventMessage {
     enum _MessageTypeIdentifier {
