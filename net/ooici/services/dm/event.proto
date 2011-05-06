@@ -106,10 +106,16 @@ message DatasourceUnavailableEventMessage {
         _ID = 2330;
         _VERSION = 1;
     }
+
+    // GUID String Identifiers for the datasource and dataset resources
     optional string datasource_id = 1;
     optional string dataset_id = 2;
+
+    // Dataset title and source URL
     optional string title = 3;
     optional string url = 4;
+
+    // String field 
     optional string error_explanation = 5;
 }
 
@@ -119,14 +125,17 @@ message DatasetSupplementAddedEventMessage {
         _VERSION = 1;
     }
 
+    // GUID String Identifiers for the datasource and dataset resources
     optional string datasource_id = 1;
     optional string dataset_id = 2;
+
+    // Dataset title and source URL
     optional string title = 3;
     optional string url = 4;
 
     // Provide the start and endtime of the update
-    optional string start_datetime_millis = 5;
-    optional string end_datetime_millis = 6;
+    optional sint64 start_datetime_millis = 5;
+    optional sint64 end_datetime_millis = 6;
 
     // The number of timesteps in the update
     optional sint32 number_of_timesteps = 7; 
