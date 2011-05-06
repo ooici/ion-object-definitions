@@ -20,5 +20,6 @@ message DispatcherWorkflowResource {
 
     optional string dataset_id = 1;
     optional string workflow_path = 2;
+    optional string user_ooi_id = 3;
 }
 
