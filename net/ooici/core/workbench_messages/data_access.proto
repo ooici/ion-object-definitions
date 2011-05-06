@@ -43,8 +43,11 @@ message DataChunkMessage {
     optional int32 seq_number = 1;      // Number of the data sequence this is.
     optional int32 seq_max    = 2;      // Maximum number of data messages in this data sequence.
 
-    repeated net.ooici.core.link.CASRef bounded_arrays = 3; // actual data in this message.  May be more than one.
-                                                            // should point to #10021, BoundedArray message type.
+    optional int32 start_index = 3;     // The starting index of this ndarray in terms of the original request's
+                                        // bounds.
+
+    optional net.ooici.core.link.CASRef ndarray = 4;    // actual data in this message.  Should link to one of the 
+                                                        // array types defined in cdmarray.proto.
 }
 
 message GetObjectRequestMessage {
