@@ -13,3 +13,12 @@ message FindDatasetMessage {
     optional bool only_mine = 1 ;
     optional net.ooici.services.coi.LifeCycleState by_life_cycle_state = 2;
     }
+
+message RsyncMessage {
+    enum _MessageTypeIdentifier {
+		_ID = 2402;
+		_VERSION = 1;
+	}
+
+    optional string ignore_me = 1;
+}
