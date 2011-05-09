@@ -29,3 +29,18 @@ message InstrumentAgent {
     optional string module = 5;
     optional string process_id = 6;
 }
+
+message InstrumentSampleData {
+    enum _MessageTypeIdentifier {
+      _ID = 4303;
+      _VERSION = 1;
+    }
+
+    optional double conductivity = 1;
+    optional double pressure = 2;
+    optional double temperature = 3;
+    optional double sound_velocity = 4;
+    optional double salinity = 5;
+    optional string time = 6;
+    optional string date = 7;
+}
