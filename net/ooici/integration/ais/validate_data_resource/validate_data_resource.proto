@@ -1,0 +1,23 @@
+package net.ooici.integration.ais.validate_data_resource;
+
+import "net/ooici/integration/ais/common/ais_data_resource_metadata.proto";
+
+message ValidateDataResourceReqMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9010;
+       _VERSION = 1;	
+   }
+
+   optional string data_resource_url = 1;
+
+}
+
+message ValidateDataResourceRspMsg {
+   enum _MessageTypeIdentifier {
+       _ID = 9011;
+       _VERSION = 1;	
+   }
+
+   optional net.ooici.integration.ais.common.aisDataResourceMetadata.AisDatasetMetadataType dataResourceSummary = 1;
+
+}
