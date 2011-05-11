@@ -2,6 +2,7 @@ package net.ooici.integration.ais.manageDataResource;
 
 import "net/ooici/services/sa/data_source.proto";
 import "net/ooici/integration/ais/common/ais_subscription_info.proto";
+import "net/ooici/core/link/link.proto";
 
 message DataResourceCreateRequest {
     enum _MessageTypeIdentifier {
