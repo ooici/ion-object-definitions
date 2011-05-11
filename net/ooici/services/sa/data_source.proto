@@ -29,6 +29,49 @@ message ThreddsAuthentication{
 }
 
 
+message SearchPattern {
+    enum _MessageTypeIdentifier {
+        _ID = 4505;
+        _VERSION = 1;
+    }
+    
+    // A tokenized search string for locating directories.  It supports the following date/time tokens:
+    //
+    // %yyyy%   4-digit year
+    // %yy%     2-digit year
+    // %MM%     2-digit month
+    // %MMM%    3-character month name
+    // %DDD%    3-digit day of the year
+    // %dd%     2-digit day of the month
+    // %HH%     2-digit hour of the day (0-24)
+    // %mm%     2-digit minute of the hour
+    // %ss%     2-digit seconds of the minute
+    //
+    // NOTE: unlike the file_pattern, dir_pattern does not require escape characters because it
+    //       does not support regex
+    // Example:
+    //                %yyyy%/%DDD%%HH%/
+    optional string dir_pattern = 1;
+
+    // A tokenized search string for locating files.  It supports the aforementioned date/time tokens
+    // as well as regex.  For this reasons the following characters MUST be escaped with backslash:
+    //
+    //  [ ] ( ) \ ^ $ . | ? * +
+    //
+    // Example:
+    //             file%yyyy%\.[a-z]+[2]?
+    // Will match files such as:
+    //    file2011.nc
+    //    file1990.tar
+    //    file1984.bz2
+    optional string file_pattern = 2;
+
+    // The name of the parameter on which multiple files should be joined
+    // For example:  (NC) FTP Datasources require this to be the name of the dimension on which
+    //               an NCML join will be performed
+    optional string join_name = 3;
+}
+
 message EoiDataContextMessage {
     enum _MessageTypeIdentifier {
         _ID = 4501;
@@ -67,6 +110,9 @@ message EoiDataContextMessage {
 
     // Link to the authentication object - for now we only have TDS authentication
     optional net.ooici.core.link.CASRef authentication = 18;
+    
+    // Link to an additional object that describes pattern matching fields
+    optional net.ooici.core.link.CASRef search_pattern = 19;
 
 }
 
@@ -99,6 +145,9 @@ message DataSourceMessage {
 
     // Link to the authentication object - for now we only have TDS authentication
     optional net.ooici.core.link.CASRef authentication = 18;
+    
+    // Link to an additional object that describes pattern matching fields
+    optional net.ooici.core.link.CASRef search_pattern = 19;
 }
 
 message DataSourceResource {
@@ -133,5 +182,7 @@ message DataSourceResource {
     // when datasource was registered
     optional uint64 registration_datetime_millis = 19;
 
+    // Link to an additional object that describes pattern matching fields
+    optional net.ooici.core.link.CASRef search_pattern = 20;
 }
 

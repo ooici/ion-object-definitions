@@ -22,6 +22,7 @@ message ArrayStructure{
 message Bounds {
     optional sint64 origin = 1;
     optional uint64 size = 2;
+    optional uint64 stride = 3;     // only used for Datastore's op_extract_data
 }
 
 message BoundedArray {
