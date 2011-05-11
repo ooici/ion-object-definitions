@@ -184,5 +184,8 @@ message DataSourceResource {
 
     // Link to an additional object that describes pattern matching fields
     optional net.ooici.core.link.CASRef search_pattern = 20;
+
+    //whether the user has made this public
+    optional bool is_public = 21;
 }
 

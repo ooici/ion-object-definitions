@@ -30,6 +30,13 @@ message DataResourceCreateRequest {
     optional uint64 update_start_datetime_millis = 18;
     optional bool   is_public = 19;
 
+    // Link to the authentication object - for now we only have TDS authentication
+    optional net.ooici.core.link.CASRef authentication = 20;
+
+    // Link to an additional object that describes pattern matching fields
+    optional net.ooici.core.link.CASRef search_pattern = 21;
+
+
 }
 
 message DataResourceCreateResponse {
