@@ -21,6 +21,8 @@ message PerformIngestMessage {
     optional string dataset_id = 1;
     optional string reply_to = 2;
     optional double ingest_service_timeout = 3;
+    optional string datasource_id = 4;
+
 }
 
 message CreateDatasetTopicsMessage {
