@@ -44,3 +44,14 @@ message InstrumentSampleData {
     optional string time = 6;
     optional string date = 7;
 }
+
+
+message SBE37Event {
+    enum _MessageTypeIdentifier {
+      _ID = 4304;
+      _VERSION = 1;
+    }
+    optional string type = 1;
+    optional string transducer = 2;
+    optional string state = 3;
+}
