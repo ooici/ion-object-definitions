@@ -1,5 +1,6 @@
 package net.ooici.integration.ais;
 
+
 import "net/ooici/core/link/link.proto";
 
 message Instrument {
