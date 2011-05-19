@@ -56,3 +56,13 @@ message SBE37Event {
     optional string transducer = 2;
     optional string state = 3;
 }
+
+
+message InstrumentConfiguration {
+    enum _MessageTypeIdentifier {
+      _ID = 4305;
+      _VERSION = 1;
+    }
+    optional string parameters = 1;  // JSON dictionary 
+    optional int32 timeout = 2;
+}
