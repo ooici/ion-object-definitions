@@ -155,10 +155,10 @@ message InstrumentProperties {
       _VERSION = 1;
    }
    
-   optional string navg = 1;
-   optional string interval = 2;
-   optional string outputsv = 3;
-   optional string outputsal = 4;
-   optional string txrealtime = 5;
-   optional string storetime = 6;
+   optional int navg = 1;
+   optional int interval = 2;
+   optional boolean outputsv = 3;
+   optional boolean outputsal = 4;
+   optional boolean txrealtime = 5;
+   optional boolean storetime = 6;
 }
