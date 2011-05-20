@@ -58,7 +58,7 @@ message DataResourceDeleteRequest {
         _VERSION = 1;
     }
 
-    repeated string data_source_resource_id  = 1;
+    repeated string data_set_resource_id  = 1;
 }
 
 message DataResourceDeleteResponse {
@@ -78,7 +78,7 @@ message DataResourceUpdateRequest {
     }
 
     optional string user_id                      = 1;
-    optional string data_source_resource_id      = 2;
+    optional string data_set_resource_id         = 2;
     optional uint64 update_interval_seconds      = 3;
     optional string ion_title                    = 4;
     optional string ion_description              = 5;
