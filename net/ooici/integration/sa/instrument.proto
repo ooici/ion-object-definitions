@@ -130,7 +130,7 @@ message GetInstrumentListResponse {
       _VERSION = 1;
    }
    
-   repeated InstrumentMetadata instrumentM_metadata = 1;
+   repeated InstrumentMetadata instrument_metadata = 1;
 }
 
 message InstrumentMetadata {
