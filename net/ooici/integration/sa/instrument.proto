@@ -105,7 +105,7 @@ message SetInstrumentStateRequest {
    }
    
    optional string instrument_resource_id = 1;
-   optional string parameters = 2;
+   optional InstrumentProperties properties = 2;
 }
 
 message SetInstrumentStateResponse {
@@ -130,5 +130,35 @@ message GetInstrumentListResponse {
       _VERSION = 1;
    }
    
-   optional string result = 1;
+   repeated InstrumentMetadata instrumentM_metadata = 1;
+}
+
+message InstrumentMetadata {
+   enum _MessageTypeIdentifier {
+      _ID = 9315;
+      _VERSION = 1;
+   }
+   
+   optional string instrument_resource_id = 1;
+   optional string name = 2;
+   optional string description = 3;
+   optional string manufacturer = 4;
+   optional string model = 5;
+   optional string serial_num = 6;
+   optional string fw_version = 7;
+}
+
+
+message InstrumentProperties {
+   enum _MessageTypeIdentifier {
+      _ID = 9316;
+      _VERSION = 1;
+   }
+   
+   optional string navg = 1;
+   optional string interval = 2;
+   optional string outputsv = 3;
+   optional string outputsal = 4;
+   optional string txrealtime = 5;
+   optional string storetime = 6;
 }
