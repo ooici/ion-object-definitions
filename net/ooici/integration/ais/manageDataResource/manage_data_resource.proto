@@ -37,7 +37,20 @@ message DataResourceCreateRequest {
     // Link to an additional object that describes pattern matching fields
     optional net.ooici.core.link.CASRef search_pattern = 21;
 
-
+    // On initial ingestion - indicates how far back in time to go; this value is subtracted from the "now" time within the JAW
+    optional sint64 initial_starttime_offset_millis = 22;
+    
+    // How far back to go on every ingest - default zero
+    optional sint64 starttime_offset_millis = 23;
+    
+    // How far forward to go - positive is after now - on every ingest - default is zero
+    optional sint64 endtime_offset_millis = 24;
+    
+    // FMRC Dataset Aggregation Rule - None by default
+    optional net.ooici.services.sa.AggregationRule aggregation_rule = 25;
+    
+    // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
+    repeated net.ooici.services.sa.SubRange sub_ranges = 26;
 }
 
 message DataResourceCreateResponse {

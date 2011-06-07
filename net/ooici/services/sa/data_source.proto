@@ -4,20 +4,26 @@ import "net/ooici/core/link/link.proto";
 
 
 enum SourceType {
-        SOS = 1;
-        USGS = 2;
-        AOML = 3;
-        NETCDF_S = 4;
-        NETCDF_C = 5;
-    }
+    SOS = 1;
+    USGS = 2;
+    AOML = 3;
+    NETCDF_S = 4;
+    NETCDF_C = 5;
+}
     
 enum RequestType {
-        NONE = 1;
-        XBT  = 2;
-        CTD  = 3;
-        DAP  = 4;
-        FTP  = 5;
-    }   
+    NONE = 1;
+    XBT  = 2;
+    CTD  = 3;
+    DAP  = 4;
+    FTP  = 5;
+}   
+
+enum AggregationRule {
+    OVERLAP = 1; // Over lap any index range in supplements - assume values are unchanged!
+    OVERWRITE = 2; // Values which overlap in index space may have changed between supplements and must be over written!
+    FMRC = 3; // The supplement should be appended to the run_dimension as part of an FMRC dataset
+}
 
 message ThreddsAuthentication{
     enum _MessageTypeIdentifier {
@@ -113,7 +119,9 @@ message EoiDataContextMessage {
     
     // Link to an additional object that describes pattern matching fields
     optional net.ooici.core.link.CASRef search_pattern = 19;
-
+    
+    // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
+    repeated SubRange sub_ranges = 20;
 }
 
 
@@ -148,6 +156,24 @@ message DataSourceMessage {
     
     // Link to an additional object that describes pattern matching fields
     optional net.ooici.core.link.CASRef search_pattern = 19;
+
+    //whether the user has made this public
+    optional bool is_public = 20;
+   
+    // On initial ingestion - indicates how far back in time to go; this value is subtracted from the "now" time within the JAW
+    optional sint64 initial_starttime_offset_millis = 21;
+    
+    // How far back to go on every ingest - default zero
+    optional sint64 starttime_offset_millis = 22;
+    
+    // How far forward to go - positive is after now - on every ingest - default is zero
+    optional sint64 endtime_offset_millis = 23;
+    
+    // FMRC Dataset Aggregation Rule - None by default
+    optional AggregationRule aggregation_rule = 24;
+    
+    // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
+    repeated SubRange sub_ranges = 25;
 }
 
 message DataSourceResource {
@@ -174,6 +200,7 @@ message DataSourceResource {
     optional uint64 update_interval_seconds = 16;
     
     // milliseconds from unix epoch (01-01-1970 00:00:00)
+    //Used by scheduler to determine when updates start
     optional sint64 update_start_datetime_millis = 17;
 
     // Link to the authentication object - for now we only have TDS authentication
@@ -187,5 +214,36 @@ message DataSourceResource {
 
     //whether the user has made this public
     optional bool is_public = 21;
+   
+    // On initial ingestion - indicates how far back in time to go; this value is subtracted from the "now" time within the JAW
+    optional sint64 initial_starttime_offset_millis = 22;
+    
+    // How far back to go on every ingest - default zero
+    optional sint64 starttime_offset_millis = 23;
+    
+    // How far forward to go - positive is after now - on every ingest - default is zero
+    optional sint64 endtime_offset_millis = 24;
+    
+    // FMRC Dataset Aggregation Rule - None by default
+    optional AggregationRule aggregation_rule = 25;
+    
+    // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
+    repeated SubRange sub_ranges = 26;
+}
+
+message SubRange{
+    enum _MessageTypeIdentifier {
+        _ID = 4506;
+        _VERSION = 1;
+    }
+    
+    // The name of the dimension to subset
+    optional string dim_name =1;
+    
+    // The start index (BASE ZERO) for the subset
+    optional uint32 start_index = 2;
+    
+    // The end index (BASE ZERO) for the subset
+    optional uint32 end_index = 3;
 }
 
