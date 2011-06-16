@@ -51,6 +51,8 @@ message DataResourceCreateRequest {
     
     // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
     repeated net.ooici.services.sa.SubRange sub_ranges = 26;
+
+    optional string visualization_url = 27;
 }
 
 message DataResourceCreateResponse {
@@ -98,6 +100,7 @@ message DataResourceUpdateRequest {
     optional uint64 max_ingest_millis            = 6;
     optional bool   is_public                    = 7;
     optional uint64 update_start_datetime_millis = 8;
+    optional string visualization_url = 9;
 }
 
 message DataResourceUpdateResponse {
