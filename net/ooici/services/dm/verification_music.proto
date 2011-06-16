@@ -1,0 +1,11 @@
+package net.ooici.services.dm;
+
+
+message BlobMessage{
+    enum _MessageTypeIdentifier {
+        _ID = 2540;
+        _VERSION = 1;
+    }
+	
+    optional bytes blob = 1;
+}
