@@ -8,7 +8,7 @@ message SupplementMessage{
         _VERSION = 1;
     }
 
-    optional string dataset_id = 1;
+    optional string dataset_id = 1;     // DEPRECATED: do not use this field!  OOIION-191
     optional string variable_name = 2;
     optional net.ooici.core.link.CASRef bounded_array = 3;
 }
