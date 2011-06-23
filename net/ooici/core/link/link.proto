@@ -22,9 +22,21 @@ message IDRef {
 	optional string branch = 3;
 	optional bytes commit = 4;
 
+    // DEPRECATED: carrot_parent and tilde_spec were incorrectly broken out
     optional uint32 carrot_parent = 5;  // git semantics: <sha>^2 gets you the 2nd parent of the sha, as in a merge commit.
                                         // see http://book.git-scm.com/4_git_treeishes.html
+    // DEPRECATED: carrot_parent and tilde_spec were incorrectly broken out
     optional uint32 tilde_spec = 6;     // git semantics: <sha>~2 gets you the parent of the parent of the sha specified.
                                         // similar to specifing <sha>^^.  Also see the above link.  Do not specify this and
                                         // carrot parent at the same time.
+    // END DEPRECATED
+
+    optional string treeish = 7;        // git semantics: the ability to refer to a commit using other methods than just the SHA1.
+                                        // see http://book.git-scm.com/4_git_treeishes.html
+                                        // Planned support: carrot parent, tilde spec.
+                                        //
+                                        // The value of this parameter is intended to be a sequence of characters after a SHA1.
+                                        // Examples: ^^^^^      // 5 parents above the sha1
+                                        //           ~3^~2      // 3 parents above, then one parent above, then another 2 parents above
+                                        //           ^2~1       // 2nd parent of the sha1 (of a merge commit), then 1 parent above that
 }
