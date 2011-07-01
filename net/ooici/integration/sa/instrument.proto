@@ -161,4 +161,14 @@ message InstrumentProperties {
    optional bool outputsal = 4;
    optional bool txrealtime = 5;
    optional bool storetime = 6;
+   optional string gpgga = 7;
+   optional string gpgll = 8;
+   optional string gprmc = 9;
+   optional string pgrmf = 10;
+   optional string pgrmc = 11;
+   optional string fix_mode = 12;
+   optional float alt_msl = 13;
+   optional int32 earth_datum = 14;
+   optional string diffmode = 15;
 }
+
