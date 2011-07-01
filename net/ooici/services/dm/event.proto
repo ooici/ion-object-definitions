@@ -184,3 +184,15 @@ message DataSourceChangeEventMessage {
 	optional string datasource_id = 1;
 }
 
+message IngestionProcessingEventMessage {
+	enum _MessageTypeIdentifier {
+		_ID = 2343;
+		_VERSION = 1;
+	}
+
+    optional string dataset_id = 1;             // which dataset is being processed
+    optional string ingestion_process_id = 2;   // indicates which ingestion process is handling this
+    optional string conv_id = 3;                // the conversation id as known by ingestion
+    optional string processing_step = 4;        // string of "dataset", "chunk", or "done"
+}
+
