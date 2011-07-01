@@ -11,4 +11,5 @@ message Dimension {
 	optional string source_name = 2;
 	optional uint64 length = 3;
 	optional bool variable_length = 4;
+	optional uint64 min_offset = 5;
 }
