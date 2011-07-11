@@ -62,6 +62,7 @@ message AisDatasourceMetadataType {
    optional string ion_email = 19;
    optional string ion_institution = 20;
    optional string visualization_url = 21;
+   optional bool is_public = 22;
 
 }
 

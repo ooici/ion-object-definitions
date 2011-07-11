@@ -1,4 +1,8 @@
 package net.ooici.integration.ais.common.aisDataVariable;
+
+import "net/ooici/integration/ais/common/ais_name_value_pair.proto";
+import "net/ooici/integration/ais/common/ais_data_dimension.proto";
+
  
 message AisDataVariableType {
    enum _MessageTypeIdentifier {
@@ -9,6 +13,8 @@ message AisDataVariableType {
    optional string units         = 1; 
    optional string standard_name = 2; 
    optional string long_name     = 3;
-   repeated string other_attributes = 4;
+   optional string name = 4;
+   repeated net.ooici.integration.ais.common.aisNameValuePairType.NameValuePairType other_attributes = 5;
+   repeated net.ooici.integration.ais.common.aisDataDimension.AisDataDimensionType dimensions = 6;
   
 }
