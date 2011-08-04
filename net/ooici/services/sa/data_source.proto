@@ -122,6 +122,12 @@ message EoiDataContextMessage {
     
     // List of SubRange items which indicate how to subset the dataset during acquisition/ingestion
     repeated SubRange sub_ranges = 20;
+
+    // Is this an initial grab of a data or an update to an existing one?
+    optional bool is_initial = 21;
+
+    optional string dataset_id = 22;
+    optional string datasource_id = 23;
 }
 
 
