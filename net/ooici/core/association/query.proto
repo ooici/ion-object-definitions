@@ -86,5 +86,19 @@ message AssociationQueryMsg{
     optional net.ooici.core.link.CASRef object = 3;
 }
 
+message AssociationGetStarMsg{
+    // gets the intersection of multiple queries, one subject one object.
+    // can be used to ask questions like:
+    //
+    // Datasource HAS_A * &&
+    // * TYPE_OF Dataset
 
+    enum _MessageTypeIdentifier {
+      _ID = 28;
+      _VERSION = 1;
+    }
+
+    repeated SubjectPredicatePair subject_pairs = 1;
+    repeated PredicateObjectPair object_pairs = 2;
+}
 
