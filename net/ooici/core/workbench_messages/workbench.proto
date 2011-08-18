@@ -2,6 +2,7 @@ package net.ooici.core.workbench_messages;
 
 import "net/ooici/core/link/link.proto";
 import "net/ooici/core/type/type.proto";
+import "net/ooici/services/coi/resource_framework.proto";
 
 
 //=============================================
@@ -171,3 +172,27 @@ message BlobsMessage{
     }
     repeated net.ooici.core.link.CASRef blob_elements = 1;
 }
+
+//=============================================
+message GetLCSRequestMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 58;
+      _VERSION = 1;
+    }
+	repeated string keys = 1;
+}
+
+message GetLCSResponseMessage{
+     enum _MessageTypeIdentifier {
+      _ID = 59;
+      _VERSION = 1;
+    }
+
+    message KeyLCSPair {
+        optional string key = 1;
+        optional net.ooici.services.coi.LifeCycleState lcs = 2;
+    }
+
+    repeated KeyLCSPair key_lcs_pairs = 1;
+}
+
