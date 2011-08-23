@@ -128,6 +128,9 @@ message EoiDataContextMessage {
 
     optional string dataset_id = 22;
     optional string datasource_id = 23;
+    
+    // For multi-file/timestep sources: Indicates the number of files required to make a complete timestep
+    optional uint32 timestep_file_count = 24;
 }
 
 
@@ -182,6 +185,9 @@ message DataSourceMessage {
     repeated SubRange sub_ranges = 25;
 
     optional string visualization_url = 26;
+    
+    // For multi-file/timestep sources: Indicates the number of files required to make a complete timestep
+    optional uint32 timestep_file_count = 27;
 }
 
 message DataSourceResource {
@@ -239,6 +245,9 @@ message DataSourceResource {
     repeated SubRange sub_ranges = 26;
 
     optional string visualization_url = 27;
+
+    // For multi-file/timestep sources: Indicates the number of files required to make a complete timestep
+    optional uint32 timestep_file_count = 28;
 }
 
 message SubRange{
