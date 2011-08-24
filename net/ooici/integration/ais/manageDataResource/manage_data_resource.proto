@@ -53,6 +53,9 @@ message DataResourceCreateRequest {
     repeated net.ooici.services.sa.SubRange sub_ranges = 26;
 
     optional string visualization_url = 27;
+
+    // For multi-file/timestep sources: Indicates the number of files required to make a complete timestep
+    optional uint32 timestep_file_count = 28;
 }
 
 message DataResourceCreateResponse {
